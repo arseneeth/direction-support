@@ -76,11 +76,76 @@
     }
   }
 
+  var CALENDLY_URL = 'https://calendly.com/wowitskrisw/call';
+  var PAYMENT_URL = 'https://revolut.me/wowitskris';
+
+  var calendlyOpen = false;
+
+  function initCalendly() {
+    document.querySelectorAll('.js-calendly').forEach(function (el) {
+      el.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (window.Calendly) {
+          calendlyOpen = true;
+          Calendly.initPopupWidget({ url: CALENDLY_URL });
+          injectPayLink();
+          watchPopupClose();
+        } else {
+          window.open(CALENDLY_URL, '_blank');
+        }
+      });
+    });
+  }
+
+  function openPayment() {
+    if (!calendlyOpen) return;
+    calendlyOpen = false;
+    var payLink = document.querySelector('.calendly-pay-link');
+    if (payLink) payLink.remove();
+    window.open(PAYMENT_URL, '_blank');
+  }
+
+  function injectPayLink() {
+    if (document.querySelector('.calendly-pay-link')) return;
+
+    var lang = getLang();
+    var link = document.createElement('a');
+    link.href = '#';
+    link.className = 'calendly-pay-link';
+    link.textContent = lang === 'ru' ? 'Закрыть и оплатить' : 'Close and Pay';
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      try { Calendly.closePopupWidget(); } catch (_) {}
+      openPayment();
+    });
+
+    document.body.appendChild(link);
+  }
+
+  function watchPopupClose() {
+    var observer = new MutationObserver(function (mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var removed = mutations[i].removedNodes;
+        for (var j = 0; j < removed.length; j++) {
+          var node = removed[j];
+          if (node.nodeType === 1 && node.classList &&
+              node.classList.contains('calendly-overlay')) {
+            observer.disconnect();
+            openPayment();
+            return;
+          }
+        }
+      }
+    });
+    observer.observe(document.body, { childList: true });
+  }
+
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   if (!window.location.hash) window.scrollTo(0, 0);
   document.addEventListener('DOMContentLoaded', function () {
     if (!window.location.hash) window.scrollTo(0, 0);
     initI18n();
+    initCalendly();
     updateHeaderScroll();
     window.addEventListener('scroll', updateHeaderScroll, { passive: true });
   });

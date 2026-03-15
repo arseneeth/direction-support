@@ -369,9 +369,7 @@ a:hover {
   line-height: 1.65;
 }
 .section-intro--center {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
+  text-align: left;
 }
 
 /* Pill labels (Rylo-style section indicators) */
@@ -393,7 +391,7 @@ a:hover {
 }
 .section-contact .pill--light {
   background: var(--tech-violet);
-  color: var(--pure-white);
+  color: var(--primary-dark);
 }
 
 .section-head {
@@ -426,7 +424,7 @@ a:hover {
   font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: var(--accent-soft);
+  color: var(--primary-dark);
   margin: 0 0 var(--space-sm);
 }
 
@@ -473,6 +471,11 @@ a:hover {
   box-shadow: 0 2px 16px rgba(51, 51, 51, 0.06);
   border: 1px solid rgba(51, 51, 51, 0.08);
   position: relative;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.journey-step:hover {
+  background: var(--pale-green);
+  border-color: var(--pale-green);
 }
 .journey-num {
   display: inline-flex;
@@ -536,6 +539,12 @@ a:hover {
   border-radius: 999px;
   border: 1px solid rgba(154, 126, 166, 0.25);
   box-shadow: 0 1px 4px rgba(51, 51, 51, 0.06);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  cursor: default;
+}
+.tag:hover {
+  background: var(--pale-green);
+  border-color: var(--pale-green);
 }
 
 /* Pricing */
@@ -556,6 +565,11 @@ a:hover {
   border-radius: 16px;
   box-shadow: 0 2px 16px rgba(51, 51, 51, 0.06);
   border: 1px solid rgba(51, 51, 51, 0.12);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.pricing-card:hover {
+  background: var(--pale-green);
+  border-color: var(--pale-green);
 }
 
 .pricing-card h3 {
@@ -614,6 +628,11 @@ a:hover {
   border-radius: 16px;
   border-left: 4px solid var(--accent);
   box-shadow: 0 2px 16px rgba(51, 51, 51, 0.06);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+.testimonial:hover {
+  background: var(--pale-green);
+  border-left-color: var(--pale-green);
 }
 
 .testimonial p {
@@ -656,8 +675,9 @@ a:hover {
 
 .contact-links {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-md);
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-sm);
   margin-bottom: var(--space-lg);
 }
 
@@ -727,4 +747,48 @@ a:hover {
   font-size: 0.8125rem;
   color: var(--cream);
   opacity: 0.85;
+}
+
+/* Section CTA */
+.section-cta {
+  display: inline-block;
+  margin-top: var(--space-xl);
+  padding: var(--space-sm) var(--space-lg);
+  font-family: var(--font);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--primary-dark);
+  background: var(--pale-green);
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+.section-cta:hover {
+  background: #c5eb7a;
+  color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+.section-contact .section-cta {
+  display: none;
+}
+
+/* Calendly pay link */
+.calendly-pay-link {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100001;
+  color: #fff;
+  font-family: var(--font);
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
+  white-space: nowrap;
+}
+.calendly-pay-link:hover {
+  color: var(--pale-green);
 }

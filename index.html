@@ -9,6 +9,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
   <header class="site-header site-header--dark">
@@ -16,7 +18,7 @@
       <a href="#" class="logo" id="top"><span class="logo-word logo-word--bold">Direction</span> <span class="logo-word">Support</span></a>
       <div class="header-actions">
         <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
-        <a href="#contact" class="btn btn-primary btn-header" data-i18n="headerBook">Book a Session</a>
+        <a href="#contact" class="btn btn-primary btn-header js-calendly" data-i18n="headerBook">Book a Session</a>
       </div>
     </div>
   </header>
@@ -31,7 +33,7 @@
           <h1 class="hero-title"><span class="hero-title-bold" data-i18n="heroTitleWord1">Direction</span> <span class="hero-title-regular" data-i18n="heroTitleWord2">Support</span><br><span class="hero-title-line"><span class="hero-title-light" data-i18n="heroTitleLightPrefix">with </span><span class="hero-title-light hero-title-light--bold" data-i18n="heroTitleLightName">Kris Wang</span></span></h1>
           <p class="hero-lead" data-i18n="heroLead"></p>
         </div>
-        <a href="#contact" class="btn btn-primary btn-hero" data-i18n="heroBtn">Book a Free Call</a>
+        <a href="#contact" class="btn btn-primary btn-hero js-calendly" data-i18n="heroBtn">Book a Session</a>
       </div>
     </section>
 
@@ -52,6 +54,7 @@
             <ul class="about-list" data-i18n-list="aboutPerList"></ul>
           </div>
         </div>
+        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
       </div>
     </section>
 
@@ -77,6 +80,7 @@
             <p data-i18n="journey3Text">Goals, values, and relationships moving together — without burning out.</p>
           </li>
         </ol>
+        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
       </div>
     </section>
 
@@ -86,6 +90,7 @@
         <h2 class="section-title" data-i18n="topicsTitle">What I work with</h2>
         <p class="topics-intro" data-i18n="topicsIntro">Stress, burnout, procrastination, self-worth, goals, relationships, boundaries, guilt & shame — and more.</p>
         <div class="topic-tags" data-i18n-list="topicsTags"></div>
+        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
       </div>
     </section>
 
@@ -106,7 +111,7 @@
           </div>
         </div>
         <p class="pricing-note" data-i18n="pricingNote">Card, Apple Pay, PayPal, bank, or crypto.</p>
-        <a href="https://revolut.me/wowitskris" class="btn btn-secondary" target="_blank" rel="noopener" data-i18n="pricingBtn">Pay / Book</a>
+        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
       </div>
     </section>
 
@@ -132,6 +137,7 @@
             <cite>— O.</cite>
           </blockquote>
         </div>
+        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
       </div>
     </section>
 
@@ -141,10 +147,9 @@
         <h2 class="section-title" data-i18n="contactTitle">Book a free call</h2>
         <p class="contact-lead" data-i18n="contactLead">DM or email to book; pay by card or Apple Pay.</p>
         <div class="contact-links">
-          <a href="https://www.instagram.com/wow_its_kris" class="contact-link" target="_blank" rel="noopener">Instagram</a>
           <a href="mailto:kris.wang@myself.com" class="contact-link">kris.wang@myself.com</a>
+          <a href="https://www.instagram.com/wow_its_kris" class="contact-link" target="_blank" rel="noopener">Instagram</a>
         </div>
-        <a href="https://revolut.me/wowitskris" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="contactBtn">Pay / Book</a>
       </div>
     </section>
   </main>
