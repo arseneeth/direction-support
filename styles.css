@@ -192,7 +192,7 @@ a:hover {
 .hero {
   display: grid;
   grid-template-columns: 0.9fr 1.1fr;
-  min-height: 85vh;
+  max-height: 75vh;
   background: var(--bg);
 }
 
