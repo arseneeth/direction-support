@@ -356,6 +356,13 @@ a:hover {
     max-width: 70%;
     bottom: 1rem;
     right: 1rem;
+    padding: 0.5rem 0.75rem;
+  }
+  .hero-subtitle {
+    font-size: 0.75rem;
+  }
+  .hero-subtitle--meta {
+    font-size: 0.6875rem;
   }
   .hero-content {
     padding: var(--space-2xl) var(--space-md);
