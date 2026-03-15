@@ -47,7 +47,7 @@
 
   function updateLangToggle(lang) {
     var btn = document.getElementById('lang-toggle');
-    if (btn) btn.textContent = lang === 'en' ? 'EN' : 'RU';
+    if (btn) btn.textContent = lang === 'en' ? 'RU' : 'EN';
   }
 
   function initI18n() {
