@@ -140,12 +140,25 @@
     observer.observe(document.body, { childList: true });
   }
 
+  function initLeadMagnet() {
+    var form = document.getElementById('lead-magnet-form');
+    var thanks = document.getElementById('lead-magnet-thanks');
+    if (form && thanks) {
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        form.style.display = 'none';
+        thanks.classList.add('is-visible');
+      });
+    }
+  }
+
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
   if (!window.location.hash) window.scrollTo(0, 0);
   document.addEventListener('DOMContentLoaded', function () {
     if (!window.location.hash) window.scrollTo(0, 0);
     initI18n();
     initCalendly();
+    initLeadMagnet();
     updateHeaderScroll();
     window.addEventListener('scroll', updateHeaderScroll, { passive: true });
   });
