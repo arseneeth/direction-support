@@ -359,10 +359,10 @@ a:hover {
     padding: 0.5rem 0.75rem;
   }
   .hero-subtitle {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
   .hero-subtitle--meta {
-    font-size: 0.6875rem;
+    font-size: 0.6rem;
   }
   .hero-content {
     padding: var(--space-2xl) var(--space-md);
