@@ -191,8 +191,8 @@ a:hover {
 /* Hero — split: left photo, right bright panel */
 .hero {
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  max-height: 75vh;
+  grid-template-columns: 0.8fr 1.2fr;
+  height: calc(100vh - var(--header-h));
   background: var(--bg);
 }
 
@@ -204,6 +204,7 @@ a:hover {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 56%;
   display: block;
 }
 
