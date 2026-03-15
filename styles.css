@@ -782,21 +782,21 @@ a:hover {
   color: var(--primary-dark);
 }
 
-/* Contact — dark */
+/* Contact — tech violet */
 .section-contact {
-  background: var(--dark);
-  color: var(--white);
+  background: var(--tech-violet);
+  color: var(--primary-dark);
 }
 
 .section-contact .section-title {
-  color: var(--cream);
+  color: var(--primary-dark);
   margin-bottom: var(--space-sm);
 }
 
 .contact-lead {
   max-width: 36rem;
   margin: 0 0 var(--space-md);
-  opacity: 0.95;
+  color: var(--text-muted);
 }
 
 .contact-links {
@@ -808,23 +808,23 @@ a:hover {
 }
 
 .contact-link {
-  color: var(--white);
+  color: var(--primary-dark);
   font-weight: 500;
   padding: var(--space-xs) 0;
   border-bottom: 2px solid var(--accent-warm);
 }
 .contact-link:hover {
-  color: var(--accent-warm);
+  color: var(--accent);
 }
 
 .section-contact .btn-primary {
-  background: var(--cream);
-  color: var(--text);
+  background: var(--primary-dark);
+  color: var(--pure-white);
   margin-bottom: var(--space-lg);
 }
 .section-contact .btn-primary:hover {
-  background: var(--white);
-  color: var(--text);
+  background: var(--brown);
+  color: var(--pure-white);
 }
 
 
