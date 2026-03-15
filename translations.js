@@ -9,10 +9,10 @@ window.DIRECTION_SUPPORT_I18N = {
     heroBtn: "Book a Session",
     aboutPill: "About me",
     aboutTitle: "Where support meets your reality",
-    aboutIntro: "Qualified practical psychologist, regular supervision from the start of my practice, personal therapy for over 5 years. 900+ hours of sessions, 50+ group sessions. From summer 2026 I begin training as a Coaching Supervisor.",
+    aboutIntro: "Qualified practical psychologist, regular supervision from the start of my practice, personal therapy for over 5 years. 1000+ hours of sessions, 50+ group sessions. From summer 2026 I begin training as a Coaching Supervisor.",
     aboutProTitle: "Professionally",
     aboutProList: [
-      "900+ hours of counseling (individual and groups)",
+      "1000+ hours of counseling (individual and groups)",
       "Regular supervision, personal therapy 5+ years",
       "Professional development group for psychologists",
       "Coaching Supervisor training from 2026"
@@ -70,10 +70,10 @@ window.DIRECTION_SUPPORT_I18N = {
     heroBtn: "Записаться",
     aboutPill: "Обо мне",
     aboutTitle: "Где поддержка встречается с вашей реальностью",
-    aboutIntro: "Дипломированный практический психолог, регулярная супервизия с начала практики, личная терапия более 5 лет. 900+ часов консультаций, 50+ групповых сессий. Летом 2026 начинаю обучение на Супервизора в коучинге.",
+    aboutIntro: "Дипломированный практический психолог, регулярная супервизия с начала практики, личная терапия более 5 лет. 1000+ часов консультаций, 50+ групповых сессий. Летом 2026 начинаю обучение на Супервизора в коучинге.",
     aboutProTitle: "Профессионально",
     aboutProList: [
-      "900+ часов консультаций (индивидуально и в группах)",
+      "1000+ часов консультаций (индивидуально и в группах)",
       "Регулярная супервизия, личная терапия 5+ лет",
       "Группа профессионального развития для психологов",
       "Обучение на Супервизора в коучинге с 2026"
