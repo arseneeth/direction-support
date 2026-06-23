@@ -1,9 +1,9 @@
 /* direction.support — Kris Wang | Psychologist & Coach
-   Palette: Pale Green #DAF9A5 | Tech Violet #C9CFF9 | Primary Dark #333333 | Pure White #F9F9F9 */
+   Palette: Soft Pink #fad1f2 | Tech Violet #C9CFF9 | Primary Dark #333333 | Pure White #F9F9F9 */
 
 :root {
   /* Palette */
-  --pale-green: #DAF9A5;
+  --pale-green: #fad1f2;
   --tech-violet: #C9CFF9;
   --primary-dark: #333333;
   --pure-white: #F9F9F9;
@@ -125,7 +125,7 @@ a:hover {
   border-color: transparent;
 }
 .site-header--dark.site-header--scrolled .btn-header:hover {
-  background: #c5eb7a;
+  background: #f0c0e8;
   color: var(--primary-dark);
   border-color: transparent;
 }
@@ -290,7 +290,7 @@ a:hover {
   color: var(--primary-dark);
 }
 .btn-hero:hover {
-  background: #c5eb7a;
+  background: #f0c0e8;
   color: var(--primary-dark);
 }
 
@@ -325,7 +325,7 @@ a:hover {
 }
 .hero-content .btn-hero:hover,
 .hero-content .btn.btn-primary.btn-hero:hover {
-  background: #c5eb7a;
+  background: #f0c0e8;
   color: var(--primary-dark);
 }
 
@@ -778,7 +778,7 @@ a:hover {
   color: var(--primary-dark);
 }
 .contact-book-btn:hover {
-  background: #c5eb7a;
+  background: #f0c0e8;
   color: var(--primary-dark);
 }
 
@@ -897,7 +897,7 @@ a:hover {
   transition: background 0.2s ease, transform 0.15s ease;
 }
 .section-cta:hover {
-  background: #c5eb7a;
+  background: #f0c0e8;
   color: var(--primary-dark);
   transform: translateY(-1px);
 }
