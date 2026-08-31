@@ -1,169 +1,210 @@
+/* ---------------------------------------------------------------------------
+   direction.support — behaviour
+   i18n (text / lists / attributes), language toggle, mobile nav,
+   sticky-header state, scroll-spy, and reveal-on-scroll.
+--------------------------------------------------------------------------- */
 (function () {
+  'use strict';
+
   var LANG_KEY = 'direction-support-lang';
-  var DEFAULT_LANG = 'en'; // English is the default when no preference is set
+  var DEFAULT_LANG = 'en';
+  var I18N = window.DIRECTION_SUPPORT_I18N || {};
+
+  /* ------------------------------ language ------------------------------ */
 
   function getLang() {
     try {
-      var stored = localStorage.getItem(LANG_KEY);
-      if (stored === 'ru') return 'ru';
-      return DEFAULT_LANG; // default: English
+      return localStorage.getItem(LANG_KEY) === 'ru' ? 'ru' : DEFAULT_LANG;
     } catch (e) {
       return DEFAULT_LANG;
     }
   }
 
-  function setLang(lang) {
-    try {
-      localStorage.setItem(LANG_KEY, lang);
-    } catch (e) {}
+  function storeLang(lang) {
+    try { localStorage.setItem(LANG_KEY, lang); } catch (e) {}
   }
 
   function applyTranslations(lang) {
-    var t = window.DIRECTION_SUPPORT_I18N && window.DIRECTION_SUPPORT_I18N[lang];
+    var t = I18N[lang];
     if (!t) return;
 
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n');
-      if (t[key] != null) el.textContent = t[key];
+      var v = t[el.getAttribute('data-i18n')];
+      if (v != null) el.textContent = v;
     });
 
     document.querySelectorAll('[data-i18n-list]').forEach(function (el) {
-      var key = el.getAttribute('data-i18n-list');
-      var list = t[key];
+      var list = t[el.getAttribute('data-i18n-list')];
       if (!Array.isArray(list)) return;
-      var tag = el.tagName === 'UL' || el.tagName === 'OL' ? 'li' : 'span';
-      var itemClass = tag === 'span' ? 'tag' : '';
-      el.innerHTML = '';
+      var frag = document.createDocumentFragment();
       list.forEach(function (item) {
-        var child = document.createElement(tag);
-        if (itemClass) child.className = itemClass;
-        child.textContent = item;
-        el.appendChild(child);
+        var li = document.createElement('li');
+        li.textContent = item;
+        frag.appendChild(li);
+      });
+      el.replaceChildren(frag);
+    });
+
+    // data-i18n-attr="aria-label:someKey, title:otherKey"
+    document.querySelectorAll('[data-i18n-attr]').forEach(function (el) {
+      el.getAttribute('data-i18n-attr').split(',').forEach(function (pair) {
+        var bits = pair.split(':');
+        var attr = (bits[0] || '').trim();
+        var v = t[(bits[1] || '').trim()];
+        if (attr && v != null) el.setAttribute(attr, v);
       });
     });
 
-    document.documentElement.lang = lang === 'ru' ? 'ru' : 'en';
-  }
+    document.documentElement.lang = lang;
 
-  function updateLangToggle(lang) {
-    var btn = document.getElementById('lang-toggle');
-    if (btn) btn.textContent = lang === 'en' ? 'RU' : 'EN';
+    // The signature image is language-specific; fall back to the other file,
+    // then to the Caveat text, without ever leaving a broken image behind.
+    var sig = document.querySelector('.signature-img');
+    if (sig) sig.alt = t.heroSignatureAlt || sig.alt;
   }
 
   function initI18n() {
     var lang = getLang();
     applyTranslations(lang);
-    updateLangToggle(lang);
 
     var btn = document.getElementById('lang-toggle');
-    if (btn) {
-      btn.addEventListener('click', function () {
-        var next = getLang() === 'en' ? 'ru' : 'en';
-        setLang(next);
-        applyTranslations(next);
-        updateLangToggle(next);
-      });
+    if (!btn) return;
+
+    function paintToggle(l) {
+      btn.textContent = l === 'en' ? 'RU' : 'EN';
+      btn.setAttribute('aria-label', l === 'en' ? 'Переключить на русский' : 'Switch to English');
     }
+
+    paintToggle(lang);
+    btn.addEventListener('click', function () {
+      var next = getLang() === 'en' ? 'ru' : 'en';
+      storeLang(next);
+      applyTranslations(next);
+      paintToggle(next);
+    });
   }
 
-  function updateHeaderScroll() {
+  /* ------------------------------ mobile nav ---------------------------- */
+
+  function initNav() {
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('site-nav');
+    if (!toggle || !nav) return;
+
+    function close() {
+      nav.classList.remove('is-open');
+      toggle.setAttribute('aria-expanded', 'false');
+    }
+
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape') close();
+    });
+
+    window.addEventListener('resize', function () {
+      if (window.innerWidth > 1080) close();
+    });
+  }
+
+  /* --------------------------- header + scrollspy ----------------------- */
+
+  function initHeader() {
     var header = document.querySelector('.site-header');
     if (!header) return;
-    if (window.scrollY > 20) {
-      header.classList.add('site-header--scrolled');
-    } else {
-      header.classList.remove('site-header--scrolled');
+    function paint() {
+      header.classList.toggle('is-scrolled', window.scrollY > 16);
     }
+    paint();
+    window.addEventListener('scroll', paint, { passive: true });
   }
 
-  var CALENDLY_URL = 'https://calendly.com/wowitskrisw/call';
-  var PAYMENT_URL = 'https://revolut.me/wowitskris';
+  function initScrollSpy() {
+    var links = Array.prototype.slice.call(document.querySelectorAll('.site-nav a[href^="#"]'));
+    if (!links.length || !('IntersectionObserver' in window)) return;
 
-  var calendlyOpen = false;
+    var byId = {};
+    var sections = [];
+    links.forEach(function (link) {
+      var el = document.getElementById(link.getAttribute('href').slice(1));
+      if (el) { byId[el.id] = link; sections.push(el); }
+    });
 
-  function initCalendly() {
-    document.querySelectorAll('.js-calendly').forEach(function (el) {
-      el.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (window.Calendly) {
-          calendlyOpen = true;
-          Calendly.initPopupWidget({ url: CALENDLY_URL });
-          injectPayLink();
-          watchPopupClose();
-        } else {
-          window.open(CALENDLY_URL, '_blank');
-        }
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove('is-active'); });
+        var active = byId[entry.target.id];
+        if (active) active.classList.add('is-active');
       });
-    });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function (s) { observer.observe(s); });
   }
 
-  function openPayment() {
-    if (!calendlyOpen) return;
-    calendlyOpen = false;
-    var payLink = document.querySelector('.calendly-pay-link');
-    if (payLink) payLink.remove();
-    window.open(PAYMENT_URL, '_blank');
-  }
+  /* ------------------------------ reveal -------------------------------- */
 
-  function injectPayLink() {
-    if (document.querySelector('.calendly-pay-link')) return;
+  function initReveal() {
+    var targets = document.querySelectorAll('.section-head, .card, .journey-step, .review, .note-block, .cert-slot, .stat, .booking, .contact-alt, .rules');
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    var lang = getLang();
-    var link = document.createElement('a');
-    link.href = '#';
-    link.className = 'calendly-pay-link';
-    link.textContent = lang === 'ru' ? 'Закрыть и оплатить' : 'Close and Pay';
-    link.addEventListener('click', function (e) {
-      e.preventDefault();
-      try { Calendly.closePopupWidget(); } catch (_) {}
-      openPayment();
-    });
+    if (reduced || !('IntersectionObserver' in window)) return;
 
-    document.body.appendChild(link);
-  }
-
-  function watchPopupClose() {
-    var observer = new MutationObserver(function (mutations) {
-      for (var i = 0; i < mutations.length; i++) {
-        var removed = mutations[i].removedNodes;
-        for (var j = 0; j < removed.length; j++) {
-          var node = removed[j];
-          if (node.nodeType === 1 && node.classList &&
-              node.classList.contains('calendly-overlay')) {
-            observer.disconnect();
-            openPayment();
-            return;
-          }
-        }
-      }
-    });
-    observer.observe(document.body, { childList: true });
-  }
-
-  function initLeadMagnet() {
-    var form = document.getElementById('lead-magnet-form');
-    var thanks = document.getElementById('lead-magnet-thanks');
-    if (form && thanks) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        form.style.display = 'none';
-        thanks.classList.add('is-visible');
+    var observer = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        obs.unobserve(entry.target);
       });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+
+    targets.forEach(function (el, i) {
+      el.classList.add('reveal');
+      el.style.transitionDelay = (i % 4) * 70 + 'ms';
+      observer.observe(el);
+    });
+  }
+
+  /* ------------------------------- misc --------------------------------- */
+
+  function initStickyCta() {
+    var cta = document.getElementById('sticky-cta');
+    var hero = document.querySelector('.hero');
+    var contact = document.getElementById('contact');
+    if (!cta || !hero) return;
+
+    function paint() {
+      var pastHero = window.scrollY > hero.offsetHeight * 0.75;
+      var atContact = contact
+        ? contact.getBoundingClientRect().top < window.innerHeight * 0.9
+        : false;
+      cta.classList.toggle('is-visible', pastHero && !atContact);
     }
+
+    paint();
+    window.addEventListener('scroll', paint, { passive: true });
+    window.addEventListener('resize', paint);
   }
 
-  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
-  if (!window.location.hash) window.scrollTo(0, 0);
+  function initYear() {
+    var el = document.getElementById('year');
+    if (el) el.textContent = new Date().getFullYear();
+  }
+
   document.addEventListener('DOMContentLoaded', function () {
-    if (!window.location.hash) window.scrollTo(0, 0);
     initI18n();
-    initCalendly();
-    initLeadMagnet();
-    updateHeaderScroll();
-    window.addEventListener('scroll', updateHeaderScroll, { passive: true });
-  });
-  window.addEventListener('load', function () {
-    if (!window.location.hash) window.scrollTo(0, 0);
-    updateHeaderScroll();
+    initNav();
+    initHeader();
+    initScrollSpy();
+    initReveal();
+    initStickyCta();
+    initYear();
   });
 })();

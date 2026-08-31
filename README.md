@@ -1,42 +1,73 @@
 # direction.support
 
-Personal website for Kris Wang — psychologist and coach. Hosted at **direction.support**.
-
-## Stack
-
-- Static HTML, CSS, and minimal JavaScript
-- No build step; deploy the repo as-is to any static host
+Landing page for **Kristina Wang** — counselling psychologist and coach.
+Static HTML/CSS/JS, no build step. Deployed at **direction.support**.
 
 ## Run locally
 
-Open `index.html` in a browser, or use a simple server:
-
 ```bash
-# Python
-python3 -m http.server 8000
-
-# Node (npx)
-npx serve .
+python3 -m http.server 8123
 ```
 
-Then visit `http://localhost:8000`.
-
-## Deploy
-
-Upload the project root to your host and point the domain **direction.support** at it.
-
-- **Netlify / Vercel:** Connect the repo or drag-and-drop the folder; set the publish directory to `.` (root).
-- **Any static host:** Upload `index.html`, `privacy.html`, `styles.css`, and `script.js`.
+Then open <http://localhost:8123>.
 
 ## Files
 
-- `index.html` — Main single-page site (Hero, About, Approach, Topics, Pricing, Testimonials, Contact)
-- `privacy.html` — Privacy policy
-- `styles.css` — Layout and design (Inter font, sunset palette, responsive)
-- `script.js` — Mobile menu toggle
+| File | What's in it |
+| --- | --- |
+| `index.html` | The whole page. English copy lives here as the no-JS fallback. |
+| `translations.js` | **All copy, EN + RU.** This is the file to edit for text and prices. |
+| `styles.css` | Design system + layout. |
+| `script.js` | Language toggle, mobile nav, scroll-spy, reveal-on-scroll, sticky mobile CTA. |
+| `privacy.html` | Privacy policy. |
+| `assets/kris.jpg` | Hero portrait. |
+| `assets/signature.png` | **Not committed yet** — see below. |
 
-## Design
+## Editing copy
 
-- **Font:** Inter (Google Fonts)
-- **Colors:** Warm off-white/cream backgrounds, terracotta/orange accents (#E47253), dark brown/grey text (#5B433C, #3A3A3A)
-- **Tone:** Calm, clear, supportive — aligned with mental-health best practices and single-practitioner positioning
+Everything visible is keyed by `data-i18n` (text), `data-i18n-list` (bullet lists),
+or `data-i18n-attr` (attributes). Change the value in `translations.js` under both
+`en` and `ru` and the page picks it up — no HTML edits needed.
+
+The two objects must keep identical key sets. To check:
+
+```bash
+python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.index('  en: {');j=s.index('  ru: {');k=re.compile(r'^\s{4}(\w+):',re.M);a,b=k.findall(s[i:j]),k.findall(s[j:]);print('only en:',set(a)-set(b));print('only ru:',set(b)-set(a))"
+```
+
+## To do before launch
+
+1. **Signature.** Export the hand-drawn `Ван` from Procreate as a transparent PNG
+   (≈1200px wide, trimmed tight) and save it as `assets/signature.png`. Until then
+   the page falls back to the Caveat typeface automatically — nothing breaks.
+2. **Certificates.** `#credentials` has four dashed placeholder slots. Drop images
+   into `assets/` and replace each `<span class="cert-slot">` with
+   `<img src="assets/cert-1.jpg" alt="…">`. The grid styles images already.
+3. **Confirm the prices.** `pricing0/1/2` in `translations.js` currently use the
+   numbers the live direction.support renders (free intro call, 360€/month).
+   wowitskris.com says 99€/60min, and the old `index.html` defaults said
+   150–90€ sliding scale — three different sets. Pick one.
+4. **Calendly.** The inline embed points at `calendly.com/wowitskrisw/call`.
+   It does not render from `localhost` (Calendly blocks unregistered embed
+   domains), so verify it once on the real domain. The "Open it in a new tab"
+   link under the embed is the fallback either way.
+
+## Design notes
+
+- **Type:** Inter throughout; Caveat only as the signature fallback.
+- **Colour:** baby pink + baby blue as flat section blocks, lilac and light
+  orange as single-card accents. One near-black for every button — the pastels
+  are the environment, the CTA is the only high-contrast thing on the page.
+- **Hand-drawn chips** in the hero are plain CSS borders on a pseudo-element with
+  an SVG `feTurbulence`/`feDisplacementMap` filter (`#wobble` in `index.html`),
+  so the outline wobbles while the text stays crisp. Degrades to a clean pill
+  where the filter is unsupported.
+- **Geometry** (circles, squares, triangle, dashed connectors) carries the
+  "stable ground" feel without adding illustration weight.
+- Respects `prefers-reduced-motion`; has a print stylesheet.
+
+## Tagline alternatives
+
+The three hero titles are Game-of-Thrones-style epithets. Alternatives are listed
+in a comment above the hero in `index.html` — swap `heroTitle1/2/3` in
+`translations.js` to try them; the layout takes any length.

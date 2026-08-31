@@ -1,195 +1,456 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-KXKVBCNM85"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-KXKVBCNM85');
-  </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Psychological counseling and coaching for women dealing with burnout, self-worth, and career growth. Online sessions in English and Russian. Based in Germany." />
-  <title>Kris Wang — Psychologist & Coach for Women | Online Sessions | direction.support</title>
-  <meta property="og:title" content="Kris Wang — Psychologist & Coach for Women | Online Sessions | direction.support" />
-  <meta property="og:description" content="Psychological counseling and coaching for women dealing with burnout, self-worth, and career growth. Online sessions in English and Russian. Based in Germany." />
-  <meta property="og:image" content="https://direction.support/KRW09202.jpg" />
-  <meta property="og:url" content="https://direction.support" />
-  <meta property="og:type" content="website" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
-  <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light" />
+<title>Kristina Wang — Psychologist &amp; Coach | Online sessions in English &amp; Russian</title>
+<meta name="description" content="Counselling psychologist and coach. Confidence, boundaries, burnout, emigration and career growth. Free 15-minute intro call. Online worldwide in English and Russian." />
+<meta property="og:title" content="Kristina Wang — Psychologist &amp; Coach" />
+<meta property="og:description" content="Counselling psychologist and coach. Confidence, boundaries, burnout, emigration and career growth. Free 15-minute intro call. Online in English and Russian." />
+<meta property="og:image" content="https://direction.support/assets/kris.jpg" />
+<meta property="og:url" content="https://direction.support" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://direction.support/" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='15' fill='%23FADCE9' stroke='%23E88CB4' stroke-width='2'/%3E%3C/svg%3E" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,400..700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KXKVBCNM85"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KXKVBCNM85');
+</script>
 </head>
 <body>
-  <header class="site-header site-header--dark">
-    <div class="header-inner">
-      <a href="#" class="logo" id="top"><span class="logo-word logo-word--bold">Direction</span> <span class="logo-word">Support</span></a>
-      <div class="header-actions">
-        <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">EN</button>
-        <a href="#contact" class="btn btn-primary btn-header js-calendly" data-i18n="headerBook">Book a Session</a>
+
+<!-- Shared SVG: hand-drawn wobble filter (applied to pseudo-element borders only,
+     so the text inside stays perfectly crisp) and the blue arrow glyph. -->
+<svg class="svg-defs" aria-hidden="true" focusable="false">
+  <defs>
+    <filter id="wobble" x="-6%" y="-30%" width="112%" height="160%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.018 0.05" numOctaves="3" seed="7" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+    <filter id="wobble-soft" x="-6%" y="-30%" width="112%" height="160%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="2" seed="19" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
+  </defs>
+</svg>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="top">
+  <div class="shell header-inner">
+    <a href="#top" class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <span class="brand-text"><b>Kristina</b> Wang</span>
+    </a>
+
+    <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="#about" data-i18n="navAbout">About</a>
+      <a href="#work" data-i18n="navWork">How I work</a>
+      <a href="#topics" data-i18n="navTopics">Topics</a>
+      <a href="#pricing" data-i18n="navPricing">Pricing</a>
+      <a href="#safety" data-i18n="navSafety">Is it safe?</a>
+      <a href="#reviews" data-i18n="navReviews">Reviews</a>
+    </nav>
+
+    <div class="header-actions">
+      <button type="button" class="lang-toggle" id="lang-toggle" aria-label="Switch language">RU</button>
+      <a href="#contact" class="btn btn-primary btn-sm" data-i18n="headerBook">Book a call</a>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+        <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i></span>
+        <span class="sr-only" data-i18n="menuLabel">Menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ===================== HERO — the poster, in code =====================
+       Tagline alternatives, if you want to swap the three titles (edit
+       heroTitle1/2/3 in translations.js — the layout takes any length):
+
+       A · shipped   destroyer of mental restrictions / the confidence dealer /
+                     breaker of stereotypes
+       B · epic      breaker of inner chains / keeper of confidence /
+                     unlearner of shoulds
+       C · long GoT  first of her name, destroyer of shoulds, dealer of
+                     confidence, tamer of stereotypes, speaker of four tongues
+       D · benefit   fewer shoulds / more confidence / room to be yourself
+       E · mixed     destroyer of mental restrictions / the confidence dealer /
+                     and room to be entirely yourself
+  ==================================================================== -->
+  <section class="hero">
+    <div class="blob blob--pink" aria-hidden="true"></div>
+    <div class="blob blob--blue" aria-hidden="true"></div>
+    <div class="blob blob--lilac" aria-hidden="true"></div>
+
+    <div class="shell hero-grid">
+
+      <p class="hero-role hero-role--left" data-i18n="heroRole">counselling psychologist</p>
+      <p class="hero-role hero-role--right" data-i18n="heroRole2">coach</p>
+
+      <h1 class="hero-name">
+        <span class="hero-name-text" data-i18n="heroName">KRISTINA</span>
+        <span class="signature">
+          <img src="assets/signature.png" alt="Wang" class="signature-img" onerror="this.remove()" />
+          <span class="signature-fallback" data-i18n="heroSignatureAlt" aria-hidden="true">Wang</span>
+        </span>
+      </h1>
+
+      <div class="hero-titles">
+        <p class="hero-herald" data-i18n="heroHerald">first of her name,</p>
+        <p class="chip"><span data-i18n="heroTitle1">destroyer of mental restrictions</span></p>
+        <p class="chip"><span data-i18n="heroTitle2">the confidence dealer</span></p>
+        <p class="chip"><span data-i18n="heroTitle3">breaker of stereotypes</span></p>
+      </div>
+
+      <figure class="hero-portrait">
+        <img src="assets/kris.jpg" alt="Kristina Wang" width="1063" height="1280" fetchpriority="high" />
+      </figure>
+
+      <ul class="hero-arrows">
+        <li>
+          <span class="from" data-i18n="heroArrow1From">from shame and guilt</span>
+          <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h18M14 1.5 19.5 6 14 10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="to" data-i18n="heroArrow1To">to freedom from rules you never agreed to</span>
+        </li>
+        <li>
+          <span class="from" data-i18n="heroArrow2From">from a foggy future and decision paralysis</span>
+          <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h18M14 1.5 19.5 6 14 10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="to" data-i18n="heroArrow2To">to trusting yourself with whatever comes</span>
+        </li>
+        <li>
+          <span class="from" data-i18n="heroArrow3From">from feeling exposed</span>
+          <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h18M14 1.5 19.5 6 14 10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="to" data-i18n="heroArrow3To">to assertiveness, and the kind of nerve that gets you places</span>
+        </li>
+        <li>
+          <span class="from" data-i18n="heroArrow4From">from chaos at work</span>
+          <svg class="arrow" viewBox="0 0 24 12" aria-hidden="true"><path d="M0 6h18M14 1.5 19.5 6 14 10.5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="to" data-i18n="heroArrow4To">to structure and room to grow</span>
+        </li>
+      </ul>
+
+      <div class="hero-cta">
+        <a href="#contact" class="btn btn-primary" data-i18n="heroBook">Book a free intro call</a>
+        <a href="https://t.me/wowitskris" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="heroSecondary">Text me instead</a>
+        <p class="hero-meta" data-i18n="heroMeta">Online worldwide · English &amp; Russian · Based in Germany</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ===================== STATS ===================== -->
+  <section class="stats" aria-label="In numbers">
+    <div class="shell stats-grid">
+      <div class="stat"><span class="stat-num" data-i18n="stat1Num">1200+</span><span class="stat-label" data-i18n="stat1Label">hours of sessions</span></div>
+      <div class="stat"><span class="stat-num" data-i18n="stat2Num">100+</span><span class="stat-label" data-i18n="stat2Label">hours of supervision</span></div>
+      <div class="stat"><span class="stat-num" data-i18n="stat3Num">6 years</span><span class="stat-label" data-i18n="stat3Label">of my own therapy</span></div>
+      <div class="stat"><span class="stat-num" data-i18n="stat4Num">4</span><span class="stat-label" data-i18n="stat4Label">languages, learning a 5th</span></div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section class="section section--pink" id="about">
+    <div class="shell">
+      <header class="section-head">
+        <span class="pill" data-i18n="aboutPill">About me</span>
+        <h2 class="section-title" data-i18n="aboutTitle">Hi, I'm Kristina Wang</h2>
+        <p class="section-lead" data-i18n="aboutIntro">I've emigrated three times since I was fourteen. That taught me three things: how to be at home in cultures that aren't mine, how to figure out money, relationships, health and work on my own, and how to talk to people in the language they actually experience the world in — without judging anything for being unfamiliar.</p>
+      </header>
+
+      <div class="split">
+        <article class="card">
+          <h3 class="card-title" data-i18n="aboutProTitle">Professionally</h3>
+          <ul class="ticks" data-i18n-list="aboutProList">
+            <li>1200+ hours of individual counselling and group therapy</li>
+            <li>100+ hours of individual and group supervision</li>
+            <li>50+ hours of coaching sessions</li>
+            <li>6 years of personal and family therapy</li>
+            <li>Led intervision groups and built a professional-growth programme for early-career psychologists</li>
+            <li>Ran a retreat in the mountains of Saxony</li>
+          </ul>
+          <p class="card-note" data-i18n="aboutPath">Before psychology I ran a product business at 16, worked in modelling and talent management from 17 to 25, then media production and project management from 23 to 27. At 28, after covid and a personal crisis, I finally came to the thing I'd been circling since university.</p>
+        </article>
+
+        <article class="card card--tint">
+          <h3 class="card-title" data-i18n="aboutPerTitle">Off duty</h3>
+          <p class="card-lead" data-i18n="aboutPerIntro">When I take the psychologist's coat off I'm a fairly ordinary person, and in some ways the opposite of my professional self. I can be blunt. I interrupt. I'm not always up for a long story. I like taking up space. I get manic, anxious, foggy, tired. My biggest challenge is productivity and analysis that run well past the point of reasonable.</p>
+          <ul class="dots" data-i18n-list="aboutPerList">
+            <li>Travelling with my husband and friends — hotels one week, a tent under a meteor shower the next</li>
+            <li>Hiking, sport, karaoke, and cooking as my main love language</li>
+            <li>Asking strangers to translate the German and to take my photo</li>
+            <li>Rooibos tea by the litre, sunset lamps packed for every trip</li>
+            <li>Supporting women-owned businesses, being moved by small birds</li>
+            <li>Raising my husband's dog from his first marriage</li>
+          </ul>
+          <p class="card-note" data-i18n="aboutFamily">I also grew up in a dysfunctional family, which is where I learned to read a room very well — to catch a mood shift in an intonation, a pause, or the weight in the air.</p>
+        </article>
       </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="hero-visual">
-        <img src="KRW09202.jpg" alt="" />
-        <div class="hero-overlay-text">
-          <p class="hero-subtitle" data-i18n="heroSubtitle1">Psychologist & coach working with women on confidence, burnout, and career growth</p>
-          <p class="hero-subtitle hero-subtitle--meta" data-i18n="heroSubtitle2">Online · English & Russian · Based in Germany</p>
-        </div>
-      </div>
-      <div class="hero-content">
-        <div class="hero-title-wrap">
-          <h1 class="hero-title"><span class="hero-title-bold" data-i18n="heroTitleWord1">Direction</span> <span class="hero-title-regular" data-i18n="heroTitleWord2">Support</span><br><span class="hero-title-line"><span class="hero-title-light" data-i18n="heroTitleLightPrefix">with </span><span class="hero-title-light hero-title-light--bold" data-i18n="heroTitleLightName">Kris Wang</span></span></h1>
-          <p class="hero-lead" data-i18n="heroLead"></p>
-        </div>
-        <a href="#contact" class="btn btn-primary btn-hero js-calendly" data-i18n="heroBtn">Book a Session</a>
-      </div>
-    </section>
+  <!-- ===================== HOW I WORK ===================== -->
+  <section class="section" id="work">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="workPill">How I work</span>
+        <h2 class="section-title" data-i18n="workTitle">A clear frame, and a lot of freedom inside it</h2>
+        <p class="section-lead" data-i18n="workIntro">Integrative, with a psychodynamic lean. In Russian and English, through a feminist lens.</p>
+      </header>
 
-    <section id="about" class="section section-about">
-      <div class="container about-layout">
-        <div class="section-head">
-          <span class="pill" data-i18n="aboutPill">About me</span>
-          <h2 class="section-title section-title--display" data-i18n="aboutTitle">Where support meets your reality</h2>
-          <p class="section-intro" data-i18n="aboutIntro">Professional coaching and psychological counseling in one — 3.5 years practice, 900+ hours with clients. In ongoing therapy and supervision so I bring clarity, not my own issues, to our work.</p>
-        </div>
-        <div class="about-blocks">
-          <div class="about-block">
-            <h3 class="about-subtitle" data-i18n="aboutProTitle">Professionally</h3>
-            <ul class="about-list" data-i18n-list="aboutProList"></ul>
-            <p class="about-specialization" data-i18n="aboutSpecialization">I specialize in working with women navigating burnout, self-worth, and building careers that align with who they actually are.</p>
-          </div>
-          <div class="about-block">
-            <h3 class="about-subtitle" data-i18n="aboutPerTitle">Personally</h3>
-            <ul class="about-list" data-i18n-list="aboutPerList"></ul>
-          </div>
-        </div>
-        <!-- ADD second photo here -->
-        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
+      <div class="grid-3">
+        <article class="card card--work"><span class="glyph glyph--circle" aria-hidden="true"></span><h3 class="card-title" data-i18n="work1Title">I listen to more than the words</h3><p data-i18n="work1Text">Not only what you say, but how you say it, what you're telling me without words, and what you're not saying. I'm present both as a person in the conversation and in a meta-position — noticing what dynamic you bring and what unfolds between us.</p></article>
+        <article class="card card--work"><span class="glyph glyph--square" aria-hidden="true"></span><h3 class="card-title" data-i18n="work2Title">I don't insist that I'm right</h3><p data-i18n="work2Text">I offer a perspective and my experience. You're welcome to disagree, or argue with me. That's encouraged.</p></article>
+        <article class="card card--work card--accent"><span class="glyph glyph--tri" aria-hidden="true"></span><h3 class="card-title" data-i18n="work3Title">You have a 100% right to say stop</h3><p data-i18n="work3Text">At any moment you can turn the temperature down or close a topic entirely. Therapy doesn't have to mean forcing depth or chasing insights. Presence and being witnessed turn out to move people remarkably far.</p></article>
+        <article class="card card--work"><span class="glyph glyph--ring" aria-hidden="true"></span><h3 class="card-title" data-i18n="work4Title">I keep my own lens clean</h3><p data-i18n="work4Text">I want to see you through a perception that's been wiped of my own smudges. That's what my therapy and my individual and group supervision are for.</p></article>
+        <article class="card card--work"><span class="glyph glyph--bars" aria-hidden="true"></span><h3 class="card-title" data-i18n="work5Title">The frame outside is firm</h3><p data-i18n="work5Text">Maximum freedom inside the session, a very clear structure around it. A regular setting, weekly or fortnightly, at a fixed time. Payment before the session. Cancellations and reschedules up to 48 hours ahead.</p></article>
+        <article class="card card--work"><span class="glyph glyph--dot" aria-hidden="true"></span><h3 class="card-title" data-i18n="work6Title">And it's put in writing</h3><p data-i18n="work6Text">If you decide to continue after the first session, I'll send you an informed-consent agreement to sign.</p></article>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="approach" class="section section-approach">
-      <div class="container">
-        <span class="pill" data-i18n="approachPill">How it works</span>
-        <h2 class="section-title" data-i18n="approachTitle">Your path to clear-head growth</h2>
-        <p class="section-intro section-intro--center" data-i18n="approachIntro">Coaching x psychological counseling x business psychology — so you don't split your inner world from your goals.</p>
-        <ol class="journey">
-          <li class="journey-step">
-            <span class="journey-num">1</span>
-            <h3 data-i18n="journey1Title">Clarity</h3>
-            <p data-i18n="journey1Text">Where you are, what holds you back, and what you want.</p>
-          </li>
-          <li class="journey-step">
-            <span class="journey-num">2</span>
-            <h3 data-i18n="journey2Title">Support</h3>
-            <p data-i18n="journey2Text">Working through blocks and "So what do I do now?" with practical steps.</p>
-          </li>
-          <li class="journey-step">
-            <span class="journey-num">3</span>
-            <h3 data-i18n="journey3Title">Growth</h3>
-            <p data-i18n="journey3Text">Goals, values, and relationships moving together — without burning out.</p>
-          </li>
-        </ol>
-        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
-      </div>
-    </section>
+  <!-- ===================== JOURNEY ===================== -->
+  <section class="section section--blue" id="journey">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="journeyPill">What it looks like</span>
+        <h2 class="section-title" data-i18n="journeyTitle">From first message to real change</h2>
+      </header>
+      <ol class="journey">
+        <li class="journey-step"><span class="journey-num">1</span><h3 data-i18n="journey1Title">A 15-minute call</h3><p data-i18n="journey1Text">Free, no commitment. We talk about what's going on and work out whether I'm the right person for it — and whether you feel comfortable with me.</p></li>
+        <li class="journey-step"><span class="journey-num">2</span><h3 data-i18n="journey2Title">First sessions</h3><p data-i18n="journey2Text">We find the shape of your request, the pace, and the setting. You pick the time; I send the agreement.</p></li>
+        <li class="journey-step"><span class="journey-num">3</span><h3 data-i18n="journey3Title">Regular work</h3><p data-i18n="journey3Text">Weekly or fortnightly at a fixed hour. Goals, feelings and relationships move together — without burning you out.</p></li>
+      </ol>
+    </div>
+  </section>
 
-    <section id="topics" class="section section-topics">
-      <div class="container">
+  <!-- ===================== TOPICS ===================== -->
+  <section class="section" id="topics">
+    <div class="shell">
+      <header class="section-head section-head--center">
         <span class="pill" data-i18n="topicsPill">Topics</span>
-        <h2 class="section-title" data-i18n="topicsTitle">What I work with</h2>
-        <p class="topics-intro" data-i18n="topicsIntro">Stress, burnout, procrastination, self-worth, goals, relationships, boundaries, guilt & shame — and more.</p>
-        <div class="topic-tags" data-i18n-list="topicsTags"></div>
-        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
+        <h2 class="section-title" data-i18n="topicsTitle">What you can come to me with</h2>
+        <p class="section-lead" data-i18n="topicsIntro">These are common, but the list isn't a limit.</p>
+      </header>
+
+      <div class="grid-3 grid-3--tight">
+        <article class="card card--topic">
+          <h3 class="card-title" data-i18n="topicsGroup1Title">Confidence, work and money</h3>
+          <ul class="dots" data-i18n-list="topicsGroup1List"><li>Confidence and being visible in your career</li><li>Professional growth</li><li>Your relationship with money, and with clients</li><li>Running a business or freelance work</li><li>Business psychology and coaching</li><li>Chaos at work, and how to give it structure</li></ul>
+        </article>
+        <article class="card card--topic">
+          <h3 class="card-title" data-i18n="topicsGroup2Title">Relationships and self</h3>
+          <ul class="dots" data-i18n-list="topicsGroup2List"><li>Relationships with family, partners, friends</li><li>Separation, independence, and your own worth</li><li>Suppressed aggression, shame, guilt and other feelings</li><li>Personal boundaries</li><li>Fear of closeness, dependency and codependency</li><li>Feeling wrong, or out of place</li></ul>
+        </article>
+        <article class="card card--topic">
+          <h3 class="card-title" data-i18n="topicsGroup3Title">Change and crisis</h3>
+          <ul class="dots" data-i18n-list="topicsGroup3List"><li>Emigration and adapting to a new life</li><li>Losing the life you had and starting from zero</li><li>Discomfort you can't name</li><li>Past experiences that still hurt</li><li>Not knowing what you want</li><li>Feeling nothing, or struggling to feel</li></ul>
+        </article>
       </div>
-    </section>
 
-    <section id="pricing" class="section section-pricing">
-      <div class="container">
-        <span class="pill" data-i18n="pricingPill">Pricing</span>
-        <h2 class="section-title" data-i18n="pricingTitle">Sessions that fit</h2>
-        <div class="pricing-grid">
-          <a href="https://calendar.app.google/ChaWY37UsJWCDJk49" class="pricing-card pricing-card--link" target="_blank" rel="noopener">
-            <h3 data-i18n="pricing1Title">Intake (1-3 sessions)</h3>
-            <p class="pricing-desc" data-i18n="pricing1Desc">Reality check, direction, quick wins.</p>
-            <p class="pricing-range" data-i18n="pricing1Range">Sliding scale <strong>150-90 EUR</strong> per session</p>
-          </a>
-          <div class="pricing-card pricing-card--link js-calendly">
-            <h3 data-i18n="pricing2Title">Deep dive (6-12 months)</h3>
-            <p class="pricing-desc" data-i18n="pricing2Desc">Goals + stress management, clarity, lasting change. 4 sessions/month.</p>
-            <p class="pricing-range" data-i18n="pricing2Range">Sliding scale <strong>600-480 EUR</strong> per month</p>
-          </div>
-        </div>
-        <p class="pricing-note" data-i18n="pricingNote">Card, Apple Pay, PayPal, bank, or crypto.</p>
-        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
-      </div>
-    </section>
-
-    <section id="testimonials" class="section section-testimonials">
-      <div class="container">
-        <span class="pill" data-i18n="reviewsPill">Reviews</span>
-        <h2 class="section-title" data-i18n="reviewsTitle">What clients say</h2>
-        <div class="testimonials-grid">
-          <blockquote class="testimonial">
-            <p data-i18n="testimonial1">"Your deep acceptance and questions helped me feel my essence again and bring back a sense of wholeness."</p>
-            <cite>-- H.</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p data-i18n="testimonial2">"After working with you, the self-harm and the guilt that had been there for years went away. You helped me heal -- mentally and physically."</p>
-            <cite>-- P.K.</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p data-i18n="testimonial3">"'To love yourself simply means to live.' Now it all feels so simple, and I have so much more energy."</p>
-            <cite>-- R.</cite>
-          </blockquote>
-          <blockquote class="testimonial">
-            <p data-i18n="testimonial4">"The space you create feels incredibly safe. Just one session helped me meet my true self."</p>
-            <cite>-- O.</cite>
-          </blockquote>
-        </div>
-        <a href="#contact" class="section-cta" data-i18n="sectionCta">Contact</a>
-      </div>
-    </section>
-
-    <section id="contact" class="section section-contact">
-      <div class="container">
-        <h2 class="section-title" data-i18n="contactTitle">Book a free 15-min discovery call</h2>
-        <p class="contact-lead" data-i18n="contactLead">No commitment. Just a conversation.</p>
-        <div class="contact-booking">
-          <a href="https://calendar.app.google/ChaWY37UsJWCDJk49" class="btn btn-primary contact-book-btn" target="_blank" rel="noopener" data-i18n="contactBookBtn">Schedule on Google Calendar</a>
-        </div>
-        <div class="contact-links">
-          <a href="https://www.instagram.com/wow_its_kris" class="contact-link" target="_blank" rel="noopener">Instagram</a>
-        </div>
-      </div>
-    </section>
-
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <p class="footer-disclaimer" data-i18n="footerDisclaimer">Psychological support is not a substitute for medical or psychiatric care. If you are in crisis, please contact emergency or mental health services in your area.</p>
-      <nav class="footer-nav" aria-label="Legal">
-        <a href="https://wowitskris.com/impressum" target="_blank" rel="noopener">Impressum</a>
-        <a href="https://wowitskris.com/impressum" target="_blank" rel="noopener">Datenschutz</a>
-        <a href="privacy.html">Privacy policy</a>
-      </nav>
-      <p class="footer-location" data-i18n="footerLocation">Working online with clients worldwide · English & Russian</p>
-      <p class="footer-copy">&copy; direction.support</p>
+      <p class="section-outro" data-i18n="topicsOutro">Either way, I'd rather we talked it through first and worked out whether I'm a fit — on a short call or in writing, whichever you prefer.</p>
     </div>
-  </footer>
+  </section>
 
-  <script src="translations.js"></script>
-  <script src="script.js"></script>
+  <!-- ===================== PRICING =====================
+       Heads up: these numbers are taken from what direction.support currently
+       renders (translations.js), not from the older HTML defaults and not from
+       wowitskris.com — those three disagreed. Update prices in translations.js.
+  ==================================================================== -->
+  <section class="section section--pink" id="pricing">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="pricingPill">Services &amp; pricing</span>
+        <h2 class="section-title" data-i18n="pricingTitle">Formats and cost</h2>
+      </header>
+
+      <div class="grid-3 price-grid">
+        <article class="card price-card price-card--free">
+          <span class="price-num" data-i18n="pricing0Num">01</span>
+          <h3 class="card-title" data-i18n="pricing0Title">Intro call</h3>
+          <p data-i18n="pricing0Desc">10–15 minutes. We talk about your request and whether we're a fit. No obligation either way.</p>
+          <p class="price-tag" data-i18n="pricing0Price">Free</p>
+          <a href="#contact" class="btn btn-primary btn-block" data-i18n="pricing0Cta">Book the call</a>
+        </article>
+        <article class="card price-card price-card--main">
+          <span class="price-num" data-i18n="pricing1Num">02</span>
+          <h3 class="card-title" data-i18n="pricing1Title">Psychological counselling</h3>
+          <p data-i18n="pricing1Desc">Four sessions a month, 50 minutes each, at a fixed weekly time. This is the main way I work.</p>
+          <p class="price-tag" data-i18n="pricing1Price">360€ / month</p>
+          <a href="#contact" class="btn btn-primary btn-block" data-i18n="pricing1Cta">Start here</a>
+        </article>
+        <article class="card price-card">
+          <span class="price-num" data-i18n="pricing2Num">03</span>
+          <h3 class="card-title" data-i18n="pricing2Title">Coaching &amp; business psychology</h3>
+          <p data-i18n="pricing2Desc">Confidence, visibility, money, clients, and running your own thing. Same setting, different focus.</p>
+          <p class="price-tag price-tag--soft" data-i18n="pricing2Price">Ask about availability</p>
+          <a href="https://t.me/wowitskris" target="_blank" rel="noopener" class="btn btn-ghost btn-block" data-i18n="pricing2Cta">Get in touch</a>
+        </article>
+      </div>
+
+      <div class="split split--notes">
+        <div class="note-block">
+          <h3 class="note-title" data-i18n="pricingMoreTitle">Also available</h3>
+          <ul class="dots" data-i18n-list="pricingMoreList"><li>Mentoring for early-career psychologists</li><li>Psychological and coaching groups in person in Berlin</li><li>Online groups, one-off or monthly, as each group fills</li></ul>
+          <p class="card-note" data-i18n="pricingMoreNote">Message me for current dates and rates on these.</p>
+        </div>
+        <div class="note-block">
+          <h3 class="note-title" data-i18n="pricingPayTitle">Payment</h3>
+          <ul class="dots" data-i18n-list="pricingPayList"><li>Sessions are paid at least 24 hours in advance.</li><li>Revolut, IBAN, SWIFT, PayPal, Monobank, crypto, WeChat and Alipay, Paysend.</li><li>Late cancellations are forfeit; earlier ones move to your next session.</li><li>If I raise my rates, existing clients and I discuss it individually.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SAFETY / HONEST ANSWERS ===================== -->
+  <section class="section" id="safety">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="safetyPill">Honest answers</span>
+        <h2 class="section-title" data-i18n="safetyTitle">The questions people actually ask</h2>
+      </header>
+
+      <div class="safety-grid">
+        <article class="card card--safe">
+          <h3 class="card-title" data-i18n="safety1Title">Why is this safe?</h3>
+          <p data-i18n="safety1Text">I build a sealed, confidential space with no judgement and no scoring. I work strictly on the principle that the client is okay. I don't give advice and I don't decide for you what you should do — I ask questions, get to know you, and reflect back the things that are hard to see from the inside.</p>
+        </article>
+        <article class="card card--safe">
+          <h3 class="card-title" data-i18n="safety2Title">Will you definitely help me?</h3>
+          <p data-i18n="safety2Text">No, not definitely — no psychologist can guarantee that. We work on your wellbeing together, which means change needs you to want it and to do something new in that direction.</p>
+          <p class="card-sub" data-i18n="safety2Sub">I won't be able to help if:</p>
+          <ul class="crosses" data-i18n-list="safety2List"><li>You don't take responsibility for your own life</li><li>Someone made you come to me</li><li>You want to change another person</li></ul>
+        </article>
+        <article class="card card--safe card--limits">
+          <h3 class="card-title" data-i18n="safety3Title">What I don't work with</h3>
+          <p data-i18n="safety3Text">There are things outside my competence, and I'd rather say so before you book than halfway in.</p>
+          <ul class="crosses" data-i18n-list="safety3List"><li>Psychiatric diagnoses</li><li>Depression as the presenting request</li><li>Suicidal themes and self-harm as the presenting request</li></ul>
+          <p class="card-note" data-i18n="safety3Note">If any of that is what you're facing right now, please reach a psychiatrist or a crisis service — that's the right kind of help, and it exists.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CREDENTIALS =====================
+       Drop certificate images into assets/ and swap the <span> placeholders
+       below for <img src="assets/cert-1.jpg" alt="…"> — the grid handles the rest.
+  ==================================================================== -->
+  <section class="section section--blue" id="credentials">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="credPill">Credentials</span>
+        <h2 class="section-title" data-i18n="credTitle">Diplomas and certificates</h2>
+        <p class="section-lead" data-i18n="credIntro">Qualified practical psychologist, in continuous supervision since the first day of practice.</p>
+      </header>
+      <div class="cert-grid">
+        <span class="cert-slot" aria-hidden="true"></span>
+        <span class="cert-slot" aria-hidden="true"></span>
+        <span class="cert-slot" aria-hidden="true"></span>
+        <span class="cert-slot" aria-hidden="true"></span>
+      </div>
+      <p class="section-outro" data-i18n="credCaption">Certificates available on request — happy to send them before you book.</p>
+    </div>
+  </section>
+
+  <!-- ===================== REVIEWS ===================== -->
+  <section class="section" id="reviews">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="reviewsPill">Feedback</span>
+        <h2 class="section-title" data-i18n="reviewsTitle">What clients say</h2>
+      </header>
+      <div class="reviews">
+        <blockquote class="review"><p data-i18n="testimonial1">Thank you for your deep acceptance, which supports me in getting to know myself, and for the questions that open up what I'd been hiding from myself.</p><cite data-i18n="testimonial1By">— H.</cite></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial2">Thank you for being an excellent specialist and for helping me resolve a pile of inner conflicts.</p><cite data-i18n="testimonial2By">— P.K.</cite></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial3">The thing I'm taking with me: loving yourself just means living. Such relief in that.</p><cite data-i18n="testimonial3By">— R.</cite></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial4">One meeting introduced me to my real self.</p><cite data-i18n="testimonial4By">— O.</cite></blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SETTING ===================== -->
+  <section class="section section--paper" id="setting">
+    <div class="shell shell--narrow">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="settingPill">The setting</span>
+        <h2 class="section-title" data-i18n="settingTitle">How we work, practically</h2>
+      </header>
+      <ul class="rules" data-i18n-list="settingList">
+        <li>You pick a time that suits you, sign the agreement, and pay for the sessions you've chosen.</li>
+        <li>You join from a private place where nobody can interrupt, see or hear you.</li>
+        <li>Payments aren't refunded. Resistance and the urge to cancel are part of the process.</li>
+        <li>If you're late, the session still ends at the agreed time.</li>
+        <li>Everything is fully confidential.</li>
+        <li>I don't publish client cases and never use counselling clients for promotion.</li>
+        <li>Ending long-term work is discussed in session, with one closing session.</li>
+      </ul>
+      <p class="section-outro" data-i18n="settingNote">The full terms live in the contract.</p>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section class="section section--contact" id="contact">
+    <div class="blob blob--orange" aria-hidden="true"></div>
+    <div class="blob blob--blue2" aria-hidden="true"></div>
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="contactPill">Let's talk</span>
+        <h2 class="section-title" data-i18n="contactTitle">Book a free intro call</h2>
+        <p class="section-lead" data-i18n="contactLead">Ten to fifteen minutes, no commitment, no pressure. Just a conversation to see whether we fit.</p>
+      </header>
+
+      <div class="booking">
+        <div class="calendly-inline-widget" data-url="https://calendly.com/wowitskrisw/call?hide_gdpr_banner=1&amp;background_color=ffffff&amp;text_color=14141a&amp;primary_color=e88cb4" style="min-width:300px;height:720px"></div>
+      </div>
+      <p class="booking-note"><a href="https://calendly.com/wowitskrisw/call" target="_blank" rel="noopener" data-i18n="bookingNote">Calendar not loading? Open it in a new tab.</a></p>
+
+      <div class="contact-alt">
+        <h3 data-i18n="contactAlt">Have questions first?</h3>
+        <p data-i18n="contactAltText">Text me and ask them — I'd rather you asked than guessed.</p>
+        <div class="contact-links">
+          <a href="https://t.me/wowitskris" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="contactTelegram">Message me on Telegram</a>
+          <a href="https://www.instagram.com/wow_its_kris" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="contactInstagram">Instagram</a>
+        </div>
+        <p class="contact-langs" data-i18n="contactLangs">Sessions in English and Russian · online, wherever you are</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <p class="footer-disclaimer" data-i18n="footerDisclaimer">Psychological support is not a substitute for medical or psychiatric care. If you are in crisis, please contact emergency or mental health services in your area.</p>
+    <nav class="footer-nav" aria-label="Legal" data-i18n-attr="aria-label:footerNavLabel">
+      <a href="https://wowitskris.com/impressum" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://wowitskris.com/datenschutz" target="_blank" rel="noopener">Datenschutz</a>
+      <a href="privacy.html">Privacy policy</a>
+      <a href="https://www.instagram.com/wow_its_kris" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://t.me/wowitskris" target="_blank" rel="noopener">Telegram</a>
+    </nav>
+    <p class="footer-location" data-i18n="footerLocation">Working online with clients worldwide · English &amp; Russian</p>
+    <p class="footer-copy">© <span id="year">2026</span> direction.support</p>
+  </div>
+</footer>
+
+<a href="#contact" class="sticky-cta" id="sticky-cta" data-i18n="stickyCta">Book a free call</a>
+
+<script src="translations.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
