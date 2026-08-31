@@ -62,9 +62,30 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
   an SVG `feTurbulence`/`feDisplacementMap` filter (`#wobble` in `index.html`),
   so the outline wobbles while the text stays crisp. Degrades to a clean pill
   where the filter is unsupported.
-- **Geometry** (circles, squares, triangle, dashed connectors) carries the
-  "stable ground" feel without adding illustration weight.
 - Respects `prefers-reduced-motion`; has a print stylesheet.
+
+### v2: the hairline system
+
+v2 swaps floating shadow-cards for drawn structure, keeping small radii so it
+stays warm rather than cold:
+
+- `.modular` turns a grid into one continuous hairline table — `gap:1px` plus
+  `box-shadow:0 0 0 1px` on each cell, so adjacent cells share a single rule and
+  an empty trailing slot stays blank instead of showing a filled block. Used by
+  *How I work*, *Topics* and *Is it safe?*.
+- Each modular cell gets a rotated `01/02/03` index from a CSS counter — no
+  markup and nothing to translate.
+- `.card--ink` is the one solid block per grid, straight off the reference board.
+- Big thin outlined circles carry the pricing and journey numerals.
+- `.hairlines` is a stretched SVG of diagonal rules behind the hero and contact;
+  `.section--ruled` lays faint column rules behind a section.
+- `--rule` / `--rule-soft` are the hairline tokens; `--line` stays for softer
+  internal dividers.
+
+**Careful with hairline colours on `.shell`:** `.shell` carries the page's
+horizontal padding, so painting a divider colour as its `background` (the usual
+`gap:1px` trick) bleeds solid bands into that padding. Outline the cells
+instead — that's why `.stats` works the way it does.
 
 ## Tagline alternatives
 

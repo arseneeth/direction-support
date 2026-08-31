@@ -160,16 +160,49 @@
     var observer = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        entry.target.classList.add('is-visible');
+        reveal(entry.target);
         obs.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.06 });
+    }, { rootMargin: '0px 0px -8% 0px', threshold: 0 });
+
+    function reveal(el) {
+      el.classList.add('is-visible');
+    }
 
     targets.forEach(function (el, i) {
       el.classList.add('reveal');
       el.style.transitionDelay = (i % 4) * 70 + 'ms';
       observer.observe(el);
     });
+
+    // Safety net: an IntersectionObserver can miss elements when the page
+    // jumps straight to an anchor or restores a scroll position, which would
+    // leave whole sections stuck at opacity 0. Sweep anything already on
+    // screen ourselves, on load and while scrolling.
+    function sweep() {
+      var pending = document.querySelectorAll('.reveal:not(.is-visible)');
+      for (var i = 0; i < pending.length; i++) {
+        var r = pending[i].getBoundingClientRect();
+        if (r.top < window.innerHeight && r.bottom > 0) {
+          reveal(pending[i]);
+          observer.unobserve(pending[i]);
+        }
+      }
+      if (!document.querySelector('.reveal:not(.is-visible)')) {
+        window.removeEventListener('scroll', onScroll);
+      }
+    }
+
+    var queued = false;
+    function onScroll() {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(function () { queued = false; sweep(); });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('load', sweep);
+    sweep();
   }
 
   /* ------------------------------- misc --------------------------------- */
