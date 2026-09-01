@@ -77,10 +77,26 @@ stays warm rather than cold:
   markup and nothing to translate.
 - `.card--ink` is the one solid block per grid, straight off the reference board.
 - Big thin outlined circles carry the pricing and journey numerals.
-- `.hairlines` is a stretched SVG of diagonal rules behind the hero and contact;
-  `.section--ruled` lays faint column rules behind a section.
 - `--rule` / `--rule-soft` are the hairline tokens; `--line` stays for softer
   internal dividers.
+
+**Every block is full-bleed.** Section headings stay inside `.shell`; the blocks
+themselves sit as direct children of the `<section>` so they run edge to edge,
+with only a rule above and below. The page reads as one column of contiguous
+rectangles rather than floating cards.
+
+**Pricing is a row list**, not cards — circled numeral, title, description,
+price, CTA — collapsing to a stack under 900px.
+
+### Two traps in this layout
+
+**Column counts must divide the cell count exactly.** Full-bleed grids are wide,
+so `auto-fit` happily makes more columns than there are cells and the last row
+ends in empty slots — which breaks the solid-rectangle read. Columns are pinned
+per breakpoint instead (6 cells: 1/2/3, 3 cells: 1/3, 4 cells: 2/4). Topics has
+3 cells, so it skips the 2-column stage via `.grid-3:not(.grid-3--tight)` — and
+because `:not()` raises specificity, the wider breakpoint has to repeat that
+same selector or it silently loses.
 
 **Careful with hairline colours on `.shell`:** `.shell` carries the page's
 horizontal padding, so painting a divider colour as its `background` (the usual

@@ -28,6 +28,7 @@
   --font:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
   --font-hand:"Caveat","Inter",cursive;
   --shell:1240px;
+  --cell-y:clamp(1.5rem,2.6vw,2.2rem); --cell-x:clamp(1.25rem,3vw,2.6rem);
   --r-lg:12px; --r-md:10px; --r-sm:8px;
   --shadow:0 1px 2px rgba(20,20,26,.04), 0 12px 32px -12px rgba(20,20,26,.10);
   --shadow-lift:0 2px 6px rgba(20,20,26,.05), 0 28px 60px -22px rgba(20,20,26,.20);
@@ -122,19 +123,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav-toggle[aria-expanded="true"] .nav-toggle-bars i:last-child{transform:translateY(-3.3px) rotate(-45deg)}
 
 /* ===========================  DECOR  =========================== */
-/* full-bleed diagonal hairlines */
-.hairlines{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-.hairlines line{stroke:var(--rule);stroke-width:1;vector-effect:non-scaling-stroke}
-
-/* faint column rules behind a section */
-.section--ruled>.shell::before{
-  content:"";position:absolute;top:-8rem;bottom:-8rem;left:0;right:0;
-  pointer-events:none;z-index:0;
-  background-image:linear-gradient(90deg,var(--rule-soft) 1px,transparent 1px);
-  background-size:25% 100%;
-}
-@media (max-width:760px){.section--ruled>.shell::before{background-size:50% 100%}}
-
 .blob{position:absolute;border-radius:50%;filter:blur(70px);pointer-events:none;z-index:0}
 .blob--pink{width:min(42vw,520px);aspect-ratio:1;background:var(--pink-100);opacity:.55;top:-14%;right:-10%}
 .blob--blue{width:min(36vw,440px);aspect-ratio:1;background:var(--blue-100);opacity:.55;bottom:-4%;left:-14%}
@@ -242,12 +230,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stats{background:#fff;padding-block:clamp(2rem,4vw,3rem)}
 /* gap + per-cell outline: one shared hairline, and no colour bleeding into
    the container's own horizontal padding. */
-.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1px}
-.stat{
-  background:#fff;box-shadow:0 0 0 1px var(--rule);
-  padding:clamp(1.4rem,3vw,2.2rem) 1rem;text-align:center;
-  display:flex;flex-direction:column;gap:.15rem;
-}
+.stats{padding-block:0}
+.stats-grid{grid-template-columns:repeat(2,1fr)}
+.stat{text-align:center;display:flex;flex-direction:column;gap:.15rem}
 .stat-num{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:300;letter-spacing:-.035em;color:var(--ink);line-height:1}
 .stat-label{font-size:.85rem;color:var(--ink-3)}
 
@@ -294,27 +279,39 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card--work:hover,.card--topic:hover{background:var(--paper-2)}
 .price-card:hover{border-color:var(--ink-4)}
 
-/* ---- modular grid: cells share one hairline, like a drawn table ---- */
+/* ---- modular blocks -------------------------------------------------------
+   Every block is one full-bleed rectangle sliced into cells. gap:1px plus a
+   1px box-shadow per cell means neighbours share a single hairline; the
+   container's overflow clips the outer shadows so the block runs flush to
+   both page edges, with only a rule above and below.
+--------------------------------------------------------------------------- */
 .modular{
   display:grid;gap:1px;
-  border:1px solid var(--rule);border-radius:var(--r-lg);overflow:hidden;
   background:#fff;
+  border-block:1px solid var(--rule);
+  overflow:hidden;
+  counter-reset:cell;
 }
-.modular>.card{
-  border:0;border-radius:0;
+.modular>*{
+  position:relative;
+  margin:0;border:0;border-radius:0;
+  background:#fff;
   box-shadow:0 0 0 1px var(--rule);
-  counter-increment:cell;
+  padding:var(--cell-y) var(--cell-x);
 }
-/* rotated cell index, straight off the reference boards */
-.modular{counter-reset:cell}
+/* rotated cell index */
+.modular>.card{counter-increment:cell}
 .modular>.card::before{
   content:counter(cell,decimal-leading-zero);
-  position:absolute;top:clamp(1.5rem,2.6vw,2.1rem);right:.75rem;
+  position:absolute;top:var(--cell-y);right:calc(var(--cell-x) * .42);
   font-size:.82rem;font-weight:500;letter-spacing:.24em;color:var(--ink-4);
   writing-mode:vertical-rl;font-variant-numeric:tabular-nums;
 }
 .modular>.card>*{position:relative;z-index:1;padding-right:1.35rem}
-/* the one solid block per grid */
+
+/* tinted cells sit after the base so they win the background */
+.card--tint{background:var(--pink-50)}
+.card--limits{background:var(--orange-100)}
 .card--ink{background:var(--ink)}
 .card--ink .card-title{color:#fff}
 .card--ink p{color:rgba(255,255,255,.72)}
@@ -341,35 +338,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .dots li::before{content:"";position:absolute;left:.15rem;top:.68em;width:6px;height:6px;border-radius:50%;background:var(--pink-300)}
 .crosses li::before{content:"×";position:absolute;left:.15rem;top:-.03em;font-size:1.15rem;line-height:1.6;color:var(--orange-400)}
-.rules li{padding-left:2.4rem;margin-bottom:1.1rem;counter-increment:rule}
 .rules{counter-reset:rule}
-.rules li::before{
-  content:counter(rule);position:absolute;left:0;top:.15em;
-  width:1.55rem;height:1.55rem;border-radius:50%;
-  background:#fff;border:1px solid var(--line);
-  display:grid;place-items:center;font-size:.78rem;font-weight:600;color:var(--ink-3);
+.rules>li{
+  counter-increment:rule;padding-left:var(--cell-x);
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:0 clamp(1rem,2vw,1.75rem);align-items:start;
+}
+.rules>li::before{
+  content:counter(rule);position:static;
+  width:2.6rem;height:2.6rem;border-radius:50%;
+  background:transparent;border:1px solid var(--rule);
+  display:grid;place-items:center;font-size:.95rem;font-weight:400;color:var(--ink-3);
 }
 
 /* ---------- layout helpers ---------- */
-.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(1rem,2vw,1.5rem)}
-.split--notes{margin-top:clamp(1.5rem,3vw,2.25rem)}
-.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(1rem,2vw,1.5rem)}
-.grid-3--tight{gap:clamp(1rem,1.8vw,1.25rem)}
-.note-block{padding:clamp(1.4rem,2.4vw,1.9rem);border-radius:var(--r-md);background:#fff;border:1px solid var(--rule)}
+.split{display:grid;grid-template-columns:1fr}
+.split--notes{margin-top:0}
+.grid-3{display:grid;grid-template-columns:1fr}
+.note-title{margin-top:0}
 .note-title{font-size:1rem;font-weight:600;margin-bottom:.9rem}
 
 /* ---------- journey ---------- */
-.journey{
-  display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:clamp(1.25rem,2.5vw,2rem);position:relative;
-}
-.journey-step:not(:last-child)::before{
-  content:"";position:absolute;top:33px;left:76px;height:1px;display:none;
-  right:calc(-1 * clamp(1.25rem,2.5vw,2rem));
-  background:repeating-linear-gradient(90deg,var(--blue-300) 0 6px,transparent 6px 13px);
-}
-@media (min-width:880px){.journey-step:not(:last-child)::before{display:block}}
-.journey-step{position:relative;padding-top:.5rem}
+.journey{display:grid;grid-template-columns:1fr}
+.journey-step{position:relative}
 .journey-num{
   position:relative;z-index:1;
   display:grid;place-items:center;width:66px;height:66px;border-radius:50%;
@@ -380,51 +371,66 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .journey-step p{color:var(--ink-2)}
 
 /* ---------- pricing ---------- */
-.price-grid{align-items:stretch}
-.price-card{padding-top:clamp(1.7rem,2.8vw,2.3rem)}
-.price-card--main{border-color:var(--pink-200);background:linear-gradient(168deg,#fff,var(--pink-50))}
-.price-card--free{background:linear-gradient(168deg,#fff,var(--blue-50));border-color:var(--blue-100)}
+.price-rows{grid-template-columns:1fr}
+.price-row{
+  display:grid;align-items:center;
+  grid-template-columns:auto minmax(150px,210px) minmax(0,1fr) auto auto;
+  gap:.75rem clamp(1.25rem,2.4vw,2.5rem);
+}
+.price-row--main{background:var(--pink-50)}
 .price-num{
   display:grid;place-items:center;
-  width:60px;height:60px;border-radius:50%;
+  width:64px;height:64px;border-radius:50%;
   border:1px solid var(--rule);
-  margin-bottom:1.4rem;
-  font-size:1.35rem;font-weight:300;letter-spacing:-.02em;color:var(--ink-2);
+  font-size:1.45rem;font-weight:300;letter-spacing:-.02em;color:var(--ink-2);
 }
-.price-card p{color:var(--ink-2)}
-.price-tag{
-  margin:1.25rem 0 1.5rem;font-size:clamp(1.5rem,2.6vw,1.9rem);font-weight:300;
-  letter-spacing:-.035em;color:var(--ink);
+.price-row-title{font-size:1.08rem;font-weight:600;letter-spacing:-.02em;margin:0}
+.price-row-desc{margin:0;font-size:.95rem;color:var(--ink-3)}
+.price-row-tag{
+  margin:0;white-space:nowrap;
+  font-size:clamp(1.25rem,2.2vw,1.6rem);font-weight:300;letter-spacing:-.035em;color:var(--ink);
 }
-.price-tag--soft{font-size:1.05rem;font-weight:500;letter-spacing:-.01em;color:var(--ink-2)}
+.price-row-tag--soft{font-size:.95rem;font-weight:500;letter-spacing:-.01em;color:var(--ink-2);white-space:normal;max-width:12ch}
+.price-row-cta{white-space:nowrap}
+
+@media (max-width:900px){
+  .price-row{grid-template-columns:auto minmax(0,1fr);row-gap:.5rem}
+  .price-num{grid-row:span 2}
+  .price-row-desc,.price-row-tag,.price-row-cta{grid-column:2}
+  .price-row-tag{margin-top:.4rem}
+  .price-row-cta{justify-self:start;margin-top:.6rem}
+  .price-row-tag--soft{max-width:none}
+}
+@media (max-width:560px){
+  .price-row{grid-template-columns:1fr}
+  .price-num{grid-row:auto;margin-bottom:.4rem}
+  .price-row-desc,.price-row-tag,.price-row-cta{grid-column:1}
+}
 
 /* ---------- safety ---------- */
-.safety-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(1rem,2vw,1.5rem)}
+.safety-grid{display:grid;grid-template-columns:1fr}
 .card--safe p{color:var(--ink-2)}
 
 /* ---------- credentials ---------- */
-.cert-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:clamp(1rem,2vw,1.5rem)}
+.cert-grid{display:grid;grid-template-columns:repeat(2,1fr)}
 .cert-slot{position:relative;display:grid;place-items:center}
 .cert-slot::after{
   content:"";width:44px;height:44px;border-radius:50%;
   border:2px dashed var(--blue-200);
   background:radial-gradient(circle at 50% 50%,var(--blue-50) 42%,transparent 43%);
 }
-.cert-slot,.cert-grid img{
-  aspect-ratio:3/4;border-radius:var(--r-md);background:#fff;
-  border:1px dashed var(--blue-300);display:block;
+.cert-grid>*{aspect-ratio:3/4;padding:0}
+.cert-slot::before{
+  content:"";position:absolute;inset:clamp(.9rem,2vw,1.4rem);
+  border:1px dashed var(--blue-300);border-radius:var(--r-sm);
 }
-.cert-grid img{border-style:solid;border-color:var(--line);object-fit:cover}
+.cert-grid img{object-fit:cover;width:100%;height:100%}
 
 /* ---------- reviews ---------- */
-.reviews{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));align-items:start;gap:clamp(1rem,2vw,1.5rem)}
-.review{
-  position:relative;margin:0;padding:clamp(1.6rem,2.6vw,2.2rem);
-  border-radius:var(--r-lg);border:1px solid var(--rule);
-  background:#fff;
-}
+.reviews{display:grid;grid-template-columns:1fr}
+.review{position:relative}
 .review::before{
-  content:"“";position:absolute;top:.2rem;left:1.4rem;
+  content:"“";position:absolute;top:.1rem;left:calc(var(--cell-x) - .35rem);
   font-size:4.5rem;line-height:1;color:var(--pink-200);font-family:Georgia,serif;
 }
 .review p{position:relative;color:var(--ink-2);font-size:1.02rem}
@@ -434,8 +440,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .booking{
   position:relative;z-index:1;
   max-width:960px;margin-inline:auto;
-  background:#fff;border:1px solid var(--rule);border-radius:var(--r-lg);
-  overflow:hidden;
+  background:#fff;border:0;border-block:1px solid var(--rule);border-radius:0;
+  max-width:none;margin:0;overflow:hidden;
 }
 .booking-note{margin:.9rem 0 0;text-align:center;font-size:.86rem;color:var(--ink-3);position:relative;z-index:1}
 .booking-note a{color:var(--ink-2)}
@@ -471,6 +477,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .sticky-cta.is-visible{opacity:1;transform:none}
 @media (max-width:760px){.sticky-cta{display:flex}}
+
+/* ---- column counts that always fill the last row ----
+   6 cells: 1 / 2 / 3   |   3 cells: 1 / 3   |   4 cells: 2 / 4   |   2 cells: 1 / 2
+------------------------------------------------------------------ */
+@media (min-width:680px){
+  /* topics has 3 cells, so it skips the 2-column stage */
+  .grid-3:not(.grid-3--tight){grid-template-columns:repeat(2,1fr)}
+  .split{grid-template-columns:repeat(2,1fr)}
+  .reviews{grid-template-columns:repeat(2,1fr)}
+}
+@media (min-width:1000px){
+  /* keep the :not() form here too — it raises specificity, so a bare
+     .grid-3 would lose to the 680px rule no matter the source order. */
+  .grid-3:not(.grid-3--tight){grid-template-columns:repeat(3,1fr)}
+  .grid-3--tight,.safety-grid,.journey{grid-template-columns:repeat(3,1fr)}
+  .cert-grid,.stats-grid{grid-template-columns:repeat(4,1fr)}
+}
 
 /* ===========================  MOTION  =========================== */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
@@ -522,7 +545,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .btn-sm,.contact-links .btn{width:auto}
   .header-actions .btn-sm{display:none}
   .review::before{font-size:3.4rem;left:1rem}
-  .card{border-radius:var(--r-md)}
+  .card,.review{border-radius:0}
 }
 
 @media (prefers-reduced-motion:reduce){
