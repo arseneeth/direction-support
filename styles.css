@@ -155,17 +155,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ===========================  HERO  =========================== */
-.hero{position:relative;padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,6rem);overflow:hidden}
+.hero{position:relative;padding:clamp(1.75rem,4vw,3.25rem) 0 clamp(2.5rem,5vw,4rem);overflow:hidden}
 .hero-grid{
   position:relative;z-index:1;
   display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(0,360px);
+  grid-template-columns:minmax(0,1fr);
   grid-template-areas:
-    "head    head"
-    "name    name"
-    "titles  photo"
-    "cta     cta";
-  column-gap:clamp(1.5rem,4vw,3.5rem);
+    "head"
+    "name"
+    "stage"
+    "cta";
 }
 
 /* running head: a label out to each edge, like a magazine folio line */
@@ -201,7 +200,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* hand-drawn outline chips */
-.hero-titles{grid-area:titles;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem}
+/* ---- the stage: everything below the name is placed by percentage ---- */
+.hero-stage{
+  grid-area:stage;position:relative;
+  height:clamp(320px,31vw,455px);
+}
+/* scoped to .hero-stage so they outrank the plain .chip{position:relative}
+   declared further down the file */
+.hero-stage .chip{position:absolute;white-space:nowrap}
+.hero-stage .chip--a{left:0;top:26%}
+.hero-stage .chip--b{left:7%;top:63%}
+.hero-stage .chip--c{left:55%;top:64%}
 .chip{position:relative;display:inline-block;margin:0;padding:.5rem 1.15rem;max-width:100%}
 .chip>span{
   position:relative;z-index:1;
@@ -221,8 +230,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* portrait */
 /* uneven, hand-drawn pink surround — the shape only, no outline */
 .hero-portrait{
-  grid-area:photo;margin:0;align-self:start;justify-self:center;
-  width:100%;max-width:360px;aspect-ratio:1;
+  position:absolute;left:24%;top:0;
+  margin:0;width:27%;min-width:170px;aspect-ratio:1;
   padding:clamp(16px,2.2vw,30px);
   position:relative;
 }
@@ -544,11 +553,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 @media (max-width:900px){
   html{scroll-padding-top:76px}
-  .hero-grid{
-    grid-template-columns:1fr;
-    grid-template-areas:"head" "name" "photo" "titles" "cta";
-    row-gap:0;
-  }
+  /* the scattered arrangement collapses to a plain stack */
+  .hero-stage{height:auto;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
+  .stage-shape{display:none}
+  .hero-stage .chip{position:relative;left:auto;top:auto;white-space:normal}
+  .hero-stage .chip--a{order:3}
+  .hero-stage .chip--b{order:2}
+  .hero-stage .chip--c{order:4}
   /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
      type scales down with the viewport instead of wrapping the surname. */
   .hero-name{flex-wrap:nowrap;gap:.4rem;align-items:baseline;margin-bottom:1.6rem}
@@ -556,7 +567,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .signature{flex-shrink:0}
   .signature-img{height:min(9vw,3.1rem)}
   .signature-fallback{font-size:min(10.4vw,3.7rem)}
-  .hero-portrait{max-width:min(74vw,300px);justify-self:start;margin-bottom:2rem}
+  .hero-portrait{
+    position:relative;left:auto;top:auto;order:1;
+    width:min(72vw,300px);margin-bottom:1.6rem;
+  }
   .hero-arrows{margin-top:1.9rem}
   .hero-arrows{gap:1.15rem}
   .hero-arrows li{flex-direction:column;align-items:flex-start;gap:.05rem}
