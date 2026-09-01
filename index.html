@@ -4,9 +4,9 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="color-scheme" content="light" />
-<title>Kristina Wang — Psychologist &amp; Coach | Online sessions in English &amp; Russian</title>
+<title>Kristina Van — Psychologist &amp; Coach | Online sessions in English &amp; Russian</title>
 <meta name="description" content="Counselling psychologist and coach. Confidence, boundaries, burnout, emigration and career growth. Free 15-minute intro call. Online worldwide in English and Russian." />
-<meta property="og:title" content="Kristina Wang — Psychologist &amp; Coach" />
+<meta property="og:title" content="Kristina Van — Psychologist &amp; Coach" />
 <meta property="og:description" content="Counselling psychologist and coach. Confidence, boundaries, burnout, emigration and career growth. Free 15-minute intro call. Online in English and Russian." />
 <meta property="og:image" content="https://direction.support/assets/kris.jpg" />
 <meta property="og:url" content="https://direction.support" />
@@ -41,6 +41,11 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.018 0.05" numOctaves="3" seed="7" result="noise" />
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
     </filter>
+    <!-- big soft undulation for the portrait surround -->
+    <filter id="wobble-blob" x="-15%" y="-15%" width="130%" height="130%" filterUnits="objectBoundingBox">
+      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="2" seed="4" result="noise" />
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="26" xChannelSelector="R" yChannelSelector="G" />
+    </filter>
     <filter id="wobble-soft" x="-6%" y="-30%" width="112%" height="160%" filterUnits="objectBoundingBox">
       <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="2" seed="19" result="noise" />
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
@@ -54,7 +59,7 @@
   <div class="shell header-inner">
     <a href="#top" class="brand">
       <span class="brand-mark" aria-hidden="true"></span>
-      <span class="brand-text"><b>Kristina</b> Wang</span>
+      <span class="brand-text"><b>Kristina</b> Van</span>
     </a>
 
     <nav class="site-nav" id="site-nav" aria-label="Sections">
@@ -93,33 +98,34 @@
        E · mixed     destroyer of mental restrictions / the confidence dealer /
                      and room to be entirely yourself
   ==================================================================== -->
-  <section class="hero">
+  <section class="hero grain">
     <div class="blob blob--pink" aria-hidden="true"></div>
     <div class="blob blob--blue" aria-hidden="true"></div>
     <div class="blob blob--lilac" aria-hidden="true"></div>
 
     <div class="shell hero-grid">
 
-      <p class="hero-role hero-role--left" data-i18n="heroRole">counselling psychologist</p>
-      <p class="hero-role hero-role--right" data-i18n="heroRole2">coach</p>
+      <div class="hero-runninghead">
+        <p class="hero-role" data-i18n="heroRole">counselling psychologist</p>
+        <p class="hero-role" data-i18n="heroRole2">coach</p>
+      </div>
 
       <h1 class="hero-name">
         <span class="hero-name-text" data-i18n="heroName">KRISTINA</span>
         <span class="signature">
-          <img src="assets/signature.png" alt="Wang" class="signature-img" onerror="this.remove()" />
-          <span class="signature-fallback" data-i18n="heroSignatureAlt" aria-hidden="true">Wang</span>
+          <img src="assets/signature.png" alt="Van" class="signature-img" onerror="this.remove()" />
+          <span class="signature-fallback" data-i18n="heroSignatureAlt" aria-hidden="true">Van</span>
         </span>
       </h1>
 
       <div class="hero-titles">
-        <p class="hero-herald" data-i18n="heroHerald">first of her name,</p>
         <p class="chip"><span data-i18n="heroTitle1">destroyer of mental restrictions</span></p>
         <p class="chip"><span data-i18n="heroTitle2">the confidence dealer</span></p>
         <p class="chip"><span data-i18n="heroTitle3">breaker of stereotypes</span></p>
       </div>
 
       <figure class="hero-portrait">
-        <img src="assets/kris.jpg" alt="Kristina Wang" width="1063" height="1280" fetchpriority="high" />
+        <img src="assets/kris.jpg" alt="Kristina Van" width="1063" height="1280" fetchpriority="high" />
       </figure>
 
       <ul class="hero-arrows">
@@ -169,7 +175,7 @@
     <div class="shell">
       <header class="section-head">
         <span class="pill" data-i18n="aboutPill">About me</span>
-        <h2 class="section-title" data-i18n="aboutTitle">Hi, I'm Kristina Wang</h2>
+        <h2 class="section-title" data-i18n="aboutTitle">Hi, I'm Kristina Van</h2>
         <p class="section-lead" data-i18n="aboutIntro">I've emigrated three times since I was fourteen. That taught me three things: how to be at home in cultures that aren't mine, how to figure out money, relationships, health and work on my own, and how to talk to people in the language they actually experience the world in — without judging anything for being unfamiliar.</p>
       </header>
     </div>
@@ -404,7 +410,7 @@
   </section>
 
   <!-- ===================== CONTACT ===================== -->
-  <section class="section section--contact" id="contact">
+  <section class="section section--contact grain" id="contact">
     <div class="blob blob--orange" aria-hidden="true"></div>
     <div class="blob blob--blue2" aria-hidden="true"></div>
     <div class="shell">

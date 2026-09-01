@@ -1,6 +1,6 @@
 # direction.support
 
-Landing page for **Kristina Wang** — counselling psychologist and coach.
+Landing page for **Kristina Van** — counselling psychologist and coach.
 Static HTML/CSS/JS, no build step. Deployed at **direction.support**.
 
 ## Run locally
@@ -54,14 +54,30 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
 
 ## Design notes
 
-- **Type:** Inter throughout; Caveat only as the signature fallback.
-- **Colour:** baby pink + baby blue as flat section blocks, lilac and light
-  orange as single-card accents. One near-black for every button — the pastels
-  are the environment, the CTA is the only high-contrast thing on the page.
+- **Type:** Inter throughout; Caveat only as the signature fallback. **All type
+  is one colour, `--ink: #0A103C`** — a deep navy. `--ink-2/3/4` are tints of it,
+  not greys. Coloured marks (list bullets, ticks, the hero arrow glyphs, the
+  cell glyphs) stay as accents; only *text* is unified.
+- **Colour:** bubblegum pink + sky blue, for the dopamine pairing. Flat tints
+  as section blocks; gradients where two cells want energy (`.card--tint` is
+  pink→sky, `.price-row--main` is pink→lilac→sky). Lilac and light orange are
+  the single-cell accents. Buttons are `--ink`, so the CTA is the only
+  high-contrast thing on the page.
+- **Gradient orbs + grain:** `.blob` elements are soft radial gradients, and
+  `.grain` lays an `feTurbulence` SVG data-URI over the hero and contact at low
+  opacity with `mix-blend-mode: multiply` — the film-grain feel of the
+  watercolour and orb references.
 - **Hand-drawn chips** in the hero are plain CSS borders on a pseudo-element with
   an SVG `feTurbulence`/`feDisplacementMap` filter (`#wobble` in `index.html`),
   so the outline wobbles while the text stays crisp. Degrades to a clean pill
   where the filter is unsupported.
+- **The portrait surround** uses the same trick at a larger scale (`#wobble-blob`):
+  the pink shape is a `::before` layer with an organic `border-radius` pushed
+  through the filter, so its edge ripples like the drawn original, while the
+  photo sits on top untouched. There is no outline ring — the shape is the mark.
+- **The hero folio line** puts "counselling psychologist" hard left and "coach"
+  hard right on one baseline above the name, the way a magazine sets a running
+  head against a page number.
 - Respects `prefers-reduced-motion`; has a print stylesheet.
 
 ### v2: the hairline system

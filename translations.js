@@ -20,8 +20,7 @@ window.DIRECTION_SUPPORT_I18N = {
     heroRole: "counselling psychologist",
     heroRole2: "coach",
     heroName: "KRISTINA",
-    heroSignatureAlt: "Wang",
-    heroHerald: "first of her name,",
+    heroSignatureAlt: "Van",
     heroTitle1: "destroyer of mental restrictions",
     heroTitle2: "the confidence dealer",
     heroTitle3: "breaker of stereotypes",
@@ -49,7 +48,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- about ---- */
     aboutPill: "About me",
-    aboutTitle: "Hi, I'm Kristina Wang",
+    aboutTitle: "Hi, I'm Kristina Van",
     aboutIntro: "I've emigrated three times since I was fourteen. That taught me three things: how to be at home in cultures that aren't mine, how to figure out money, relationships, health and work on my own, and how to talk to people in the language they actually experience the world in — without judging anything for being unfamiliar.",
     aboutProTitle: "Professionally",
     aboutProList: [
@@ -254,7 +253,6 @@ window.DIRECTION_SUPPORT_I18N = {
     heroRole2: "коуч",
     heroName: "КРИСТИНА",
     heroSignatureAlt: "Ван",
-    heroHerald: "первая своего имени,",
     heroTitle1: "разрушительница внутренних ограничений",
     heroTitle2: "поставщица уверенности",
     heroTitle3: "укротительница стереотипов",
