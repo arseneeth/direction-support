@@ -61,6 +61,8 @@
     // then to the Caveat text, without ever leaving a broken image behind.
     var sig = document.querySelector('.signature-img');
     if (sig) sig.alt = t.heroSignatureAlt || sig.alt;
+
+    scheduleFolioSync();
   }
 
   function initI18n() {
@@ -82,6 +84,47 @@
       applyTranslations(next);
       paintToggle(next);
     });
+  }
+
+  /* --------------------------- hero folio width -------------------------
+     The folio line is constrained to the width of the name, so "coach" ends
+     exactly where "Van" does, at every breakpoint. The name's width depends on the
+     language, the viewport, the webfont and whether signature.png loaded, so
+     it is measured rather than guessed.
+  ----------------------------------------------------------------------- */
+
+  function syncFolioWidth() {
+    var name = document.querySelector('.hero-name');
+    var grid = document.querySelector('.hero-grid');
+    if (!name || !grid) return;
+
+    var kids = name.children;
+    var w = 0;
+    for (var i = 0; i < kids.length; i++) w += kids[i].getBoundingClientRect().width;
+    var gap = parseFloat(getComputedStyle(name).columnGap) || 0;
+    w += gap * Math.max(0, kids.length - 1);
+
+    grid.style.setProperty('--name-w', Math.ceil(w) + 'px');
+  }
+
+  // Measure now, then again once layout and webfonts have settled. Switching
+  // language pulls in a different subset of the script face, and measuring
+  // before it lands gives a width that is off by several pixels.
+  function scheduleFolioSync() {
+    syncFolioWidth();
+    requestAnimationFrame(syncFolioWidth);
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(syncFolioWidth);
+    }
+  }
+
+  function initFolioWidth() {
+    scheduleFolioSync();
+    window.addEventListener('resize', syncFolioWidth);
+    window.addEventListener('load', scheduleFolioSync);
+
+    var sig = document.querySelector('.signature-img');
+    if (sig) sig.addEventListener('load', scheduleFolioSync);
   }
 
   /* ------------------------------ mobile nav ---------------------------- */
@@ -233,6 +276,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initI18n();
+    initFolioWidth();
     initNav();
     initHeader();
     initScrollSpy();

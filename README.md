@@ -103,7 +103,13 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
   as a clean circle.
 - **The hero folio line** puts "counselling psychologist" hard left and "coach"
   hard right on one baseline above the name, the way a magazine sets a running
-  head against a page number.
+  head against a page number. Its width is matched to the name's, so "coach"
+  ends exactly where the surname does. That width can't be expressed in CSS —
+  it depends on the language, the viewport, the webfont and whether
+  `signature.png` loaded — so `script.js` measures it into `--name-w`.
+  It re-measures after `document.fonts.ready` on every language switch:
+  the script face loads a different subset per language, and measuring before
+  it lands is off by about ten pixels.
 - **The hero is a scattered composition.** Below the name, `.hero-stage` is a
   positioned box; the portrait and the three chips are placed on it by
   percentage, so the arrangement scales with the viewport. Under 900px the stage
