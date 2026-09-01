@@ -40,9 +40,33 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
 1. **Signature.** Export the hand-drawn `Ван` from Procreate as a transparent PNG
    (≈1200px wide, trimmed tight) and save it as `assets/signature.png`. Until then
    the page falls back to the Caveat typeface automatically — nothing breaks.
-2. **Certificates.** `#credentials` has four dashed placeholder slots. Drop images
-   into `assets/` and replace each `<span class="cert-slot">` with
-   `<img src="assets/cert-1.jpg" alt="…">`. The grid styles images already.
+2. **Certificates.** `#credentials` is already built for the eleven real
+   documents, with captions in both languages. Save them as
+   `assets/certs/01.jpg` … `11.jpg` in this order:
+
+   | # | Document |
+   |---|---|
+   | 01 | Nauka PSI2.0 — diploma, psychological counselling (PSY2.0), 1100 h |
+   | 02 | …its supplement, the 27-discipline transcript |
+   | 03 | …its supplement, qualification awarded |
+   | 04 | Academy of CPE — Business psychology, 256 h |
+   | 05 | CoachingUp University — International-level professional coach |
+   | 06 | EMDR Flash Institute — schema therapy and CBT, 56 h |
+   | 07 | International Institute of Psychology — psychoanalysis, 32 h |
+   | 08 | Training Centre "Resource" — first psychological aid, 30 h |
+   | 09 | Practical seminar — Interaction with the body, 32 h |
+   | 10 | Countertransference — 15 h, Berlin |
+   | 11 | Live Coaching — 65 h, Berlin |
+
+   Any file that isn't there yet shows a dashed placeholder rather than a broken
+   image, so the block never looks broken while you fill it in. `.jpg` only —
+   rename `.png`/`.heic` first, or change the extension in the markup.
+
+   The twelfth cell is a text cell ("originals on request") so the block always
+   divides evenly into 2, 3 or 4 columns.
+
+   Note these scans carry a patronymic, registration numbers and signatures.
+   That is your call to publish; crop or blur them first if you'd rather not.
 3. **Confirm the prices.** `pricing0/1/2` in `translations.js` currently use the
    numbers the live direction.support renders (free intro call, 360€/month).
    wowitskris.com says 99€/60min, and the old `index.html` defaults said

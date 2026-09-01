@@ -37,14 +37,6 @@ window.DIRECTION_SUPPORT_I18N = {
     heroMeta: "Online worldwide · English & Russian · Based in Germany",
 
     /* ---- stats strip ---- */
-    stat1Num: "1200+",
-    stat1Label: "hours of sessions",
-    stat2Num: "100+",
-    stat2Label: "hours of supervision",
-    stat3Num: "6 years",
-    stat3Label: "of my own therapy",
-    stat4Num: "4",
-    stat4Label: "languages, learning a 5th",
 
     /* ---- about ---- */
     aboutPill: "About me",
@@ -191,7 +183,18 @@ window.DIRECTION_SUPPORT_I18N = {
     credPill: "Credentials",
     credTitle: "Diplomas and certificates",
     credIntro: "Qualified practical psychologist, in continuous supervision since the first day of practice.",
-    credCaption: "Certificates available on request — happy to send them before you book.",
+    cert1: "Nauka PSI2.0 — diploma of professional retraining: psychological counselling, PSY2.0 method · 1100 h · 2024",
+    cert2: "Diploma supplement — 27 disciplines, 1100 hours",
+    cert3: "Diploma supplement — qualification: Practical psychologist, PSY2.0 consultant",
+    cert4: "Academy of Continuing Professional Education — Business psychology · 256 h · 2025",
+    cert5: "CoachingUp University — International-level professional coach · ICF Level 2, EMCC EQA Senior Practitioner, AC AADCT · 2026",
+    cert6: "EMDR Flash Institute — foundations of schema therapy and CBT · 56 h · 2023",
+    cert7: "International Institute of Psychology — Fundamentals of psychoanalysis · 32 h, 1.1 ECTS · 2024",
+    cert8: "Training Centre \u00abResource\u00bb — first psychological aid in crisis situations · 30 h",
+    cert9: "Practical seminar \u00abInteraction with the body\u00bb · 32 h · Budva, 2022",
+    cert10: "\u00abCountertransference\u00bb — training on working with countertransference · 15 h · Berlin, 2024",
+    cert11: "\u00abLive Coaching\u00bb — practical coaching for work and life · 65 h, incl. 25 h supervision · Berlin, 2024",
+    credCaption: "Originals available on request — happy to send any of them before you book.",
 
     /* ---- setting ---- */
     settingPill: "The setting",
@@ -269,14 +272,6 @@ window.DIRECTION_SUPPORT_I18N = {
     heroMeta: "Онлайн по всему миру · русский и английский · база в Германии",
 
     /* ---- stats ---- */
-    stat1Num: "1200+",
-    stat1Label: "часов консультаций",
-    stat2Num: "100+",
-    stat2Label: "часов супервизии",
-    stat3Num: "6 лет",
-    stat3Label: "личной терапии",
-    stat4Num: "4",
-    stat4Label: "языка, учу пятый",
 
     /* ---- about ---- */
     aboutPill: "Обо мне",
@@ -423,7 +418,18 @@ window.DIRECTION_SUPPORT_I18N = {
     credPill: "Квалификация",
     credTitle: "Дипломы и сертификаты",
     credIntro: "Дипломированный практический психолог, в постоянной супервизии с первого дня практики.",
-    credCaption: "Сертификаты высылаю по запросу — с радостью пришлю до записи.",
+    cert1: "«Наука ПСИ2.0» — диплом о профессиональной переподготовке: психологическое консультирование по методике PSY2.0 · 1100 ч · 2024",
+    cert2: "Приложение к диплому — 27 дисциплин, 1100 часов",
+    cert3: "Приложение к диплому — квалификация «Практический психолог. PSY2.0-консультант»",
+    cert4: "Академия ДПО и развития современных компетенций — «Психология в бизнесе» · 256 ч · 2025",
+    cert5: "CoachingUp University — международный профессиональный коуч · ICF Level 2, EMCC EQA Senior Practitioner, AC AADCT · 2026",
+    cert6: "Институт ЕМДР и ФЛЭШ терапии — основы схема-терапии и КПТ · 56 ч · 2023",
+    cert7: "Международный институт психологии — «Основы психоанализа» · 32 ч, 1,1 ECTS · 2024",
+    cert8: "Центр развития личности «Ресурс» — первая психологическая помощь в кризисных ситуациях · 30 ч",
+    cert9: "Практический семинар «Взаимодействие с телом» · 32 ч · Будва, 2022",
+    cert10: "«Контрперенос» — тренинг по работе с контрпереносом · 15 ч · Берлин, 2024",
+    cert11: "«Живой коучинг» — практический коучинг для работы и жизни · 65 ч, из них 25 ч супервизии · Берлин, 2024",
+    credCaption: "Оригиналы — по запросу, с радостью пришлю любой до записи.",
 
     /* ---- setting ---- */
     settingPill: "Сеттинг",

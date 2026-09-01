@@ -29,6 +29,8 @@
   --font-hand:"Caveat","Inter",cursive;
   --shell:1240px;
   --cell-y:clamp(1.5rem,2.6vw,2.2rem); --cell-x:clamp(1.25rem,3vw,2.6rem);
+  --grad-dopamine:linear-gradient(100deg,var(--pink-50),var(--lilac-100) 52%,var(--blue-50));
+  --grad-sun:linear-gradient(140deg,var(--orange-200),var(--orange-100) 66%,#FFF7EE);
   --r-lg:12px; --r-md:10px; --r-sm:8px;
   --shadow:0 1px 2px rgba(20,20,26,.04), 0 12px 32px -12px rgba(20,20,26,.10);
   --shadow-lift:0 2px 6px rgba(20,20,26,.05), 0 28px 60px -22px rgba(20,20,26,.20);
@@ -162,7 +164,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
     "head    head"
     "name    name"
     "titles  photo"
-    "arrows  photo"
     "cta     cta";
   column-gap:clamp(1.5rem,4vw,3.5rem);
 }
@@ -239,21 +240,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   object-fit:cover;object-position:50% 18%;
 }
 
-/* from → to lines */
-.hero-arrows{
-  grid-area:arrows;align-self:end;
-  display:flex;flex-direction:column;gap:.35rem;
-  margin-top:clamp(1.6rem,4vw,3rem);
-  color:var(--ink);
-}
-.hero-arrows li{
-  display:flex;align-items:baseline;flex-wrap:wrap;gap:.1rem .55rem;
-  font-size:clamp(.92rem,1.55vw,1.1rem);line-height:1.45;letter-spacing:-.012em;
-}
-.hero-arrows .arrow{width:1.35em;flex-shrink:0;align-self:center;transform:translateY(.08em);color:var(--blue-400)}
-.hero-arrows .from{color:var(--ink-3)}
-.hero-arrows .to{font-weight:500}
-
 .hero-cta{
   grid-area:cta;display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;
   margin-top:clamp(2rem,4vw,3rem);
@@ -261,14 +247,15 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-meta{flex-basis:100%;margin:.35rem 0 0;font-size:.88rem;color:var(--ink-3)}
 
 /* ===========================  STATS  =========================== */
-.stats{background:#fff;padding-block:clamp(2rem,4vw,3rem)}
-/* gap + per-cell outline: one shared hairline, and no colour bleeding into
-   the container's own horizontal padding. */
-.stats{padding-block:0}
-.stats-grid{grid-template-columns:repeat(2,1fr)}
-.stat{text-align:center;display:flex;flex-direction:column;gap:.15rem}
-.stat-num{font-size:clamp(1.6rem,3.6vw,2.4rem);font-weight:300;letter-spacing:-.035em;color:var(--ink);line-height:1}
-.stat-label{font-size:.85rem;color:var(--ink-3)}
+.shifts{background:#fff}
+.shifts-grid{grid-template-columns:repeat(2,1fr)}
+.shift{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.25rem}
+.shift-from{color:var(--ink-3);font-size:.95rem;line-height:1.4}
+.shift .arrow{width:1.5em;color:var(--blue-400);margin:.15rem 0}
+.shift-to{
+  color:var(--ink);font-weight:500;
+  font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.4;letter-spacing:-.015em;
+}
 
 /* ===========================  SECTIONS  =========================== */
 .section{position:relative;padding:clamp(3.5rem,8vw,7rem) 0;overflow:hidden}
@@ -346,11 +333,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* tinted cells sit after the base so they win the background */
 .card--tint{background:linear-gradient(135deg,var(--pink-50),var(--blue-50))}
 .card--limits{background:linear-gradient(140deg,var(--orange-100),#fff 78%)}
-.card--ink{background:var(--ink)}
-.card--ink .card-title{color:#fff}
-.card--ink p{color:rgba(255,255,255,.72)}
-.card--ink::before{color:rgba(255,255,255,.42)}
-.card--ink:hover{background:#1e1e26}
+.card--sun{background:var(--grad-sun)}
+.card--sun:hover{background:linear-gradient(140deg,var(--orange-200),var(--orange-200) 70%,var(--orange-100))}
+.shift--dopamine,.journey-step--dopamine{background:var(--grad-dopamine)}
+.shift--sun{background:var(--grad-sun)}
 
 /* geometric glyphs — the "stable" motif */
 .glyph{display:block;width:26px;height:26px;margin-bottom:1.1rem;flex-shrink:0}
@@ -411,7 +397,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   grid-template-columns:auto minmax(150px,210px) minmax(0,1fr) auto auto;
   gap:.75rem clamp(1.25rem,2.4vw,2.5rem);
 }
-.price-row--main{background:linear-gradient(100deg,var(--pink-50),var(--lilac-100) 52%,var(--blue-50))}
+.price-row--main{background:var(--grad-dopamine)}
 .price-num{
   display:grid;place-items:center;
   width:64px;height:64px;border-radius:50%;
@@ -447,18 +433,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- credentials ---------- */
 .cert-grid{display:grid;grid-template-columns:repeat(2,1fr)}
-.cert-slot{position:relative;display:grid;place-items:center}
-.cert-slot::after{
-  content:"";width:44px;height:44px;border-radius:50%;
-  border:2px dashed var(--blue-200);
-  background:radial-gradient(circle at 50% 50%,var(--blue-50) 42%,transparent 43%);
+.cert{display:flex;flex-direction:column;gap:.8rem;text-decoration:none;color:inherit}
+.cert img{
+  width:100%;aspect-ratio:3/4;display:block;
+  object-fit:contain;object-position:center top;background:#fff;
+  transition:opacity .25s var(--ease);
 }
-.cert-grid>*{aspect-ratio:3/4;padding:0}
-.cert-slot::before{
-  content:"";position:absolute;inset:clamp(.9rem,2vw,1.4rem);
+.cert:hover img{opacity:.85}
+.cert-cap{font-size:.78rem;line-height:1.45;color:var(--ink-3)}
+/* a document that hasn't been saved yet reads as an intentional placeholder */
+.cert.is-missing img{display:none}
+.cert.is-missing::before{
+  content:"";width:100%;aspect-ratio:3/4;
   border:1px dashed var(--blue-300);border-radius:var(--r-sm);
 }
-.cert-grid img{object-fit:cover;width:100%;height:100%}
+.cert--note{
+  display:flex;align-items:center;justify-content:center;text-align:center;
+  font-size:.92rem;color:var(--ink-3);
+}
 
 /* ---------- reviews ---------- */
 .reviews{display:grid;grid-template-columns:1fr}
@@ -516,6 +508,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    6 cells: 1 / 2 / 3   |   3 cells: 1 / 3   |   4 cells: 2 / 4   |   2 cells: 1 / 2
 ------------------------------------------------------------------ */
 @media (min-width:680px){
+  .cert-grid{grid-template-columns:repeat(3,1fr)}
   /* topics has 3 cells, so it skips the 2-column stage */
   .grid-3:not(.grid-3--tight){grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:repeat(2,1fr)}
@@ -526,7 +519,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
      .grid-3 would lose to the 680px rule no matter the source order. */
   .grid-3:not(.grid-3--tight){grid-template-columns:repeat(3,1fr)}
   .grid-3--tight,.safety-grid,.journey{grid-template-columns:repeat(3,1fr)}
-  .cert-grid,.stats-grid{grid-template-columns:repeat(4,1fr)}
+  .cert-grid,.shifts-grid{grid-template-columns:repeat(4,1fr)}
 }
 
 /* ===========================  MOTION  =========================== */
@@ -553,13 +546,16 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   html{scroll-padding-top:76px}
   .hero-grid{
     grid-template-columns:1fr;
-    grid-template-areas:"head" "name" "photo" "titles" "arrows" "cta";
+    grid-template-areas:"head" "name" "photo" "titles" "cta";
     row-gap:0;
   }
-  .hero-name{flex-wrap:wrap;gap:.2rem .8rem;margin-bottom:1.6rem}
-  .hero-name-text{font-size:clamp(2.9rem,14vw,5rem)}
-  .signature-img{height:clamp(2.4rem,11vw,4rem)}
-  .signature-fallback{font-size:clamp(2.9rem,14vw,5rem)}
+  /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
+     type scales down with the viewport instead of wrapping the surname. */
+  .hero-name{flex-wrap:nowrap;gap:.4rem;align-items:baseline;margin-bottom:1.6rem}
+  .hero-name-text{font-size:min(9.4vw,3.4rem)}
+  .signature{flex-shrink:0}
+  .signature-img{height:min(9vw,3.1rem)}
+  .signature-fallback{font-size:min(10.4vw,3.7rem)}
   .hero-portrait{max-width:min(74vw,300px);justify-self:start;margin-bottom:2rem}
   .hero-arrows{margin-top:1.9rem}
   .hero-arrows{gap:1.15rem}
