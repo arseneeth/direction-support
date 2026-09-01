@@ -98,34 +98,43 @@
     <div class="blob blob--blue" aria-hidden="true"></div>
     <div class="blob blob--lilac" aria-hidden="true"></div>
 
-    <div class="shell hero-grid">
+    <!-- The hero is sliced into cells like the rest of the page. Cells are
+         transparent so the gradient orbs read through them; the hairlines are
+         per-cell borders, with the outer ones dropped so the grid runs flush
+         to both page edges. -->
+    <div class="hero-grid">
 
-      <div class="hero-runninghead">
+      <div class="hero-cell hc-role-l">
         <p class="hero-role" data-i18n="heroRole">counselling psychologist</p>
+      </div>
+      <div class="hero-cell hc-role-r">
         <p class="hero-role" data-i18n="heroRole2">coach</p>
       </div>
 
-      <h1 class="hero-name">
-        <span class="hero-name-text" data-i18n="heroName">KRISTINA</span>
-        <span class="signature">
-          <img src="assets/signature.png" alt="Van" class="signature-img" onerror="this.remove()" />
-          <span class="signature-fallback" data-i18n="heroSignatureAlt" aria-hidden="true">Van</span>
-        </span>
-      </h1>
-
-      <div class="hero-titles">
-        <p class="chip"><span data-i18n="heroTitle1">destroyer of mental restrictions</span></p>
-        <p class="chip"><span data-i18n="heroTitle2">the confidence dealer</span></p>
-        <p class="chip"><span data-i18n="heroTitle3">breaker of stereotypes</span></p>
+      <div class="hero-cell hc-name">
+        <h1 class="hero-name">
+          <span class="hero-name-text" data-i18n="heroName">KRISTINA</span>
+          <span class="signature">
+            <img src="assets/signature.png" alt="Van" class="signature-img" onerror="this.remove()" />
+            <span class="signature-fallback" data-i18n="heroSignatureAlt" aria-hidden="true">Van</span>
+          </span>
+        </h1>
       </div>
 
-      <figure class="hero-portrait">
-        <img src="assets/kris.jpg" alt="Kristina Van" width="1063" height="1280" fetchpriority="high" />
-      </figure>
+      <div class="hero-cell hc-chip hc-chip-1"><p class="chip"><span data-i18n="heroTitle1">destroyer of mental restrictions</span></p></div>
+      <div class="hero-cell hc-chip hc-chip-2"><p class="chip"><span data-i18n="heroTitle2">the confidence dealer</span></p></div>
+      <div class="hero-cell hc-chip hc-chip-3"><p class="chip"><span data-i18n="heroTitle3">breaker of stereotypes</span></p></div>
 
+      <div class="hero-cell hc-photo">
+        <figure class="hero-portrait">
+          <img src="assets/kris.jpg" alt="Kristina Van" width="1063" height="1280" fetchpriority="high" />
+        </figure>
+      </div>
 
-      <div class="hero-cta">
+      <div class="hero-cell hc-cta">
         <a href="#contact" class="btn btn-primary" data-i18n="heroBook">Book a free intro call</a>
+      </div>
+      <div class="hero-cell hc-contact">
         <a href="https://t.me/wowitskris" class="btn btn-ghost" target="_blank" rel="noopener" data-i18n="heroSecondary">Text me instead</a>
         <p class="hero-meta" data-i18n="heroMeta">Online worldwide · English &amp; Russian · Based in Germany</p>
       </div>

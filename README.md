@@ -101,9 +101,18 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
   filter was tried here and read as noise at this size; don't reach for one.
   There is no outline ring — the shape is the mark, and the photo sits on top
   as a clean circle.
-- **The hero folio line** puts "counselling psychologist" hard left and "coach"
-  hard right on one baseline above the name, the way a magazine sets a running
-  head against a page number.
+- **The hero is sliced into cells** like every other block: a folio row split in
+  two, the name spanning both columns, the three chips stacked as their own rows
+  on the left, the portrait spanning those rows on the right, and a bottom row
+  of CTA + contact.
+
+  It cannot use `.modular`, though. That mechanism needs opaque cells (its
+  hairlines are a `box-shadow` sitting in a 1px gap), and the hero's cells have
+  to stay transparent so the gradient orbs read through them. So the hero uses
+  per-cell `border-right` / `border-bottom` instead, with the outer edges
+  dropped so the grid runs flush to both page edges. Cell placement is explicit
+  (`grid-area: row/col`), and the mobile rules reset it to `auto` and use
+  `order`, keeping the folio row's two columns.
 - Respects `prefers-reduced-motion`; has a print stylesheet.
 
 ### v2: the hairline system
