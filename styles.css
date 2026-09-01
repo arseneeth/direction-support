@@ -163,7 +163,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   grid-template-areas:
     "head"
     "name"
-    "stage"
+    "figure"
+    "tagline"
     "cta";
 }
 
@@ -184,72 +185,67 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-runninghead .hero-role:last-child{text-align:right}
 
 .hero-name{
+  --fs:clamp(3rem,12.6vw,10.5rem);
   grid-area:name;
-  display:flex;align-items:center;gap:clamp(.4rem,1.6vw,1.4rem);
+  display:flex;align-items:baseline;gap:clamp(0px,.4vw,.4rem);
   flex-wrap:nowrap;
   margin:0 0 clamp(1rem,2.5vw,1.6rem);
 }
 .hero-name-text{
-  font-weight:300;font-size:clamp(3rem,12.6vw,10.5rem);
+  font-weight:200;font-size:var(--fs);
   letter-spacing:-.045em;line-height:.86;color:var(--ink);white-space:nowrap;
 }
 .signature{display:inline-flex;align-items:center;flex-shrink:1;min-width:0}
-.signature-img{height:clamp(2.6rem,10vw,8rem);width:auto;object-fit:contain}
+.signature-img{height:calc(var(--fs) * 1.42);width:auto;object-fit:contain}
 /* Shown only when signature.png is absent (the <img> removes itself on error). */
 .signature-img+.signature-fallback{display:none}
 .signature-fallback{
   font-family:var(--font-hand);font-weight:600;
-  font-size:clamp(3rem,12vw,10rem);line-height:.8;color:var(--ink);
+  font-size:calc(var(--fs) * 1.38);line-height:.8;color:var(--ink);
   transform:rotate(-4deg);white-space:nowrap;
 }
 
 /* hand-drawn outline chips */
-/* ---- the stage: everything below the name is placed by percentage ---- */
-.hero-stage{
-  grid-area:stage;position:relative;
-  height:clamp(320px,31vw,455px);
+/* ---- bracketed figure --------------------------------------------------
+   --fig drives the whole group: the photo's size, and the parentheses, which
+   are real type. They're set small and stretched with scaleY so they grow
+   tall without growing wide — parens large enough to match the photo's height
+   at their natural width would push the group off a phone screen.
+------------------------------------------------------------------------- */
+.hero-figure{
+  --fig:clamp(170px,34vw,330px);
+  grid-area:figure;
+  display:flex;align-items:center;justify-content:center;
+  gap:clamp(.4rem,1.4vw,1.1rem);
+  margin-bottom:clamp(1.5rem,3.5vw,2.75rem);
 }
-/* scoped to .hero-stage so they outrank the plain .chip{position:relative}
-   declared further down the file */
-.hero-stage .chip{position:absolute;white-space:nowrap}
-.hero-stage .chip--a{left:0;top:26%}
-.hero-stage .chip--b{left:7%;top:63%}
-.hero-stage .chip--c{left:55%;top:64%}
-.chip{position:relative;display:inline-block;margin:0;padding:.5rem 1.15rem;max-width:100%}
-.chip>span{
-  position:relative;z-index:1;
-  font-size:clamp(.98rem,1.9vw,1.32rem);color:var(--ink);letter-spacing:-.015em;
+.hero-asterisk{
+  font-size:calc(var(--fig) * .5);line-height:1;
+  color:var(--pink-300);font-weight:400;
+  margin-right:clamp(.2rem,1vw,.9rem);
+  align-self:flex-start;
 }
-.chip::before,.chip::after{
-  content:"";position:absolute;inset:0;border-radius:999px;
-  border:1.7px solid var(--blue-300);
-  filter:url(#wobble);
-}
-.chip::after{inset:2px -3px;border-color:var(--blue-200);opacity:.75;filter:url(#wobble-soft)}
-@supports not (filter:url(#wobble)){
-  .chip::after{display:none}
-  .chip::before{filter:none}
+.hero-paren{
+  font-size:calc(var(--fig) * .66);line-height:1;
+  color:var(--pink-300);font-weight:400;
+  display:inline-block;transform:scaleY(2);
 }
 
-/* portrait */
-/* uneven, hand-drawn pink surround — the shape only, no outline */
-.hero-portrait{
-  position:absolute;left:24%;top:0;
-  margin:0;width:27%;min-width:170px;aspect-ratio:1;
-  padding:clamp(16px,2.2vw,30px);
-  position:relative;
+/* ---- the single uppercase line that replaced the chips ---- */
+.hero-tagline{
+  grid-area:tagline;margin:0 0 clamp(1.75rem,3.5vw,2.75rem);
+  font-size:clamp(.82rem,1.7vw,1.45rem);
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--ink);line-height:1.35;
 }
-/* The pink surround is its own layer so the photo stays a clean circle on top.
-   Shape is a plain 8-value border-radius: four elliptical arcs, so the outline
-   is smooth by construction — a couple of slow curves, not a jittery edge. */
-.hero-portrait::before{
-  content:"";position:absolute;inset:0;
-  background:var(--pink-200);
-  border-radius:64% 36% 44% 56% / 44% 58% 42% 56%;
+
+/* portrait: a plain square held between the brackets */
+.hero-portrait{
+  margin:0;width:var(--fig);aspect-ratio:1;
+  position:relative;flex-shrink:0;
 }
 .hero-portrait img{
-  position:relative;z-index:1;
-  width:100%;height:100%;border-radius:50%;
+  width:100%;height:100%;border-radius:0;
   object-fit:cover;object-position:50% 18%;
 }
 
@@ -557,29 +553,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 @media (max-width:900px){
   html{scroll-padding-top:76px}
-  /* the scattered arrangement collapses to a plain stack */
-  .hero-stage{height:auto;display:flex;flex-direction:column;align-items:flex-start;gap:.6rem}
-  .stage-shape{display:none}
-  .hero-stage .chip{position:relative;left:auto;top:auto;white-space:normal}
-  .hero-stage .chip--a{order:3}
-  .hero-stage .chip--b{order:2}
-  .hero-stage .chip--c{order:4}
   /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
      type scales down with the viewport instead of wrapping the surname. */
-  .hero-name{flex-wrap:nowrap;gap:.4rem;align-items:baseline;margin-bottom:1.6rem}
-  .hero-name-text{font-size:min(9.4vw,3.4rem)}
+  .hero-name{--fs:min(9.4vw,3.4rem);flex-wrap:nowrap}
   .signature{flex-shrink:0}
-  .signature-img{height:min(9vw,3.1rem)}
-  .signature-fallback{font-size:min(10.4vw,3.7rem)}
-  .hero-portrait{
-    position:relative;left:auto;top:auto;order:1;
-    width:min(72vw,300px);margin-bottom:1.6rem;
-  }
-  .hero-arrows{margin-top:1.9rem}
-  .hero-arrows{gap:1.15rem}
-  .hero-arrows li{flex-direction:column;align-items:flex-start;gap:.05rem}
-  .hero-arrows .arrow{align-self:flex-start;transform:rotate(90deg);margin:.15rem 0 .15rem .3rem;width:1.1em}
-  .hero-cta{margin-top:2.25rem}
+  .hero-figure{--fig:clamp(150px,40vw,260px);gap:.3rem}
+  /* the folio is only as wide as the name here (~195px at 375), so the label
+     and the gap both shrink to keep it on one line beside "coach" */
+  .hero-role{font-size:.72rem}
+  .hero-runninghead{gap:.4rem}
+  .hero-tagline{margin-bottom:1.25rem}
+  .hero-cta{margin-top:.75rem}
   .hero-cta .btn{flex:1 1 220px}
 }
 

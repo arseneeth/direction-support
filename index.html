@@ -16,7 +16,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:ital,opsz,wght@0,14..32,300..700;1,14..32,400..700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600&family=Inter:ital,opsz,wght@0,14..32,200..700;1,14..32,400..700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="styles.css" />
 
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet" />
@@ -113,19 +113,19 @@
         </span>
       </h1>
 
-      <!-- Scattered composition: the portrait sits centre-left with the three
-           chips floated around it. Positions are percentages of the stage, so
-           the arrangement scales; below 900px it collapses to a plain stack. -->
-      <div class="hero-stage">
+      <!-- Bracketed figure: pink asterisk, then the portrait held between two
+           oversized parentheses. The parens are type, scaled vertically so they
+           stay tall and narrow rather than widening the whole group. -->
+      <div class="hero-figure">
+        <span class="hero-asterisk" aria-hidden="true">*</span>
+        <span class="hero-paren" aria-hidden="true">(</span>
         <figure class="hero-portrait">
           <img src="assets/kris.jpg" alt="Kristina Van" width="1063" height="1280" fetchpriority="high" />
         </figure>
-
-        <p class="chip chip--b"><span data-i18n="heroTitle1">destroyer of mental restrictions</span></p>
-        <p class="chip chip--c"><span data-i18n="heroTitle2">the confidence dealer</span></p>
-        <p class="chip chip--a"><span data-i18n="heroTitle3">breaker of stereotypes</span></p>
+        <span class="hero-paren" aria-hidden="true">)</span>
       </div>
 
+      <p class="hero-tagline" data-i18n="heroTagline">The destroyer of mental restrictions and the confidence dealer</p>
 
       <div class="hero-cta">
         <a href="#contact" class="btn btn-primary" data-i18n="heroBook">Book a free intro call</a>

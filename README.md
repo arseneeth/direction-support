@@ -110,44 +110,18 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
   It re-measures after `document.fonts.ready` on every language switch:
   the script face loads a different subset per language, and measuring before
   it lands is off by about ten pixels.
-- **The hero is a scattered composition.** Below the name, `.hero-stage` is a
-  positioned box; the portrait and the three chips are placed on it by
-  percentage, so the arrangement scales with the viewport. Under 900px the stage
-  becomes a flex column and everything stacks.
-
-  Two things bite here. The chip placement has to be scoped as
-  `.hero-stage .chip` — plain `.chip{position:relative}` is declared further
-  down the file at equal specificity and would otherwise win, leaving the chips
-  in normal flow with the offsets silently ignored. And the mobile override must
-  use `position: relative`, never `static`: `.chip` and `.hero-portrait` draw
-  their outline and their pink shape as `::before` layers at `inset: 0`, so
-  making them unpositioned sizes those layers against `.hero-stage` instead —
-  the chip outlines stretch across the whole hero and the pink blob swallows it.
-- Respects `prefers-reduced-motion`; has a print stylesheet.
-
-### v2: the hairline system
-
-v2 swaps floating shadow-cards for drawn structure, keeping small radii so it
-stays warm rather than cold:
-
-- `.modular` turns a grid into one continuous hairline table — `gap:1px` plus
-  `box-shadow:0 0 0 1px` on each cell, so adjacent cells share a single rule and
-  an empty trailing slot stays blank instead of showing a filled block. Used by
-  *How I work*, *Topics* and *Is it safe?*.
-- Each modular cell gets a rotated `01/02/03` index from a CSS counter — no
-  markup and nothing to translate.
-- `.card--ink` is the one solid block per grid, straight off the reference board.
-- Big thin outlined circles carry the pricing and journey numerals.
-- `--rule` / `--rule-soft` are the hairline tokens; `--line` stays for softer
-  internal dividers.
-
-**Every block is full-bleed.** Section headings stay inside `.shell`; the blocks
-themselves sit as direct children of the `<section>` so they run edge to edge,
-with only a rule above and below. The page reads as one column of contiguous
-rectangles rather than floating cards.
-
-**Pricing is a row list**, not cards — circled numeral, title, description,
-price, CTA — collapsing to a stack under 900px.
+- **The hero is a bracketed figure.** The portrait is a plain square held
+  between two oversized pink parentheses, with an asterisk to the left. The
+  parens are real type: `--fig` sets the photo size, and they are set at a
+  fraction of it and stretched with `scaleY(2)`. That matters — parens large
+  enough to match the photo's height at their natural width are wide enough to
+  push the whole group off a phone screen, since a paren's advance grows with
+  its point size.
+- **The name** is Inter 200 (closest weight to Helvetica Neue Thin), with the
+  signature tucked almost flush against it at 1.42x the name's font size, both
+  driven off `--fs` so they scale together.
+- On mobile the folio label and its gap shrink, because the folio is only as
+  wide as the name there (~195px at 375) and would otherwise wrap to two lines.
 
 ### Two traps in this layout
 
@@ -166,6 +140,8 @@ instead — that's why `.stats` works the way it does.
 
 ## Tagline alternatives
 
-The three hero titles are Game-of-Thrones-style epithets. Alternatives are listed
-in a comment above the hero in `index.html` — swap `heroTitle1/2/3` in
-`translations.js` to try them; the layout takes any length.
+The hero carries one uppercase line, `heroTagline` in `translations.js` — the
+Game-of-Thrones-style epithets joined with "and". Alternatives are listed in a
+comment above the hero in `index.html`. It wraps freely, so length is not a
+constraint. Note the drawn version dropped "breaker of stereotypes"; add it back
+into the same string if you want all three.
