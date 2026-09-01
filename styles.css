@@ -1,6 +1,3 @@
-.hc-cta .btn{width:auto}
-.hero-meta{margin:0;font-size:.85rem;color:var(--ink-3)}
-
 /* ===========================================================================
    direction.support — Kristina Wang
    Palette: baby pink + baby blue, with lilac and light-orange accents.
@@ -158,71 +155,53 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ===========================  HERO  =========================== */
-.hero{position:relative;padding:0;overflow:hidden}
-
-/* --- the hero as a sliced grid ---------------------------------------------
-   Cells stay transparent so the gradient orbs read through, which rules out
-   the .modular box-shadow trick (that needs an opaque cell). Hairlines are
-   per-cell borders instead, and the cells on the outer edges drop theirs so
-   the grid runs flush to both page edges.
---------------------------------------------------------------------------- */
+.hero{position:relative;padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,7vw,6rem);overflow:hidden}
 .hero-grid{
   position:relative;z-index:1;
   display:grid;
-  grid-template-columns:1fr 1fr;
-}
-.hero-cell{
-  position:relative;
-  padding:var(--cell-y) var(--cell-x);
-  border-right:1px solid var(--rule);
-  border-bottom:1px solid var(--rule);
-  min-width:0;
-}
-.hc-role-l{grid-area:1/1}
-.hc-role-r{grid-area:1/2;border-right:0;text-align:right}
-.hc-name{grid-area:2/1/3/3;border-right:0;padding-block:clamp(.35rem,1vw,.9rem)}
-.hc-chip{display:flex;align-items:center}
-.hc-chip-1{grid-area:3/1}
-.hc-chip-2{grid-area:4/1}
-.hc-chip-3{grid-area:5/1}
-.hc-photo{
-  grid-area:3/2/6/3;border-right:0;
-  display:flex;align-items:center;justify-content:center;
-}
-.hc-cta{
-  grid-area:6/1;border-bottom:0;
-  display:flex;align-items:center;
-  background:var(--grad-dopamine);
-}
-.hc-contact{
-  grid-area:6/2;border-right:0;border-bottom:0;
-  display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.7rem;
+  grid-template-columns:minmax(0,1fr) minmax(0,360px);
+  grid-template-areas:
+    "head    head"
+    "name    name"
+    "titles  photo"
+    "cta     cta";
+  column-gap:clamp(1.5rem,4vw,3.5rem);
 }
 
+/* running head: a label out to each edge, like a magazine folio line */
+.hero-runninghead{
+  grid-area:head;align-self:end;
+  display:flex;justify-content:space-between;align-items:baseline;
+  gap:1rem;margin-bottom:.35rem;
+}
 .hero-role{
   font-style:italic;font-weight:600;font-size:clamp(.88rem,1.6vw,1.2rem);
   color:var(--ink);letter-spacing:.01em;margin:0;
 }
+.hero-runninghead .hero-role:last-child{text-align:right}
 
 .hero-name{
+  grid-area:name;
   display:flex;align-items:center;gap:clamp(.4rem,1.6vw,1.4rem);
-  flex-wrap:nowrap;margin:0;
+  flex-wrap:nowrap;
+  margin:0 0 clamp(1rem,2.5vw,1.6rem);
 }
 .hero-name-text{
-  font-weight:300;font-size:clamp(3rem,12.6vw,11.5rem);
-  letter-spacing:-.045em;line-height:.9;color:var(--ink);white-space:nowrap;
+  font-weight:300;font-size:clamp(3rem,12.6vw,10.5rem);
+  letter-spacing:-.045em;line-height:.86;color:var(--ink);white-space:nowrap;
 }
-.signature{display:inline-flex;align-items:center;flex-shrink:0;min-width:0}
-.signature-img{height:clamp(2.6rem,9.8vw,8.6rem);width:auto;object-fit:contain}
+.signature{display:inline-flex;align-items:center;flex-shrink:1;min-width:0}
+.signature-img{height:clamp(2.6rem,10vw,8rem);width:auto;object-fit:contain}
 /* Shown only when signature.png is absent (the <img> removes itself on error). */
 .signature-img+.signature-fallback{display:none}
 .signature-fallback{
   font-family:var(--font-hand);font-weight:600;
-  font-size:clamp(3rem,12vw,10.8rem);line-height:.8;color:var(--ink);
+  font-size:clamp(3rem,12vw,10rem);line-height:.8;color:var(--ink);
   transform:rotate(-4deg);white-space:nowrap;
 }
 
 /* hand-drawn outline chips */
+.hero-titles{grid-area:titles;display:flex;flex-direction:column;align-items:flex-start;gap:.55rem}
 .chip{position:relative;display:inline-block;margin:0;padding:.5rem 1.15rem;max-width:100%}
 .chip>span{
   position:relative;z-index:1;
@@ -242,7 +221,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* portrait */
 /* uneven, hand-drawn pink surround — the shape only, no outline */
 .hero-portrait{
-  margin:0;width:100%;max-width:340px;aspect-ratio:1;
+  grid-area:photo;margin:0;align-self:start;justify-self:center;
+  width:100%;max-width:360px;aspect-ratio:1;
   padding:clamp(16px,2.2vw,30px);
   position:relative;
 }
@@ -564,21 +544,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 @media (max-width:900px){
   html{scroll-padding-top:76px}
-  /* one slice per row, except the folio line, which keeps its two columns.
-     Every cell is auto-placed here, so `order` controls the sequence. */
-  .hero-grid{grid-template-columns:1fr 1fr}
-  .hero-cell{grid-area:auto;grid-column:1 / -1;border-right:0}
-  .hc-role-l{grid-column:1 / 2;border-right:1px solid var(--rule);order:1}
-  .hc-role-r{grid-column:2 / 3;order:2}
-  .hc-name{order:3}
-  .hc-photo{order:4}
-  .hc-chip-1{order:5}
-  .hc-chip-2{order:6}
-  .hc-chip-3{order:7}
-  .hc-cta{order:8}
-  .hc-contact{order:9;border-bottom:0;align-items:stretch}
-  .hc-cta .btn,.hc-contact .btn{width:100%}
-  .hero-meta{text-align:center}
+  .hero-grid{
+    grid-template-columns:1fr;
+    grid-template-areas:"head" "name" "photo" "titles" "cta";
+    row-gap:0;
+  }
   /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
      type scales down with the viewport instead of wrapping the surname. */
   .hero-name{flex-wrap:nowrap;gap:.4rem;align-items:baseline;margin-bottom:1.6rem}
