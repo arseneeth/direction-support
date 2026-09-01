@@ -71,10 +71,12 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
   an SVG `feTurbulence`/`feDisplacementMap` filter (`#wobble` in `index.html`),
   so the outline wobbles while the text stays crisp. Degrades to a clean pill
   where the filter is unsupported.
-- **The portrait surround** uses the same trick at a larger scale (`#wobble-blob`):
-  the pink shape is a `::before` layer with an organic `border-radius` pushed
-  through the filter, so its edge ripples like the drawn original, while the
-  photo sits on top untouched. There is no outline ring — the shape is the mark.
+- **The portrait surround** is a `::before` layer with an 8-value
+  `border-radius` — four elliptical arcs, so the outline is smooth by
+  construction: a couple of slow curves, water rather than jitter. A turbulence
+  filter was tried here and read as noise at this size; don't reach for one.
+  There is no outline ring — the shape is the mark, and the photo sits on top
+  as a clean circle.
 - **The hero folio line** puts "counselling psychologist" hard left and "coach"
   hard right on one baseline above the name, the way a magazine sets a running
   head against a page number.

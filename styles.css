@@ -225,16 +225,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   padding:clamp(16px,2.2vw,30px);
   position:relative;
 }
-/* the pink surround is its own layer, run through a turbulence filter so the
-   edge ripples like the drawn original. The photo sits on top, untouched. */
+/* The pink surround is its own layer so the photo stays a clean circle on top.
+   Shape is a plain 8-value border-radius: four elliptical arcs, so the outline
+   is smooth by construction — a couple of slow curves, not a jittery edge. */
 .hero-portrait::before{
   content:"";position:absolute;inset:0;
   background:var(--pink-200);
-  border-radius:59% 41% 45% 55% / 48% 57% 43% 52%;
-  filter:url(#wobble-blob);
-}
-@supports not (filter:url(#wobble-blob)){
-  .hero-portrait::before{filter:none;border-radius:62% 38% 44% 56% / 47% 60% 40% 53%}
+  border-radius:64% 36% 44% 56% / 44% 58% 42% 56%;
 }
 .hero-portrait img{
   position:relative;z-index:1;

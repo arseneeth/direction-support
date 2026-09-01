@@ -41,11 +41,6 @@
       <feTurbulence type="fractalNoise" baseFrequency="0.018 0.05" numOctaves="3" seed="7" result="noise" />
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="4" xChannelSelector="R" yChannelSelector="G" />
     </filter>
-    <!-- big soft undulation for the portrait surround -->
-    <filter id="wobble-blob" x="-15%" y="-15%" width="130%" height="130%" filterUnits="objectBoundingBox">
-      <feTurbulence type="fractalNoise" baseFrequency="0.006 0.009" numOctaves="2" seed="4" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="26" xChannelSelector="R" yChannelSelector="G" />
-    </filter>
     <filter id="wobble-soft" x="-6%" y="-30%" width="112%" height="160%" filterUnits="objectBoundingBox">
       <feTurbulence type="fractalNoise" baseFrequency="0.02 0.06" numOctaves="2" seed="19" result="noise" />
       <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.5" xChannelSelector="R" yChannelSelector="G" />
