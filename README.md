@@ -104,6 +104,19 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
 - **The hero folio line** puts "counselling psychologist" hard left and "coach"
   hard right on one baseline above the name, the way a magazine sets a running
   head against a page number.
+- **The hero is a scattered composition.** Below the name, `.hero-stage` is a
+  positioned box; the portrait and the three chips are placed on it by
+  percentage, so the arrangement scales with the viewport. Under 900px the stage
+  becomes a flex column and everything stacks.
+
+  Two things bite here. The chip placement has to be scoped as
+  `.hero-stage .chip` — plain `.chip{position:relative}` is declared further
+  down the file at equal specificity and would otherwise win, leaving the chips
+  in normal flow with the offsets silently ignored. And the mobile override must
+  use `position: relative`, never `static`: `.chip` and `.hero-portrait` draw
+  their outline and their pink shape as `::before` layers at `inset: 0`, so
+  making them unpositioned sizes those layers against `.hero-stage` instead —
+  the chip outlines stretch across the whole hero and the pink blob swallows it.
 - Respects `prefers-reduced-motion`; has a print stylesheet.
 
 ### v2: the hairline system
