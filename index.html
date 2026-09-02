@@ -58,9 +58,9 @@
     </a>
 
     <nav class="site-nav" id="site-nav" aria-label="Sections">
+      <a href="#topics" data-i18n="navTopics">Topics</a>
       <a href="#about" data-i18n="navAbout">About</a>
       <a href="#work" data-i18n="navWork">How I work</a>
-      <a href="#topics" data-i18n="navTopics">Topics</a>
       <a href="#pricing" data-i18n="navPricing">Pricing</a>
       <a href="#safety" data-i18n="navSafety">Is it safe?</a>
       <a href="#reviews" data-i18n="navReviews">Reviews</a>
@@ -161,6 +161,35 @@
     </ul>
   </section>
 
+  <!-- ===================== TOPICS ===================== -->
+  <section class="section" id="topics">
+    <div class="shell">
+      <header class="section-head section-head--center">
+        <span class="pill" data-i18n="topicsPill">Topics</span>
+        <h2 class="section-title" data-i18n="topicsTitle">What you can come to me with</h2>
+        <p class="section-lead" data-i18n="topicsIntro">These are common, but the list isn't a limit.</p>
+      </header>
+    </div>
+
+      <div class="grid-3 grid-3--tight modular">
+        <article class="card card--topic">
+          <h3 class="card-title" data-i18n="topicsGroup1Title">Confidence, work and money</h3>
+          <ul class="dots" data-i18n-list="topicsGroup1List"><li>Confidence and being visible in your career</li><li>Professional growth</li><li>Your relationship with money, and with clients</li><li>Running a business or freelance work</li><li>Business psychology and coaching</li><li>Chaos at work, and how to give it structure</li></ul>
+        </article>
+        <article class="card card--topic">
+          <h3 class="card-title" data-i18n="topicsGroup2Title">Relationships and self</h3>
+          <ul class="dots" data-i18n-list="topicsGroup2List"><li>Relationships with family, partners, friends</li><li>Separation, independence, and your own worth</li><li>Suppressed aggression, shame, guilt and other feelings</li><li>Personal boundaries</li><li>Fear of closeness, dependency and codependency</li><li>Feeling wrong, or out of place</li></ul>
+        </article>
+        <article class="card card--topic card--sun">
+          <h3 class="card-title" data-i18n="topicsGroup3Title">Change and crisis</h3>
+          <ul class="dots" data-i18n-list="topicsGroup3List"><li>Emigration and adapting to a new life</li><li>Losing the life you had and starting from zero</li><li>Discomfort you can't name</li><li>Past experiences that still hurt</li><li>Not knowing what you want</li><li>Feeling nothing, or struggling to feel</li></ul>
+        </article>
+        <article class="card card--topic card--empty" aria-hidden="true"></article>
+      </div>
+
+      <div class="shell"><p class="section-outro" data-i18n="topicsOutro">Either way, I'd rather we talked it through first and worked out whether I'm a fit — on a short call or in writing, whichever you prefer.</p></div>
+  </section>
+
   <!-- ===================== ABOUT ===================== -->
   <section class="section section--pink" id="about">
     <div class="shell">
@@ -236,35 +265,6 @@
       </ol>
   </section>
 
-  <!-- ===================== TOPICS ===================== -->
-  <section class="section" id="topics">
-    <div class="shell">
-      <header class="section-head section-head--center">
-        <span class="pill" data-i18n="topicsPill">Topics</span>
-        <h2 class="section-title" data-i18n="topicsTitle">What you can come to me with</h2>
-        <p class="section-lead" data-i18n="topicsIntro">These are common, but the list isn't a limit.</p>
-      </header>
-    </div>
-
-      <div class="grid-3 grid-3--tight modular">
-        <article class="card card--topic">
-          <h3 class="card-title" data-i18n="topicsGroup1Title">Confidence, work and money</h3>
-          <ul class="dots" data-i18n-list="topicsGroup1List"><li>Confidence and being visible in your career</li><li>Professional growth</li><li>Your relationship with money, and with clients</li><li>Running a business or freelance work</li><li>Business psychology and coaching</li><li>Chaos at work, and how to give it structure</li></ul>
-        </article>
-        <article class="card card--topic">
-          <h3 class="card-title" data-i18n="topicsGroup2Title">Relationships and self</h3>
-          <ul class="dots" data-i18n-list="topicsGroup2List"><li>Relationships with family, partners, friends</li><li>Separation, independence, and your own worth</li><li>Suppressed aggression, shame, guilt and other feelings</li><li>Personal boundaries</li><li>Fear of closeness, dependency and codependency</li><li>Feeling wrong, or out of place</li></ul>
-        </article>
-        <article class="card card--topic card--sun">
-          <h3 class="card-title" data-i18n="topicsGroup3Title">Change and crisis</h3>
-          <ul class="dots" data-i18n-list="topicsGroup3List"><li>Emigration and adapting to a new life</li><li>Losing the life you had and starting from zero</li><li>Discomfort you can't name</li><li>Past experiences that still hurt</li><li>Not knowing what you want</li><li>Feeling nothing, or struggling to feel</li></ul>
-        </article>
-        <article class="card card--topic card--empty" aria-hidden="true"></article>
-      </div>
-
-      <div class="shell"><p class="section-outro" data-i18n="topicsOutro">Either way, I'd rather we talked it through first and worked out whether I'm a fit — on a short call or in writing, whichever you prefer.</p></div>
-  </section>
-
   <!-- ===================== PRICING =====================
        Heads up: these numbers are taken from what direction.support currently
        renders (translations.js), not from the older HTML defaults and not from
@@ -325,22 +325,22 @@
     </div>
 
       <div class="safety-grid modular">
-        <article class="card card--safe">
-          <h3 class="card-title" data-i18n="safety1Title">Why is this safe?</h3>
+        <details class="card card--safe">
+          <summary class="card-title" data-i18n="safety1Title">Why is this safe?</summary>
           <p data-i18n="safety1Text">I build a sealed, confidential space with no judgement and no scoring. I work strictly on the principle that the client is okay. I don't give advice and I don't decide for you what you should do — I ask questions, get to know you, and reflect back the things that are hard to see from the inside.</p>
-        </article>
-        <article class="card card--safe">
-          <h3 class="card-title" data-i18n="safety2Title">Will you definitely help me?</h3>
+        </details>
+        <details class="card card--safe">
+          <summary class="card-title" data-i18n="safety2Title">Will you definitely help me?</summary>
           <p data-i18n="safety2Text">No, not definitely — no psychologist can guarantee that. We work on your wellbeing together, which means change needs you to want it and to do something new in that direction.</p>
           <p class="card-sub" data-i18n="safety2Sub">I won't be able to help if:</p>
           <ul class="crosses" data-i18n-list="safety2List"><li>You don't take responsibility for your own life</li><li>Someone made you come to me</li><li>You want to change another person</li></ul>
-        </article>
-        <article class="card card--safe card--limits">
-          <h3 class="card-title" data-i18n="safety3Title">What I don't work with</h3>
+        </details>
+        <details class="card card--safe card--limits">
+          <summary class="card-title" data-i18n="safety3Title">What I don't work with</summary>
           <p data-i18n="safety3Text">There are things outside my competence, and I'd rather say so before you book than halfway in.</p>
           <ul class="crosses" data-i18n-list="safety3List"><li>Psychiatric diagnoses</li><li>Depression as the presenting request</li><li>Suicidal themes and self-harm as the presenting request</li></ul>
           <p class="card-note" data-i18n="safety3Note">If any of that is what you're facing right now, please reach a psychiatrist or a crisis service — that's the right kind of help, and it exists.</p>
-        </article>
+        </details>
       </div>
   </section>
 
@@ -437,8 +437,8 @@
     <div class="shell">
       <header class="section-head section-head--center">
         <span class="pill" data-i18n="contactPill">Let's talk</span>
-        <h2 class="section-title" data-i18n="contactTitle">Book a free intro call</h2>
-        <p class="section-lead" data-i18n="contactLead">Ten to fifteen minutes, no commitment, no pressure. Just a conversation to see whether we fit.</p>
+        <h2 class="section-title" data-i18n="contactTitle">Book a session</h2>
+        <p class="section-lead" data-i18n="contactLead">Pick a time that suits you. If you would rather ask something first, message me.</p>
       </header>
     </div>
 

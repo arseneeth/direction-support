@@ -461,6 +461,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ---------- safety ---------- */
 .safety-grid{display:grid;grid-template-columns:1fr}
+
+/* ---- honest answers as toggles ---- */
+details.card{padding-block:calc(var(--cell-y) * .8)}
+details.card>summary{
+  cursor:pointer;list-style:none;margin:0;
+  display:flex;align-items:center;justify-content:space-between;gap:1.5rem;
+}
+details.card>summary::-webkit-details-marker{display:none}
+details.card>summary::after{
+  content:"+";flex:0 0 auto;
+  font-size:1.5em;font-weight:200;line-height:1;color:var(--ink-3);
+  transition:transform .25s var(--ease);
+}
+details.card[open]>summary::after{content:"\2013"}
+details.card[open]>summary{margin-bottom:1rem}
+details.card>summary:focus-visible{outline-offset:6px}
+/* the rotated cell index would collide with the toggle mark */
+.safety-grid>.card::before{content:none}
+.safety-grid>.card>*{padding-right:0}
 .card--safe p{color:var(--ink-2)}
 
 /* ---------- credentials ---------- */
@@ -559,7 +578,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   /* keep the :not() form here too — it raises specificity, so a bare
      .grid-3 would lose to the 680px rule no matter the source order. */
   .grid-3:not(.grid-3--tight){grid-template-columns:repeat(3,1fr)}
-  .safety-grid,.journey{grid-template-columns:repeat(3,1fr)}
+  .journey{grid-template-columns:repeat(3,1fr)}
   .cert-grid,.shifts-grid{grid-template-columns:repeat(4,1fr)}
 }
 

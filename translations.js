@@ -221,8 +221,8 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- contact ---- */
     contactPill: "Let's talk",
-    contactTitle: "Book a free intro call",
-    contactLead: "Ten to fifteen minutes, no commitment, no pressure. Just a conversation to see whether we fit.",
+    contactTitle: "Book a session",
+    contactLead: "Pick a time that suits you. If you would rather ask something first, message me.",
     contactAlt: "Have questions first?",
     contactAltText: "Text me and ask them — I'd rather you asked than guessed.",
     contactTelegram: "Message me on Telegram",
@@ -322,7 +322,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Запросы",
-    topicsTitle: "С чем я могу помочь",
+    topicsTitle: "С чем вы можете обратиться",
     topicsIntro: "Эти темы встречаются чаще всего, но список ими не ограничивается.",
     topicsGroup1Title: "Уверенность, работа и деньги",
     topicsGroup1List: [
@@ -453,8 +453,8 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- contact ---- */
     contactPill: "Давайте поговорим",
-    contactTitle: "Запишитесь на бесплатный созвон",
-    contactLead: "10–15 минут, без обязательств и давления. Просто разговор, чтобы понять, подходим ли мы друг другу.",
+    contactTitle: "Записаться на сессию",
+    contactLead: "Выберите удобное время. Если хочется сначала что-то спросить — напишите мне.",
     contactAlt: "Остались вопросы?",
     contactAltText: "Напишите мне и задайте их — лучше спросить, чем додумывать.",
     contactTelegram: "Написать в Telegram",
