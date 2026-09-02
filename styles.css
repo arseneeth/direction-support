@@ -158,6 +158,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ===========================  HERO  =========================== */
 .hero{position:relative;padding:clamp(1.75rem,4vw,3.25rem) 0 clamp(2.5rem,5vw,4rem);overflow:hidden}
 .hero-grid{
+  --fs:clamp(3rem,13.6vw,11.5rem);
   position:relative;z-index:1;
   display:grid;
   grid-template-columns:minmax(0,1fr);
@@ -187,7 +188,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-runninghead .hero-role:last-child{text-align:right}
 
 .hero-name{
-  --fs:clamp(3rem,13.6vw,11.5rem);
   grid-area:name;
   display:flex;align-items:baseline;justify-content:center;gap:clamp(0px,.4vw,.4rem);
   flex-wrap:nowrap;
@@ -622,7 +622,8 @@ details.card>summary:focus-visible{outline-offset:6px}
   html{scroll-padding-top:76px}
   /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
      type scales down with the viewport instead of wrapping the surname. */
-  .hero-name{--fs:min(9.4vw,3.4rem);flex-wrap:nowrap}
+  .hero-grid{--fs:min(9.4vw,3.4rem)}
+  .hero-name{flex-wrap:nowrap}
   .signature{flex-shrink:0}
   .hero-figure{--fig:clamp(150px,40vw,260px);gap:.3rem}
   /* the folio is only as wide as the name here (~195px at 375), so the label

@@ -104,7 +104,7 @@
     var text = name && name.querySelector('.hero-name-text');
     if (!name || !grid || !text) return;
 
-    name.style.removeProperty('--fs');
+    grid.style.removeProperty('--fs');
 
     var kids = name.children;
     var gap = parseFloat(getComputedStyle(name).columnGap) || 0;
@@ -124,7 +124,7 @@
     // proportional pass is enough to bring it back inside.
     if (avail > 0 && w > avail) {
       var fs = parseFloat(getComputedStyle(text).fontSize);
-      name.style.setProperty('--fs', (fs * (avail / w) * 0.995) + 'px');
+      grid.style.setProperty('--fs', (fs * (avail / w) * 0.995) + 'px');
       w = contentWidth();
     }
 
