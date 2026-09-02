@@ -177,8 +177,7 @@ window.DIRECTION_SUPPORT_I18N = {
     safety3Note: "If any of that is what you're facing right now, please reach a psychiatrist or a crisis service — that's the right kind of help, and it exists.",
 
     /* ---- credentials ---- */
-    credPill: "Credentials",
-    credTitle: "Diplomas and certificates",
+    safety4Title: "Can I see your diplomas and certificates?",
     credIntro: "Qualified practical psychologist, in continuous supervision since the first day of practice.",
     cert1: "Nauka PSI2.0 — diploma of professional retraining: psychological counselling, PSY2.0 method · 1100 h · 2024",
     cert2: "Diploma supplement — 27 disciplines, 1100 hours",
@@ -191,7 +190,6 @@ window.DIRECTION_SUPPORT_I18N = {
     cert9: "Practical seminar \u00abInteraction with the body\u00bb · 32 h · Budva, 2022",
     cert10: "\u00abCountertransference\u00bb — training on working with countertransference · 15 h · Berlin, 2024",
     cert11: "\u00abLive Coaching\u00bb — practical coaching for work and life · 65 h, incl. 25 h supervision · Berlin, 2024",
-    credCaption: "Originals available on request — happy to send any of them before you book.",
 
     /* ---- setting ---- */
     settingPill: "The setting",
@@ -409,8 +407,7 @@ window.DIRECTION_SUPPORT_I18N = {
     safety3Note: "Если сейчас вы столкнулись именно с этим — пожалуйста, обратитесь к психиатру или в кризисную службу. Это правильный вид помощи, и он существует.",
 
     /* ---- credentials ---- */
-    credPill: "Квалификация",
-    credTitle: "Дипломы и сертификаты",
+    safety4Title: "Можно посмотреть дипломы и сертификаты?",
     credIntro: "Дипломированный практический психолог, в постоянной супервизии с первого дня практики.",
     cert1: "«Наука ПСИ2.0» — диплом о профессиональной переподготовке: психологическое консультирование по методике PSY2.0 · 1100 ч · 2024",
     cert2: "Приложение к диплому — 27 дисциплин, 1100 часов",
@@ -423,7 +420,6 @@ window.DIRECTION_SUPPORT_I18N = {
     cert9: "Практический семинар «Взаимодействие с телом» · 32 ч · Будва, 2022",
     cert10: "«Контрперенос» — тренинг по работе с контрпереносом · 15 ч · Берлин, 2024",
     cert11: "«Живой коучинг» — практический коучинг для работы и жизни · 65 ч, из них 25 ч супервизии · Берлин, 2024",
-    credCaption: "Оригиналы — по запросу, с радостью пришлю любой до записи.",
 
     /* ---- setting ---- */
     settingPill: "Сеттинг",

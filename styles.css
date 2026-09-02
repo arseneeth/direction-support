@@ -183,6 +183,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-weight:300;font-size:clamp(.88rem,1.6vw,1.2rem);
   color:var(--ink);letter-spacing:.01em;margin:0;
 }
+.hero-runninghead .hero-role:first-child{margin-left:var(--name-bearing,0px)}
 .hero-runninghead .hero-role:last-child{text-align:right}
 
 .hero-name{
@@ -192,7 +193,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   flex-wrap:nowrap;
   /* the name's line-height is under 1, so its box carries a lot of space above
      the caps; pull it back up so the folio sits a normal line above it */
-  margin:calc(var(--fs) * -.28) 0 clamp(1rem,2.5vw,1.6rem);
+  margin:calc(var(--fs) * -.42) 0 clamp(1rem,2.5vw,1.6rem);
 }
 .hero-name-text{
   font-weight:200;font-size:var(--fs);
@@ -321,8 +322,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card-sub{margin-top:1.1rem;margin-bottom:.5rem;font-weight:600;color:var(--ink)}
 .card-note{margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid var(--line-soft);font-size:.92rem;color:var(--ink-3)}
 .card--work:hover,.card--topic:hover{background:var(--paper-2)}
-.card--empty,.card--empty:hover{background:#fff}
-.card--empty::before{content:none}
+.card--wide{grid-column:1 / -1}
 .price-card:hover{border-color:var(--ink-4)}
 
 /* ---- modular blocks -------------------------------------------------------
@@ -388,7 +388,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .crosses li::before{content:"×";position:absolute;left:.15rem;top:-.03em;font-size:1.15rem;line-height:1.6;color:var(--orange-400)}
 .rules{counter-reset:rule}
 .rules>li{
-  counter-increment:rule;padding-left:var(--cell-x);
+  counter-increment:rule;margin-bottom:0;padding-left:var(--cell-x);
   display:grid;grid-template-columns:auto minmax(0,1fr);
   gap:0 clamp(1rem,2vw,1.75rem);align-items:start;
 }
@@ -483,10 +483,10 @@ details.card>summary:focus-visible{outline-offset:6px}
 .card--safe p{color:var(--ink-2)}
 
 /* ---------- credentials ---------- */
-/* a scrolling strip rather than a grid: eleven documents take far less room,
-   and the row keeps its shared hairlines */
+/* a scrolling strip of documents, inside the credentials toggle */
 .cert-grid{
-  display:flex;overflow-x:auto;overscroll-behavior-x:contain;
+  display:flex;gap:.75rem;margin-top:1.1rem;
+  overflow-x:auto;overscroll-behavior-x:contain;
   scroll-snap-type:x proximity;
 }
 .cert-grid>*{scroll-snap-align:start;flex:0 0 auto;padding:0}

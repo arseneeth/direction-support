@@ -129,6 +129,30 @@
     }
 
     grid.style.setProperty('--name-w', Math.ceil(w) + 'px');
+
+    // The folio box lines up with the name box exactly, but the eye reads ink,
+    // not boxes: "K" carries a left side bearing that "counselling" does not,
+    // so the label looks a few pixels adrift. Measure that bearing and inset
+    // the left label by it. Only the left label moves, so "coach" stays
+    // aligned with the end of the signature.
+    grid.style.setProperty('--name-bearing', leftBearing(text) + 'px');
+  }
+
+  function leftBearing(el) {
+    var text = (el.textContent || '').trim();
+    if (!text) return 0;
+    try {
+      var cs = getComputedStyle(el);
+      var ctx = (leftBearing.ctx || (leftBearing.ctx =
+        document.createElement('canvas').getContext('2d')));
+      ctx.font = cs.fontStyle + ' ' + cs.fontWeight + ' ' + cs.fontSize + ' ' + cs.fontFamily;
+      var m = ctx.measureText(text.charAt(0));
+      if (typeof m.actualBoundingBoxLeft !== 'number') return 0;
+      var inset = -m.actualBoundingBoxLeft;      // ink starts right of the origin
+      return inset > 0 && inset < 40 ? Math.round(inset * 10) / 10 : 0;
+    } catch (e) {
+      return 0;
+    }
   }
 
   // Measure now, then again once layout and webfonts have settled. Switching
