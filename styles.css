@@ -407,28 +407,30 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:.72rem;line-height:1.9;color:var(--pink-300);
 }
 .crosses li::before{content:"×";position:absolute;left:.15rem;top:-.03em;font-size:1.15rem;line-height:1.6;color:var(--orange-400)}
-/* A chain rather than a table: each step is a square, with an arrow down to
-   the next. The shared hairlines are dropped here so the steps read as a
-   sequence instead of a grid. */
-.rules{counter-reset:rule;border-block:0;overflow:visible;gap:0}
+/* A chain, not a table: the step's text sits in the box, the numeral is just
+   a small plain label, and an arrow carries you to the next box. */
+.rules{
+  counter-reset:rule;border-block:0;overflow:visible;
+  gap:0;padding:0 var(--cell-x);
+}
 .rules>li{
   counter-increment:rule;position:relative;
-  margin:0;box-shadow:none;background:transparent;
-  padding:calc(var(--cell-y) * .45) var(--cell-x) calc(var(--cell-y) * .45 + 2.2rem);
-  display:grid;grid-template-columns:auto minmax(0,1fr);
-  gap:0 clamp(1rem,2vw,1.75rem);align-items:start;
-}
-.rules>li:last-child{padding-bottom:calc(var(--cell-y) * .45)}
-.rules>li::before{
-  content:counter(rule);position:static;
-  width:2.8rem;height:2.8rem;border-radius:0;
+  margin:0;box-shadow:none;
   background:#fff;border:1px solid var(--rule);
-  display:grid;place-items:center;font-size:.95rem;font-weight:500;color:var(--ink-3);
+  padding:clamp(1rem,2vw,1.4rem) clamp(1.1rem,2.2vw,1.6rem);
+  display:grid;grid-template-columns:auto minmax(0,1fr);
+  gap:0 clamp(.9rem,1.8vw,1.4rem);align-items:start;
+}
+.rules>li:not(:last-child){margin-bottom:2.6rem}
+.rules>li::before{
+  content:counter(rule);position:static;display:block;
+  width:auto;height:auto;border:0;background:none;border-radius:0;
+  padding-top:.15em;
+  font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--ink-4);
 }
 .rules>li:not(:last-child)::after{
-  content:"↓";position:absolute;
-  left:calc(var(--cell-x) + 1.4rem);transform:translateX(-50%);
-  bottom:.7rem;font-size:1.2rem;line-height:1;color:var(--blue-400);
+  content:"↓";position:absolute;left:50%;transform:translateX(-50%);
+  bottom:-2rem;font-size:1.25rem;line-height:1;color:var(--blue-400);
 }
 
 /* ---------- layout helpers ---------- */

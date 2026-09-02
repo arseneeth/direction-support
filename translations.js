@@ -37,8 +37,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- about ---- */
     aboutPill: "About me",
-    aboutTitle: "Hi, I'm Kristina Van",
-    aboutIntro: "I've emigrated three times since I was fourteen. That taught me three things: how to be at home in cultures that aren't mine, how to figure out money, relationships, health and work on my own, and how to talk to people in the language they actually experience the world in — without judging anything for being unfamiliar.",
+    aboutIntro: "Hi, I'm Kristina Van. I've emigrated three times since I was fourteen. That taught me three things: how to be at home in cultures that aren't mine, how to figure out money, relationships, health and work on my own, and how to talk to people in the language they actually experience the world in — without judging anything for being unfamiliar.",
     aboutProTitle: "Professionally",
     aboutProList: [
       "1200+ hours of individual counselling and group therapy",
@@ -63,7 +62,6 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- how I work ---- */
     workPill: "How I work",
-    workTitle: "A clear frame, and a lot of freedom inside it",
     workIntro: "Integrative, with a psychodynamic lean. In Russian and English, through a feminist lens.",
     work1Title: "I listen to more than the words",
     work1Text: "Not only what you say, but how you say it — and what you leave out. What unfolds between us is a live demo of what happens in your life.",
@@ -82,7 +80,6 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Topics",
-    topicsTitle: "What I can help with",
     topicsIntro: "These are common, but the list isn't a limit.",
     topicsGroup1Title: "Confidence, work and money",
     topicsGroup1List: [
@@ -206,9 +203,8 @@ window.DIRECTION_SUPPORT_I18N = {
     testimonial4By: "— O.",
 
     /* ---- contact ---- */
-    contactPill: "Let's talk",
-    contactTitle: "Book a session",
-    contactLead: "Pick a time that suits you. If you would rather ask something first, message me.",
+    contactPill: "Book a time",
+    contactLead: "If none of the times on offer suit you, message me with what would work and I will check my calendar.",
     contactAlt: "Have questions first?",
     contactAltText: "Text me and ask them — I'd rather you asked than guessed.",
     contactTelegram: "Message me on Telegram",
@@ -255,8 +251,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- about ---- */
     aboutPill: "Обо мне",
-    aboutTitle: "Привет, меня зовут Кристина Ван",
-    aboutIntro: "Я трижды эмигрировала с 14 лет. Благодаря этому я впитала множество разных культур и внутреннее разрешение быть уникальной собой, взрослела, учась самостоятельно разбираться в деньгах, отношениях, здоровье и карьерном росте, и научилась коммуницировать с людьми на языке их восприятия мира — не осуждая ничего, что для меня непривычно и незнакомо.",
+    aboutIntro: "Привет, меня зовут Кристина Ван. Я трижды эмигрировала с 14 лет. Благодаря этому я впитала множество разных культур и внутреннее разрешение быть уникальной собой, взрослела, учась самостоятельно разбираться в деньгах, отношениях, здоровье и карьерном росте, и научилась коммуницировать с людьми на языке их восприятия мира — не осуждая ничего, что для меня непривычно и незнакомо.",
     aboutProTitle: "Профессионально",
     aboutProList: [
       "1200+ часов индивидуальных консультаций и групповых терапий",
@@ -281,7 +276,6 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- how I work ---- */
     workPill: "Как я работаю",
-    workTitle: "Чёткая рамка снаружи и много свободы внутри",
     workIntro: "В интегративном подходе с уклоном в психодинамику. На русском и английском, с фем-оптикой.",
     work1Title: "Я слышу больше, чем слова",
     work1Text: "Не только что вы говорите, но и как — и о чём молчите. То, что разворачивается между нами, — демоверсия того, что происходит в вашей жизни.",
@@ -300,7 +294,6 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Запросы",
-    topicsTitle: "С чем вы можете обратиться",
     topicsIntro: "Эти темы встречаются чаще всего, но список ими не ограничивается.",
     topicsGroup1Title: "Уверенность, работа и деньги",
     topicsGroup1List: [
@@ -424,9 +417,8 @@ window.DIRECTION_SUPPORT_I18N = {
     testimonial4By: "— О.",
 
     /* ---- contact ---- */
-    contactPill: "Давайте поговорим",
-    contactTitle: "Записаться на сессию",
-    contactLead: "Выберите удобное время. Если хочется сначала что-то спросить — напишите мне.",
+    contactPill: "Забронировать время",
+    contactLead: "Если вы не находите удобный для вас вариант — напишите мне ваше предпочтение по времени, и я проверю своё расписание.",
     contactAlt: "Остались вопросы?",
     contactAltText: "Напишите мне и задайте их — лучше спросить, чем додумывать.",
     contactTelegram: "Написать в Telegram",
