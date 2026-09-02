@@ -114,11 +114,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .header-actions{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
 .lang-toggle{
   min-width:44px;padding:.5rem .75rem;border-radius:0;
-  border:1.5px solid var(--line);font-size:.82rem;font-weight:600;letter-spacing:.06em;color:var(--ink-2);
+  border:0;font-size:.82rem;font-weight:600;letter-spacing:.06em;color:var(--ink-2);
   transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease);
 }
-.lang-toggle:hover{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
-.nav-toggle{display:none;width:44px;height:44px;border-radius:0;border:1.5px solid var(--line);align-items:center;justify-content:center}
+.lang-toggle:hover{color:var(--ink);background:var(--paper-2)}
+.nav-toggle{display:none;width:44px;height:44px;border-radius:0;border:0;align-items:center;justify-content:center}
 .nav-toggle-bars{display:block;width:17px}
 .nav-toggle-bars i{display:block;height:1.6px;background:var(--ink);border-radius:2px;transition:transform .28s var(--ease),opacity .2s var(--ease)}
 .nav-toggle-bars i+i{margin-top:5px}
@@ -257,7 +257,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   grid-area:tagline;margin:0 0 clamp(1.75rem,3.5vw,2.75rem);
   font-family:"Montserrat",var(--font);
   font-size:clamp(.82rem,1.7vw,1.45rem);
-  letter-spacing:.02em;text-align:center;text-transform:lowercase;
+  letter-spacing:-.012em;text-align:center;text-transform:lowercase;
   color:var(--ink);line-height:1.35;
 }
 
@@ -618,6 +618,8 @@ details.card>summary:focus-visible{outline-offset:6px}
 /* ===========================  RESPONSIVE  =========================== */
 @media (max-width:1080px){
   .site-nav{display:none;margin-inline:0}
+  /* with the nav hidden nothing pushes the buttons over any more */
+  .header-actions{margin-left:auto}
   .nav-toggle{display:inline-flex}
   .site-nav.is-open{
     display:flex;flex-direction:column;gap:.2rem;
@@ -638,7 +640,7 @@ details.card>summary:focus-visible{outline-offset:6px}
   .hero-grid{--fs:min(9.4vw,3.4rem)}
   /* Cyrillic runs wider, so the two languages need different steps here */
   html[lang="ru"] .hero-grid{--fs:min(10.34vw,3.74rem)}
-  html[lang="en"] .hero-grid{--fs:min(11.75vw,4.25rem)}
+  html[lang="en"] .hero-grid{--fs:min(12.9vw,4.7rem)}
   .hero-name{flex-wrap:nowrap}
   .signature{flex-shrink:0}
   .hero-figure{--fig:clamp(135px,36vw,234px);gap:.3rem}
@@ -646,7 +648,7 @@ details.card>summary:focus-visible{outline-offset:6px}
      and the gap both shrink to keep it on one line beside "coach" */
   .hero-role{font-size:.72rem}
   html[lang="ru"] .hero-role{font-size:.79rem}
-  html[lang="en"] .hero-role{font-size:.9rem}
+  html[lang="en"] .hero-role{font-size:.78rem}
   .hero-runninghead{gap:.4rem;margin-top:calc(var(--fs) * -.1)}
   .hero-tagline{margin-bottom:1.25rem}
   .hero-cta{margin-top:.75rem;gap:0}

@@ -12,7 +12,7 @@ window.DIRECTION_SUPPORT_I18N = {
     navTopics: "Topics",
     navPricing: "Pricing",
     navReviews: "Reviews",
-    navSafety: "Is it safe?",
+    navSafety: "Q&A",
     headerBook: "Book a call",
     menuLabel: "Menu",
 
@@ -226,7 +226,7 @@ window.DIRECTION_SUPPORT_I18N = {
     navTopics: "Запросы",
     navPricing: "Стоимость",
     navReviews: "Отзывы",
-    navSafety: "Безопасно?",
+    navSafety: "Q&A",
     headerBook: "Записаться",
     menuLabel: "Меню",
 
