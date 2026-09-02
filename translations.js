@@ -182,7 +182,7 @@ window.DIRECTION_SUPPORT_I18N = {
     cert11: "\u00abLive Coaching\u00bb — practical coaching for work and life · 65 h, incl. 25 h supervision · Berlin, 2024",
 
     /* ---- setting ---- */
-    settingPill: "How we work",
+    settingPill: "How it works",
     settingList: [
       "You pick a time that suits you, sign the agreement, and pay for the sessions you've chosen — one at a time is fine. A slot is only confirmed once it's paid. You choose the video platform; by default I use Google Meet.",
       "You join from a private place where nobody can interrupt, see or hear you, with your phone on do-not-disturb. If that isn't the case, I may end the session.",
@@ -400,7 +400,7 @@ window.DIRECTION_SUPPORT_I18N = {
     cert11: "«Живой коучинг» — практический коучинг для работы и жизни · 65 ч, из них 25 ч супервизии · Берлин, 2024",
 
     /* ---- setting ---- */
-    settingPill: "Как мы работаем",
+    settingPill: "Как всё устроено",
     settingList: [
       "Клиент выбирает удобное время, подписывает договор и оплачивает выбранное количество сессий — можно и по одной. Только после оплаты время считается подтверждённым. Средство видеосвязи выбирает клиент, по умолчанию я использую Google Meet.",
       "Клиент выходит на видеоконференцию из уединённого места, где его никто не сможет побеспокоить, увидеть и услышать, с телефоном в режиме «не беспокоить». В случае нарушения сеттинга я оставляю за собой право завершить сессию.",
