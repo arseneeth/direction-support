@@ -79,14 +79,6 @@ window.DIRECTION_SUPPORT_I18N = {
     work6Text: "If you decide to continue after the first session, I'll send you an informed-consent agreement to sign.",
 
     /* ---- journey ---- */
-    journeyPill: "What it looks like",
-    journeyTitle: "From first message to real change",
-    journey1Title: "A 15-minute call",
-    journey1Text: "Free, no commitment. We talk about what's going on and work out whether I'm the right person for it — and whether you feel comfortable with me.",
-    journey2Title: "First sessions",
-    journey2Text: "We find the shape of your request, the pace, and the setting. You pick the time; I send the agreement.",
-    journey3Title: "Regular work",
-    journey3Text: "Weekly or fortnightly at a fixed hour. Goals, feelings and relationships move together — without burning you out.",
 
     /* ---- topics ---- */
     topicsPill: "Topics",
@@ -119,7 +111,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "Not knowing what you want",
       "Feeling nothing, or struggling to feel"
     ],
-    topicsOutro: "Either way, I'd rather we talked it through first and worked out whether I'm a fit — on a short call or in writing, whichever you prefer.",
+    topicsOutro: "We can talk it through first and work out whether I'm a fit — on a short call or in writing, whichever you prefer.",
 
     /* ---- pricing ---- */
     pricingPill: "Services & pricing",
@@ -154,8 +146,7 @@ window.DIRECTION_SUPPORT_I18N = {
     ],
 
     /* ---- safety ---- */
-    safetyPill: "Honest answers",
-    safetyTitle: "The questions people actually ask",
+    safetyPill: "Q&A",
     safety1Title: "Why is this safe?",
     safety1Text: "I build a sealed, confidential space with no judgement and no scoring. I work strictly on the principle that the client is okay. I don't give advice and I don't decide for you what you should do — I ask questions, get to know you, and reflect back the things that are hard to see from the inside. You can always disagree, and I'll follow you rather than push. We work only from your request. There's no \"wrong\" and no \"bad\" here, only choices and responsibility — and I'll work with any choice you make, unless you're choosing to harm yourself or someone else.",
     safety2Title: "Will you definitely help me?",
@@ -206,7 +197,6 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- testimonials ---- */
     reviewsPill: "Feedback",
-    reviewsTitle: "What clients say",
     testimonial1: "Thank you for your deep acceptance, which supports me in getting to know myself, and for the questions that open up what I'd been hiding from myself. All of it helps me really feel who I am underneath, and brings back a sense of being whole.",
     testimonial1By: "— H.",
     testimonial2: "I wanted to sincerely thank you for being an excellent specialist and for helping me resolve a pile of inner conflicts. Thank you for the acceptance, and for being the kind of sunny person you can trust. After working with you, the intrusive thoughts and the guilt that had tormented me my whole life went away — even on bad days I think of you and it gets easier.",
@@ -308,14 +298,6 @@ window.DIRECTION_SUPPORT_I18N = {
     work6Text: "Если после первой сессии вы решаете продолжить сотрудничество, я отправлю вам информированное согласие на подпись.",
 
     /* ---- journey ---- */
-    journeyPill: "Как это выглядит",
-    journeyTitle: "От первого сообщения до реальных изменений",
-    journey1Title: "Созвон 15 минут",
-    journey1Text: "Бесплатно и ни к чему не обязывает. Обсуждаем ваш запрос и определяем, подойду ли я вам и будет ли вам комфортно со мной общаться.",
-    journey2Title: "Первые сессии",
-    journey2Text: "Находим форму запроса, темп и сеттинг. Вы выбираете удобное время, я присылаю договор.",
-    journey3Title: "Регулярная работа",
-    journey3Text: "Раз в неделю или две в закреплённое время. Цели, чувства и отношения двигаются вместе — без выгорания.",
 
     /* ---- topics ---- */
     topicsPill: "Запросы",
@@ -348,7 +330,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "Вы не знаете, чего хотите",
       "Кажется, что вы ничего не чувствуете"
     ],
-    topicsOutro: "В любом случае я приглашаю вас обсудить ваш запрос и определить, подойду ли я вам — как на коротком созвоне, так и в текстовой переписке.",
+    topicsOutro: "Мы можем сначала обсудить ваш запрос и понять, подойду ли я вам — на коротком созвоне или в переписке.",
 
     /* ---- pricing ---- */
     pricingPill: "Услуги и стоимость",
@@ -383,8 +365,7 @@ window.DIRECTION_SUPPORT_I18N = {
     ],
 
     /* ---- safety ---- */
-    safetyPill: "Честные ответы",
-    safetyTitle: "Вопросы, которые задают на самом деле",
+    safetyPill: "Q&A",
     safety1Title: "Почему консультации со мной безопасны",
     safety1Text: "Я создаю для вас герметичное и конфиденциальное пространство, без осуждения и оценок. Я работаю исключительно по принципу «с клиентом всё ок». Я не даю советов и не решаю за вас, что стоит делать, а задаю вопросы, узнаю вас и отражаю, подсвечивая незаметные и бессознательные моменты. Вы всегда можете со мной не согласиться — я пойду за вами и не буду настаивать. Мы работаем только от вашего запроса. Для меня нет «неправильно» и «плохо», есть только выбор и ответственность. И я буду работать с любым вашим выбором, за исключением случаев, если вы выбираете причинять вред себе или другим.",
     safety2Title: "А вы точно мне поможете?",
@@ -435,7 +416,6 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- testimonials ---- */
     reviewsPill: "Обратная связь",
-    reviewsTitle: "Что говорят клиенты",
     testimonial1: "Крис, спасибо тебе огромное за твоё глубокое принятие, которое меня поддерживает в моём процессе познания себя, и за твои вопросы, которые вскрывают то, что я скрывала сама от себя. Всё это помогает мне по-настоящему почувствовать свою внутреннюю суть и возвращает ощущение целостности.",
     testimonial1By: "— Х.",
     testimonial2: "Мне очень хотелось искренне тебя поблагодарить за то, что ты отличный специалист и помогла мне решить уйму моих внутренних конфликтов. Спасибо большое за принятие и за то, что ты такой солнечный человек, которому можно довериться! После работы с тобой ушли навязчивые мысли и чувство вины, что мучило меня всю жизнь; даже когда мне плохо, я вспоминаю тебя и мне становится легче.",
