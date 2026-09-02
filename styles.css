@@ -235,24 +235,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   margin-right:clamp(.2rem,1vw,.9rem);
   align-self:flex-start;
 }
-/* Circular arcs rather than a typeface paren: the curve is drawn on the same
-   family of radii as the round photo, so the brackets actually hug it. */
+/* Typographic parentheses in a high-contrast serif: the stroke tapers rather
+   than holding one width. Set small and stretched with scaleY, because a paren
+   tall enough to match the photo at its natural size is also wide enough to
+   push the group off a phone screen. */
 .hero-bracket{
-  flex:0 0 auto;overflow:visible;
-  height:calc(var(--fig) * 1.06);
-  width:calc(var(--fig) * .265);
-}
-.hero-bracket--r{transform:scaleX(-1)}
-.hero-bracket path{
-  fill:none;stroke:var(--pink-300);
-  stroke-width:8;stroke-linecap:butt;
+  flex:0 0 auto;
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:calc(var(--fig) * .66);
+  line-height:1;font-weight:400;
+  color:var(--pink-300);
+  display:inline-block;transform:scaleY(1.85);
 }
 
 /* ---- the single uppercase line that replaced the chips ---- */
+.hero-tagline::before{content:"[]";color:var(--pink-300);margin-right:.5em;letter-spacing:0}
 .hero-tagline{
   grid-area:tagline;margin:0 0 clamp(1.75rem,3.5vw,2.75rem);
   font-size:clamp(.82rem,1.7vw,1.45rem);
-  letter-spacing:.02em;text-align:center;
+  letter-spacing:.02em;text-align:center;text-transform:lowercase;
   color:var(--ink);line-height:1.35;
 }
 
@@ -613,12 +614,17 @@ details.card>summary:focus-visible{outline-offset:6px}
   /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
      type scales down with the viewport instead of wrapping the surname. */
   .hero-grid{--fs:min(9.4vw,3.4rem)}
+  /* Cyrillic runs wider, so the two languages need different steps here */
+  html[lang="ru"] .hero-grid{--fs:min(10.34vw,3.74rem)}
+  html[lang="en"] .hero-grid{--fs:min(11.75vw,4.25rem)}
   .hero-name{flex-wrap:nowrap}
   .signature{flex-shrink:0}
-  .hero-figure{--fig:clamp(150px,40vw,260px);gap:.3rem}
+  .hero-figure{--fig:clamp(135px,36vw,234px);gap:.3rem}
   /* the folio is only as wide as the name here (~195px at 375), so the label
      and the gap both shrink to keep it on one line beside "coach" */
   .hero-role{font-size:.72rem}
+  html[lang="ru"] .hero-role{font-size:.79rem}
+  html[lang="en"] .hero-role{font-size:.9rem}
   .hero-runninghead{gap:.4rem}
   .hero-tagline{margin-bottom:1.25rem}
   .hero-cta{margin-top:.75rem;gap:0}
