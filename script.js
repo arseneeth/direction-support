@@ -131,20 +131,58 @@
     grid.style.setProperty('--name-w', Math.ceil(w) + 'px');
   }
 
+  /* --------------------------- section labels ---------------------------
+     Each label is tracked out until it is slightly wider than the viewport,
+     so both ends run off the edge. Letter-spacing rather than font-size, so
+     short labels ("topics") and long ones ("services & pricing") keep the
+     same type size and only their tracking differs.
+  ----------------------------------------------------------------------- */
+
+  function syncBleedLabels() {
+    var labels = document.querySelectorAll('.pill');
+
+    for (var i = 0; i < labels.length; i++) {
+      var el = labels[i];
+      el.style.letterSpacing = '0px';
+      el.style.textIndent = '0px';
+
+      var text = (el.textContent || '').trim();
+      var box = el.clientWidth;
+      if (!box || text.length < 2) continue;
+
+      // A Range measures the text itself; scrollWidth would not, because the
+      // label clips its own overflow.
+      var range = document.createRange();
+      range.selectNodeContents(el);
+      var natural = range.getBoundingClientRect().width;
+      if (!natural) continue;
+
+      var extra = (box * 1.05 - natural) / text.length;
+      el.style.letterSpacing = extra + 'px';
+      // the trailing letter-space would pull centred text off to the left
+      el.style.textIndent = (extra / 2) + 'px';
+    }
+  }
+
   // Measure now, then again once layout and webfonts have settled. Switching
   // language pulls in a different subset of the script face, and measuring
   // before it lands gives a width that is off by several pixels.
-  function scheduleHeroName() {
+  function syncHeroLayout() {
     syncHeroName();
-    requestAnimationFrame(syncHeroName);
+    syncBleedLabels();
+  }
+
+  function scheduleHeroName() {
+    syncHeroLayout();
+    requestAnimationFrame(syncHeroLayout);
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(syncHeroName);
+      document.fonts.ready.then(syncHeroLayout);
     }
   }
 
   function initHeroName() {
     scheduleHeroName();
-    window.addEventListener('resize', syncHeroName);
+    window.addEventListener('resize', syncHeroLayout);
     window.addEventListener('load', scheduleHeroName);
 
     var sig = document.querySelector('.signature-img');
@@ -165,7 +203,7 @@
       new ResizeObserver(function () {
         if (running) return;
         running = true;
-        try { syncHeroName(); } finally { running = false; }
+        try { syncHeroLayout(); } finally { running = false; }
       }).observe(name);
     }
   }

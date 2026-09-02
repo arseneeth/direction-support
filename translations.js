@@ -32,7 +32,6 @@ window.DIRECTION_SUPPORT_I18N = {
     heroArrow4To: "to structure and room to grow",
     heroBook: "Book a free intro call",
     heroSecondary: "Text me instead",
-    heroMeta: "Online worldwide · English & Russian",
 
     /* ---- stats strip ---- */
 
@@ -67,15 +66,15 @@ window.DIRECTION_SUPPORT_I18N = {
     workTitle: "A clear frame, and a lot of freedom inside it",
     workIntro: "Integrative, with a psychodynamic lean. In Russian and English, through a feminist lens.",
     work1Title: "I listen to more than the words",
-    work1Text: "Not only what you say, but how you say it, what you're telling me without words, and what you're not saying. I'm present in the session both as a person in the conversation and in a meta-position — noticing what dynamic you bring and what unfolds between us. That's a live demo of what happens in your life.",
+    work1Text: "Not only what you say, but how you say it — and what you leave out. What unfolds between us is a live demo of what happens in your life.",
     work2Title: "I don't insist that I'm right",
-    work2Text: "I offer a perspective and my experience. You're welcome to disagree, or argue with me. That's encouraged.",
+    work2Text: "I offer a perspective and my experience. Disagree with me, argue with me — that's encouraged.",
     work3Title: "You have a 100% right to say stop",
-    work3Text: "At any moment you can turn the temperature down or close a topic entirely. Therapy doesn't have to mean forcing depth or chasing insights. Presence and being witnessed turn out to move people remarkably far.",
+    work3Text: "At any moment you can turn the temperature down or close a topic. Therapy doesn't have to force depth: being present and witnessed moves people remarkably far.",
     work4Title: "I keep my own lens clean",
-    work4Text: "I want to see you through a perception that's been wiped of my own smudges. That's what my therapy and my individual and group supervision are for.",
+    work4Text: "I want to see you through a lens wiped clean of my own smudges. That's what my own therapy and supervision are for.",
     work5Title: "The frame outside is firm",
-    work5Text: "Maximum freedom inside the session, a very clear structure around it — that's what holds the process and your psyche steady. A regular setting, weekly or fortnightly, at a fixed time. Payment before the session. Cancellations and reschedules up to 48 hours ahead.",
+    work5Text: "Maximum freedom inside the session, clear structure around it: a fixed weekly or fortnightly slot, payment before, changes 48 hours ahead.",
     work6Title: "And it's put in writing",
     work6Text: "If you decide to continue after the first session, I'll send you an informed-consent agreement to sign.",
 
@@ -91,7 +90,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Topics",
-    topicsTitle: "What you can come to me with",
+    topicsTitle: "What I can help with",
     topicsIntro: "These are common, but the list isn't a limit.",
     topicsGroup1Title: "Confidence, work and money",
     topicsGroup1List: [
@@ -265,7 +264,6 @@ window.DIRECTION_SUPPORT_I18N = {
     heroArrow4To: "к структуре и расширению",
     heroBook: "Бесплатный созвон-знакомство",
     heroSecondary: "Написать мне",
-    heroMeta: "Онлайн по всему миру · русский и английский",
 
     /* ---- stats ---- */
 
@@ -300,15 +298,15 @@ window.DIRECTION_SUPPORT_I18N = {
     workTitle: "Чёткая рамка снаружи и много свободы внутри",
     workIntro: "В интегративном подходе с уклоном в психодинамику. На русском и английском, с фем-оптикой.",
     work1Title: "Я слышу больше, чем слова",
-    work1Text: "Я не только слушаю, что вы говорите, но и замечаю, как вы говорите, о чём сообщаете невербально и о чём не говорите. Я присутствую в сессии и в диалоге, и в мета-позиции: анализирую, какую динамику приносите вы и какая разворачивается между нами. Всё это — демоверсия того, что происходит у вас в жизни.",
+    work1Text: "Не только что вы говорите, но и как — и о чём молчите. То, что разворачивается между нами, — демоверсия того, что происходит в вашей жизни.",
     work2Title: "Я не настаиваю на своей правоте",
-    work2Text: "Я предлагаю свой взгляд и опыт, с которыми вы можете быть не согласны или спорить. Это приветствуется.",
+    work2Text: "Я предлагаю свой взгляд и опыт. Не соглашайтесь, спорьте — это приветствуется.",
     work3Title: "У вас 100% право сказать «стоп»",
-    work3Text: "В любой момент можно сбавить градус или вообще закрыть тему. В терапии не обязательно насиловать глубиной и гнаться за инсайтами. Присутствие и свидетельствование в моей практике оказывались необычайно продвигающими.",
+    work3Text: "В любой момент можно сбавить градус или закрыть тему. В терапии не обязательно насиловать глубиной: присутствие и свидетельствование продвигают очень далеко.",
     work4Title: "Я слежу за чистотой своей призмы",
-    work4Text: "Я стараюсь узнать и увидеть вас через максимально протёртую от пятен призму восприятия — для чего у меня есть личная терапия, групповая и индивидуальная супервизии.",
+    work4Text: "Я хочу видеть вас через призму, протёртую от собственных пятен. Для этого у меня есть личная терапия и супервизии.",
     work5Title: "Рамка снаружи остаётся жёсткой",
-    work5Text: "Максимум свободы внутри сессий, очень чёткая рамка снаружи — это опора для процесса и вашей психики. Регулярный сеттинг раз в неделю или две в закреплённое время. Оплата до сессии. Отмены и переносы за 48 часов.",
+    work5Text: "Максимум свободы внутри сессии, чёткая рамка снаружи: закреплённое время раз в неделю или две, оплата до встречи, переносы за 48 часов.",
     work6Title: "И всё это зафиксировано",
     work6Text: "Если после первой сессии вы решаете продолжить сотрудничество, я отправлю вам информированное согласие на подпись.",
 
@@ -324,7 +322,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Запросы",
-    topicsTitle: "С чем можно ко мне обратиться",
+    topicsTitle: "С чем я могу помочь",
     topicsIntro: "Эти темы встречаются чаще всего, но список ими не ограничивается.",
     topicsGroup1Title: "Уверенность, работа и деньги",
     topicsGroup1List: [
