@@ -57,12 +57,17 @@
 
     document.documentElement.lang = lang;
 
-    // The signature image is language-specific; fall back to the other file,
-    // then to the Caveat text, without ever leaving a broken image behind.
+    // There is a drawn signature per language. If one fails to load the <img>
+    // removes itself and the Caveat fallback takes over, which is localised
+    // through heroSignatureAlt anyway.
     var sig = document.querySelector('.signature-img');
-    if (sig) sig.alt = t.heroSignatureAlt || sig.alt;
+    if (sig) {
+      var src = 'assets/signature_' + (lang === 'ru' ? 'ru' : 'en') + '.png';
+      if (sig.getAttribute('src') !== src) sig.setAttribute('src', src);
+      sig.alt = t.heroSignatureAlt || sig.alt;
+    }
 
-    scheduleFolioSync();
+    scheduleHeroName();
   }
 
   function initI18n() {
@@ -93,16 +98,35 @@
      it is measured rather than guessed.
   ----------------------------------------------------------------------- */
 
-  function syncFolioWidth() {
+  function syncHeroName() {
     var name = document.querySelector('.hero-name');
     var grid = document.querySelector('.hero-grid');
-    if (!name || !grid) return;
+    var text = name && name.querySelector('.hero-name-text');
+    if (!name || !grid || !text) return;
+
+    name.style.removeProperty('--fs');
 
     var kids = name.children;
-    var w = 0;
-    for (var i = 0; i < kids.length; i++) w += kids[i].getBoundingClientRect().width;
     var gap = parseFloat(getComputedStyle(name).columnGap) || 0;
-    w += gap * Math.max(0, kids.length - 1);
+
+    function contentWidth() {
+      var w = 0;
+      for (var i = 0; i < kids.length; i++) w += kids[i].getBoundingClientRect().width;
+      return w + gap * Math.max(0, kids.length - 1);
+    }
+
+    var avail = name.clientWidth;
+    var w = contentWidth();
+
+    // The two drawn signatures have very different proportions, and Cyrillic
+    // "КРИСТИНА" is far wider than "KRISTINA", so the lockup outgrows its row
+    // in one language and not the other. Everything scales off --fs, so one
+    // proportional pass is enough to bring it back inside.
+    if (avail > 0 && w > avail) {
+      var fs = parseFloat(getComputedStyle(text).fontSize);
+      name.style.setProperty('--fs', (fs * (avail / w) * 0.995) + 'px');
+      w = contentWidth();
+    }
 
     grid.style.setProperty('--name-w', Math.ceil(w) + 'px');
   }
@@ -110,21 +134,40 @@
   // Measure now, then again once layout and webfonts have settled. Switching
   // language pulls in a different subset of the script face, and measuring
   // before it lands gives a width that is off by several pixels.
-  function scheduleFolioSync() {
-    syncFolioWidth();
-    requestAnimationFrame(syncFolioWidth);
+  function scheduleHeroName() {
+    syncHeroName();
+    requestAnimationFrame(syncHeroName);
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(syncFolioWidth);
+      document.fonts.ready.then(syncHeroName);
     }
   }
 
-  function initFolioWidth() {
-    scheduleFolioSync();
-    window.addEventListener('resize', syncFolioWidth);
-    window.addEventListener('load', scheduleFolioSync);
+  function initHeroName() {
+    scheduleHeroName();
+    window.addEventListener('resize', syncHeroName);
+    window.addEventListener('load', scheduleHeroName);
 
     var sig = document.querySelector('.signature-img');
-    if (sig) sig.addEventListener('load', scheduleFolioSync);
+    if (sig) sig.addEventListener('load', scheduleHeroName);
+
+    // Watch the row itself rather than relying on window resize: this also
+    // catches a font landing or the container changing for any other reason,
+    // and leaves no window where --name-w still holds a previous width.
+    //
+    // Deliberately synchronous. Deferring to requestAnimationFrame strands the
+    // measurement whenever frames are throttled (a hidden or background tab):
+    // the callback never runs, and --name-w keeps a stale width. Nothing here
+    // resizes the observed element itself — only --fs on its children — so
+    // this cannot feed back into the observer; the guard is belt and braces.
+    var name = document.querySelector('.hero-name');
+    if (name && 'ResizeObserver' in window) {
+      var running = false;
+      new ResizeObserver(function () {
+        if (running) return;
+        running = true;
+        try { syncHeroName(); } finally { running = false; }
+      }).observe(name);
+    }
   }
 
   /* ------------------------------ mobile nav ---------------------------- */
@@ -276,7 +319,7 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     initI18n();
-    initFolioWidth();
+    initHeroName();
     initNav();
     initHeader();
     initScrollSpy();

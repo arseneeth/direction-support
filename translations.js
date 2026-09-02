@@ -32,7 +32,7 @@ window.DIRECTION_SUPPORT_I18N = {
     heroArrow4To: "to structure and room to grow",
     heroBook: "Book a free intro call",
     heroSecondary: "Text me instead",
-    heroMeta: "Online worldwide · English & Russian · Based in Germany",
+    heroMeta: "Online worldwide · English & Russian",
 
     /* ---- stats strip ---- */
 
@@ -265,7 +265,7 @@ window.DIRECTION_SUPPORT_I18N = {
     heroArrow4To: "к структуре и расширению",
     heroBook: "Бесплатный созвон-знакомство",
     heroSecondary: "Написать мне",
-    heroMeta: "Онлайн по всему миру · русский и английский · база в Германии",
+    heroMeta: "Онлайн по всему миру · русский и английский",
 
     /* ---- stats ---- */
 

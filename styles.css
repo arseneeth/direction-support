@@ -1,5 +1,5 @@
 /* ===========================================================================
-   direction.support — Kristina Wang
+   direction.support — Kristina Van
    Palette: baby pink + baby blue, with lilac and light-orange accents.
    Type: Inter (everything), Caveat (signature fallback only).
    The page is deliberately light-committed — the pastel ground is the brand.
@@ -31,6 +31,7 @@
   --cell-y:clamp(1.5rem,2.6vw,2.2rem); --cell-x:clamp(1.25rem,3vw,2.6rem);
   --grad-dopamine:linear-gradient(100deg,var(--pink-50),var(--lilac-100) 52%,var(--blue-50));
   --grad-sun:linear-gradient(140deg,var(--orange-200),var(--orange-100) 66%,#FFF7EE);
+  --grad-btn:linear-gradient(100deg,var(--pink-200),var(--lilac-200) 52%,var(--blue-200));
   --r-lg:12px; --r-md:10px; --r-sm:8px;
   --shadow:0 1px 2px rgba(20,20,26,.04), 0 12px 32px -12px rgba(20,20,26,.10);
   --shadow-lift:0 2px 6px rgba(20,20,26,.05), 0 28px 60px -22px rgba(20,20,26,.20);
@@ -69,18 +70,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* ===========================  BUTTONS  =========================== */
 .btn{
-  --btn-bg:var(--ink); --btn-fg:#fff; --btn-bd:var(--ink);
+  --btn-bg:var(--grad-btn); --btn-fg:var(--ink); --btn-bd:transparent;
   display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
-  padding:.95rem 1.7rem;border-radius:999px;
+  padding:.95rem 1.7rem;border-radius:0;
   background:var(--btn-bg);color:var(--btn-fg);border:1.5px solid var(--btn-bd);
   font-size:.95rem;font-weight:500;letter-spacing:-.01em;text-decoration:none;
   transition:transform .22s var(--ease),box-shadow .22s var(--ease),background .22s var(--ease),color .22s var(--ease);
 }
-.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px -10px rgba(20,20,26,.45)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px -12px rgba(10,16,60,.4)}
 .btn:active{transform:translateY(0)}
 .btn-primary::after{content:"↗";font-size:.9em;line-height:1;opacity:.75}
-.btn-ghost{--btn-bg:transparent;--btn-fg:var(--ink);--btn-bd:rgba(20,20,26,.22)}
-.btn-ghost:hover{--btn-bg:rgba(20,20,26,.04);--btn-bd:var(--ink);box-shadow:none}
+.btn-ghost{--btn-bg:transparent;--btn-fg:var(--ink);--btn-bd:rgba(10,16,60,.25)}
+.btn-ghost:hover{--btn-bg:rgba(10,16,60,.04);--btn-bd:var(--ink);box-shadow:none}
 .btn-sm{padding:.62rem 1.25rem;font-size:.88rem}
 .btn-block{width:100%;margin-top:auto}
 
@@ -112,12 +113,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .site-nav a.is-active{color:var(--ink);background:var(--pink-100)}
 .header-actions{display:flex;align-items:center;gap:.55rem;flex-shrink:0}
 .lang-toggle{
-  min-width:44px;padding:.5rem .75rem;border-radius:999px;
+  min-width:44px;padding:.5rem .75rem;border-radius:0;
   border:1.5px solid var(--line);font-size:.82rem;font-weight:600;letter-spacing:.06em;color:var(--ink-2);
   transition:border-color .2s var(--ease),color .2s var(--ease),background .2s var(--ease);
 }
 .lang-toggle:hover{border-color:var(--ink);color:var(--ink);background:var(--paper-2)}
-.nav-toggle{display:none;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);align-items:center;justify-content:center}
+.nav-toggle{display:none;width:44px;height:44px;border-radius:0;border:1.5px solid var(--line);align-items:center;justify-content:center}
 .nav-toggle-bars{display:block;width:17px}
 .nav-toggle-bars i{display:block;height:1.6px;background:var(--ink);border-radius:2px;transition:transform .28s var(--ease),opacity .2s var(--ease)}
 .nav-toggle-bars i+i{margin-top:5px}
@@ -172,14 +173,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-runninghead{
   grid-area:head;align-self:end;
   display:flex;justify-content:space-between;align-items:baseline;
-  gap:1rem;margin-bottom:.35rem;
+  gap:1rem;margin:0 auto .35rem;
   /* matched to the name's measured width so "coach" ends exactly where the
      surname does — --name-w is set in script.js, since the width depends on
      language, viewport, webfont and whether signature.png loaded */
   width:min(var(--name-w,100%),100%);
 }
 .hero-role{
-  font-style:italic;font-weight:600;font-size:clamp(.88rem,1.6vw,1.2rem);
+  font-weight:300;font-size:clamp(.88rem,1.6vw,1.2rem);
   color:var(--ink);letter-spacing:.01em;margin:0;
 }
 .hero-runninghead .hero-role:last-child{text-align:right}
@@ -187,7 +188,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-name{
   --fs:clamp(3rem,12.6vw,10.5rem);
   grid-area:name;
-  display:flex;align-items:baseline;gap:clamp(0px,.4vw,.4rem);
+  display:flex;align-items:baseline;justify-content:center;gap:clamp(0px,.4vw,.4rem);
   flex-wrap:nowrap;
   margin:0 0 clamp(1rem,2.5vw,1.6rem);
 }
@@ -195,8 +196,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-weight:200;font-size:var(--fs);
   letter-spacing:-.045em;line-height:.86;color:var(--ink);white-space:nowrap;
 }
-.signature{display:inline-flex;align-items:center;flex-shrink:1;min-width:0}
-.signature-img{height:calc(var(--fs) * 1.42);width:auto;object-fit:contain}
+/* Never let the flex row squeeze the signature: the reset's
+   img{max-width:100%} would then cap its width while the height stays fixed,
+   distorting the handwriting. The Russian file is much wider than the English
+   one, so this only showed up in one language. */
+.signature{display:inline-flex;align-items:center;flex-shrink:0}
+.signature-img{height:calc(var(--fs) * 1.42);width:auto;max-width:none;object-fit:contain}
 /* Shown only when signature.png is absent (the <img> removes itself on error). */
 .signature-img+.signature-fallback{display:none}
 .signature-fallback{
@@ -217,7 +222,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   grid-area:figure;
   display:flex;align-items:center;justify-content:center;
   gap:clamp(.4rem,1.4vw,1.1rem);
-  margin-bottom:clamp(1.5rem,3.5vw,2.75rem);
+  margin-bottom:clamp(2.5rem,5vw,3.75rem);
 }
 .hero-asterisk{
   font-size:calc(var(--fig) * .5);line-height:1;
@@ -225,17 +230,24 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   margin-right:clamp(.2rem,1vw,.9rem);
   align-self:flex-start;
 }
-.hero-paren{
-  font-size:calc(var(--fig) * .66);line-height:1;
-  color:var(--pink-300);font-weight:400;
-  display:inline-block;transform:scaleY(2);
+/* Circular arcs rather than a typeface paren: the curve is drawn on the same
+   family of radii as the round photo, so the brackets actually hug it. */
+.hero-bracket{
+  flex:0 0 auto;overflow:visible;
+  height:calc(var(--fig) * 1.06);
+  width:calc(var(--fig) * .265);
+}
+.hero-bracket--r{transform:scaleX(-1)}
+.hero-bracket path{
+  fill:none;stroke:var(--pink-300);
+  stroke-width:8;stroke-linecap:round;
 }
 
 /* ---- the single uppercase line that replaced the chips ---- */
 .hero-tagline{
   grid-area:tagline;margin:0 0 clamp(1.75rem,3.5vw,2.75rem);
   font-size:clamp(.82rem,1.7vw,1.45rem);
-  letter-spacing:.04em;text-transform:uppercase;
+  letter-spacing:.04em;text-transform:uppercase;text-align:center;
   color:var(--ink);line-height:1.35;
 }
 
@@ -245,11 +257,11 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   position:relative;flex-shrink:0;
 }
 .hero-portrait img{
-  width:100%;height:100%;border-radius:0;
-  object-fit:cover;object-position:50% 18%;
+  width:100%;height:100%;border-radius:50%;
+  object-fit:cover;object-position:50% 50%;
 }
 
-.hero-cta{
+.hero-cta{justify-content:center;text-align:center;
   grid-area:cta;display:flex;align-items:center;flex-wrap:wrap;gap:.75rem;
   margin-top:clamp(2rem,4vw,3rem);
 }
@@ -258,12 +270,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* ===========================  STATS  =========================== */
 .shifts{background:#fff}
 .shifts-grid{grid-template-columns:repeat(2,1fr)}
-.shift{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.25rem}
-.shift-from{color:var(--ink-3);font-size:.95rem;line-height:1.4}
-.shift .arrow{width:1.5em;color:var(--blue-400);margin:.15rem 0}
+.shifts-grid>*{padding:calc(var(--cell-y) * .7) var(--cell-x)}
+.shift{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:.15rem}
+.shift-from{color:var(--ink-3);font-size:.84rem;line-height:1.35}
+.shift .arrow{width:1.3em;color:var(--blue-400);margin:.1rem 0}
 .shift-to{
   color:var(--ink);font-weight:500;
-  font-size:clamp(1rem,1.5vw,1.12rem);line-height:1.4;letter-spacing:-.015em;
+  font-size:clamp(.9rem,1.2vw,1rem);line-height:1.35;letter-spacing:-.015em;
 }
 
 /* ===========================  SECTIONS  =========================== */
@@ -307,6 +320,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card-sub{margin-top:1.1rem;margin-bottom:.5rem;font-weight:600;color:var(--ink)}
 .card-note{margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid var(--line-soft);font-size:.92rem;color:var(--ink-3)}
 .card--work:hover,.card--topic:hover{background:var(--paper-2)}
+.card--empty,.card--empty:hover{background:#fff}
+.card--empty::before{content:none}
 .price-card:hover{border-color:var(--ink-4)}
 
 /* ---- modular blocks -------------------------------------------------------
@@ -441,15 +456,20 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card--safe p{color:var(--ink-2)}
 
 /* ---------- credentials ---------- */
-.cert-grid{display:grid;grid-template-columns:repeat(2,1fr)}
-.cert{display:flex;flex-direction:column;gap:.8rem;text-decoration:none;color:inherit}
+/* a scrolling strip rather than a grid: eleven documents take far less room,
+   and the row keeps its shared hairlines */
+.cert-grid{
+  display:flex;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;
+}
+.cert-grid>*{scroll-snap-align:start;flex:0 0 auto;padding:0}
+.cert{display:block;width:clamp(140px,17vw,200px);text-decoration:none;color:inherit}
 .cert img{
   width:100%;aspect-ratio:3/4;display:block;
   object-fit:contain;object-position:center top;background:#fff;
   transition:opacity .25s var(--ease);
 }
 .cert:hover img{opacity:.85}
-.cert-cap{font-size:.78rem;line-height:1.45;color:var(--ink-3)}
 /* a document that hasn't been saved yet reads as an intentional placeholder */
 .cert.is-missing img{display:none}
 .cert.is-missing::before{
@@ -462,14 +482,17 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ---------- reviews ---------- */
-.reviews{display:grid;grid-template-columns:1fr}
+.reviews{
+  display:flex;overflow-x:auto;overscroll-behavior-x:contain;
+  scroll-snap-type:x proximity;
+}
+.reviews>*{scroll-snap-align:start;flex:0 0 auto;width:min(84vw,420px)}
 .review{position:relative}
 .review::before{
   content:"“";position:absolute;top:.1rem;left:calc(var(--cell-x) - .35rem);
   font-size:4.5rem;line-height:1;color:var(--pink-200);font-family:Georgia,serif;
 }
 .review p{position:relative;color:var(--ink-2);font-size:1.02rem}
-.review cite{display:block;margin-top:1rem;font-style:normal;font-size:.88rem;color:var(--ink-3)}
 
 /* ---------- contact ---------- */
 .booking{
@@ -503,10 +526,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .sticky-cta{
   position:fixed;left:14px;right:14px;bottom:14px;z-index:90;
   display:none;align-items:center;justify-content:center;gap:.5rem;
-  padding:1rem 1.4rem;border-radius:999px;
-  background:var(--ink);color:#fff;text-decoration:none;
+  padding:1rem 1.4rem;border-radius:0;
+  background:var(--grad-btn);color:var(--ink);text-decoration:none;
   font-size:.98rem;font-weight:500;letter-spacing:-.01em;
-  box-shadow:0 0 0 9px rgba(255,255,255,.72), 0 12px 32px -8px rgba(20,20,26,.45);
+  box-shadow:0 0 0 9px rgba(255,255,255,.72), 0 12px 32px -8px rgba(10,16,60,.35);
   opacity:0;transform:translateY(140%);
   transition:opacity .3s var(--ease),transform .35s var(--ease);
 }
@@ -519,7 +542,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (min-width:680px){
   .cert-grid{grid-template-columns:repeat(3,1fr)}
   /* topics has 3 cells, so it skips the 2-column stage */
-  .grid-3:not(.grid-3--tight){grid-template-columns:repeat(2,1fr)}
+  /* topics is 2x2 from here up; the six-cell grid goes 2 then 3 */
+  .grid-3{grid-template-columns:repeat(2,1fr)}
   .split{grid-template-columns:repeat(2,1fr)}
   .reviews{grid-template-columns:repeat(2,1fr)}
 }
@@ -527,7 +551,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   /* keep the :not() form here too — it raises specificity, so a bare
      .grid-3 would lose to the 680px rule no matter the source order. */
   .grid-3:not(.grid-3--tight){grid-template-columns:repeat(3,1fr)}
-  .grid-3--tight,.safety-grid,.journey{grid-template-columns:repeat(3,1fr)}
+  .safety-grid,.journey{grid-template-columns:repeat(3,1fr)}
   .cert-grid,.shifts-grid{grid-template-columns:repeat(4,1fr)}
 }
 
@@ -563,8 +587,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero-role{font-size:.72rem}
   .hero-runninghead{gap:.4rem}
   .hero-tagline{margin-bottom:1.25rem}
-  .hero-cta{margin-top:.75rem}
-  .hero-cta .btn{flex:1 1 220px}
+  .hero-cta{margin-top:.75rem;gap:.5rem}
+  .hero-cta .btn{flex:1 1 0;min-width:0;width:auto;padding:.72rem .55rem;font-size:.82rem}
+  .hero-meta{flex-basis:100%;text-align:center}
 }
 
 @media (max-width:560px){
@@ -572,6 +597,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .chip{padding:.42rem .95rem}
   .hero-portrait{max-width:66vw}
   .btn{padding:.85rem 1.4rem;width:100%}
+  .hero-cta .btn{width:auto}
   .btn-sm,.contact-links .btn{width:auto}
   .header-actions .btn-sm{display:none}
   .review::before{font-size:3.4rem;left:1rem}

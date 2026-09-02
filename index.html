@@ -108,21 +108,21 @@
       <h1 class="hero-name">
         <span class="hero-name-text" data-i18n="heroName">KRISTINA</span>
         <span class="signature">
-          <img src="assets/signature.png" alt="Van" class="signature-img" onerror="this.remove()" />
+          <img src="assets/signature_en.png" alt="Van" class="signature-img" onerror="this.remove()" />
           <span class="signature-fallback" data-i18n="heroSignatureAlt" aria-hidden="true">Van</span>
         </span>
       </h1>
 
       <!-- Bracketed figure: pink asterisk, then the portrait held between two
-           oversized parentheses. The parens are type, scaled vertically so they
-           stay tall and narrow rather than widening the whole group. -->
+           oversized brackets. The brackets are circular arcs, so the curve
+           follows the round photo. -->
       <div class="hero-figure">
         <span class="hero-asterisk" aria-hidden="true">*</span>
-        <span class="hero-paren" aria-hidden="true">(</span>
+        <svg class="hero-bracket" viewBox="0 0 60 240" aria-hidden="true"><path d="M56 10 A140 140 0 0 0 56 230" /></svg>
         <figure class="hero-portrait">
-          <img src="assets/kris.jpg" alt="Kristina Van" width="1063" height="1280" fetchpriority="high" />
+          <img src="assets/kris-round.jpg" alt="Kristina Van" width="900" height="900" fetchpriority="high" />
         </figure>
-        <span class="hero-paren" aria-hidden="true">)</span>
+        <svg class="hero-bracket hero-bracket--r" viewBox="0 0 60 240" aria-hidden="true"><path d="M56 10 A140 140 0 0 0 56 230" /></svg>
       </div>
 
       <p class="hero-tagline" data-i18n="heroTagline">The destroyer of mental restrictions and the confidence dealer</p>
@@ -260,6 +260,7 @@
           <h3 class="card-title" data-i18n="topicsGroup3Title">Change and crisis</h3>
           <ul class="dots" data-i18n-list="topicsGroup3List"><li>Emigration and adapting to a new life</li><li>Losing the life you had and starting from zero</li><li>Discomfort you can't name</li><li>Past experiences that still hurt</li><li>Not knowing what you want</li><li>Feeling nothing, or struggling to feel</li></ul>
         </article>
+        <article class="card card--topic card--empty" aria-hidden="true"></article>
       </div>
 
       <div class="shell"><p class="section-outro" data-i18n="topicsOutro">Either way, I'd rather we talked it through first and worked out whether I'm a fit — on a short call or in writing, whichever you prefer.</p></div>
@@ -360,49 +361,37 @@
       <div class="cert-grid modular">
         <a class="cert" href="assets/certs/01.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/01.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert1"></span>
         </a>
         <a class="cert" href="assets/certs/02.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/02.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert2"></span>
         </a>
         <a class="cert" href="assets/certs/03.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/03.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert3"></span>
         </a>
         <a class="cert" href="assets/certs/04.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/04.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert4"></span>
         </a>
         <a class="cert" href="assets/certs/05.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/05.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert5"></span>
         </a>
         <a class="cert" href="assets/certs/06.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/06.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert6"></span>
         </a>
         <a class="cert" href="assets/certs/07.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/07.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert7"></span>
         </a>
         <a class="cert" href="assets/certs/08.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/08.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert8"></span>
         </a>
         <a class="cert" href="assets/certs/09.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/09.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert9"></span>
         </a>
         <a class="cert" href="assets/certs/10.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/10.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert10"></span>
         </a>
         <a class="cert" href="assets/certs/11.jpg" target="_blank" rel="noopener">
           <img src="assets/certs/11.jpg" alt="" loading="lazy" onerror="this.closest('.cert').classList.add('is-missing')" />
-          <span class="cert-cap" data-i18n="cert11"></span>
         </a>
-        <div class="cert cert--note"><span data-i18n="credCaption">Originals available on request.</span></div>
       </div>
   </section>
 
@@ -415,10 +404,10 @@
       </header>
     </div>
       <div class="reviews modular">
-        <blockquote class="review"><p data-i18n="testimonial1">Thank you for your deep acceptance, which supports me in getting to know myself, and for the questions that open up what I'd been hiding from myself.</p><cite data-i18n="testimonial1By">— H.</cite></blockquote>
-        <blockquote class="review"><p data-i18n="testimonial2">Thank you for being an excellent specialist and for helping me resolve a pile of inner conflicts.</p><cite data-i18n="testimonial2By">— P.K.</cite></blockquote>
-        <blockquote class="review"><p data-i18n="testimonial3">The thing I'm taking with me: loving yourself just means living. Such relief in that.</p><cite data-i18n="testimonial3By">— R.</cite></blockquote>
-        <blockquote class="review"><p data-i18n="testimonial4">One meeting introduced me to my real self.</p><cite data-i18n="testimonial4By">— O.</cite></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial1">Thank you for your deep acceptance, which supports me in getting to know myself, and for the questions that open up what I'd been hiding from myself.</p></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial2">Thank you for being an excellent specialist and for helping me resolve a pile of inner conflicts.</p></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial3">The thing I'm taking with me: loving yourself just means living. Such relief in that.</p></blockquote>
+        <blockquote class="review"><p data-i18n="testimonial4">One meeting introduced me to my real self.</p></blockquote>
       </div>
   </section>
 

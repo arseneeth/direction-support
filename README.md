@@ -120,6 +120,20 @@ python3 -c "import re;s=open('translations.js',encoding='utf-8').read();i=s.inde
 - **The name** is Inter 200 (closest weight to Helvetica Neue Thin), with the
   signature tucked almost flush against it at 1.42x the name's font size, both
   driven off `--fs` so they scale together.
+- **Two drawn signatures**, `assets/signature_en.png` and `signature_ru.png`,
+  swapped by `script.js` on the language toggle. They have very different
+  proportions (919x800 vs 681x380), and Cyrillic "КРИСТИНА" is much wider than
+  "KRISTINA", so the lockup overflows its row in Russian and not in English.
+  `syncHeroName()` measures it and scales `--fs` down to fit — one proportional
+  pass, since everything scales off that one variable.
+
+  Two traps here. `.signature` must be `flex-shrink: 0` with
+  `max-width: none` on the image: otherwise the flex row squeezes it and the
+  reset's `img{max-width:100%}` caps the width while the height stays fixed,
+  silently distorting the handwriting — visible only in Russian, where the file
+  is wider. And the `ResizeObserver` that keeps this current runs
+  **synchronously**; deferring to `requestAnimationFrame` strands it whenever
+  frames are throttled (hidden or background tab), leaving `--name-w` stale.
 - On mobile the folio label and its gap shrink, because the folio is only as
   wide as the name there (~195px at 375) and would otherwise wrap to two lines.
 
