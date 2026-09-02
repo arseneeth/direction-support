@@ -30,7 +30,7 @@ window.DIRECTION_SUPPORT_I18N = {
     heroArrow3To: "to assertiveness, and the kind of nerve that gets you places",
     heroArrow4From: "from chaos at work",
     heroArrow4To: "to structure and room to grow",
-    heroBook: "Book a free intro call",
+    heroBook: "Book",
     heroSecondary: "Text me instead",
 
     /* ---- stats strip ---- */
@@ -229,7 +229,7 @@ window.DIRECTION_SUPPORT_I18N = {
     contactInstagram: "Instagram",
     contactLangs: "Sessions in English and Russian · online, wherever you are",
     bookingNote: "Calendar not loading? Open it in a new tab.",
-    stickyCta: "Book a free call",
+    stickyCta: "Book a session",
 
     /* ---- footer ---- */
     footerDisclaimer: "Psychological support is not a substitute for medical or psychiatric care. If you are in crisis, please contact emergency or mental health services in your area.",
@@ -262,7 +262,7 @@ window.DIRECTION_SUPPORT_I18N = {
     heroArrow3To: "к ассертивности и той наглости, которая второе счастье",
     heroArrow4From: "от хаоса в работе",
     heroArrow4To: "к структуре и расширению",
-    heroBook: "Бесплатный созвон-знакомство",
+    heroBook: "Записаться",
     heroSecondary: "Написать мне",
 
     /* ---- stats ---- */
@@ -461,7 +461,7 @@ window.DIRECTION_SUPPORT_I18N = {
     contactInstagram: "Инстаграм",
     contactLangs: "Сессии на русском и английском · онлайн, где бы вы ни были",
     bookingNote: "Календарь не загрузился? Откройте его в новой вкладке.",
-    stickyCta: "Записаться на созвон",
+    stickyCta: "Записаться на сессию",
 
     /* ---- footer ---- */
     footerDisclaimer: "Психологическая поддержка не заменяет медицинскую или психиатрическую помощь. В кризисе обращайтесь в службы экстренной или психологической помощи в вашем регионе.",

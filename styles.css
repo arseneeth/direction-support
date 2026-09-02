@@ -173,7 +173,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-runninghead{
   grid-area:head;align-self:end;
   display:flex;justify-content:space-between;align-items:baseline;
-  gap:1rem;margin:0 auto .05rem;
+  gap:1rem;margin:0 auto;line-height:1.3;
   /* matched to the name's measured width so "coach" ends exactly where the
      surname does — --name-w is set in script.js, since the width depends on
      language, viewport, webfont and whether signature.png loaded */
@@ -190,7 +190,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   grid-area:name;
   display:flex;align-items:baseline;justify-content:center;gap:clamp(0px,.4vw,.4rem);
   flex-wrap:nowrap;
-  margin:0 0 clamp(1rem,2.5vw,1.6rem);
+  /* the name's line-height is under 1, so its box carries a lot of space above
+     the caps; pull it back up so the folio sits a normal line above it */
+  margin:calc(var(--fs) * -.28) 0 clamp(1rem,2.5vw,1.6rem);
 }
 .hero-name-text{
   font-weight:200;font-size:var(--fs);
@@ -290,16 +292,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .section-head{max-width:720px;margin-bottom:clamp(2rem,4vw,3.25rem)}
 .section-head--center{margin-inline:auto;text-align:center}
-/* Section label as a full-bleed band: bold, light grey, tracked out by
-   script.js until it is a touch wider than the viewport, so both ends run off
-   the edge. overflow:hidden does the clipping, which keeps it working even
-   where the page itself does not scroll horizontally. */
 .pill{
-  display:block;width:100vw;margin:0 0 clamp(.4rem,1.2vw,.9rem) calc(50% - 50vw);
-  padding:0;border:0;background:none;border-radius:0;
-  overflow:hidden;white-space:nowrap;text-align:center;
-  font-size:clamp(1.5rem,4.4vw,3.4rem);font-weight:700;line-height:1.05;
-  text-transform:uppercase;color:var(--rule);
+  display:inline-block;margin-bottom:1rem;padding:.35rem .9rem;border-radius:999px;
+  background:#fff;border:1px solid var(--rule);
+  font-size:.76rem;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);
 }
 .section-title{font-size:clamp(1.85rem,4.4vw,3.1rem);font-weight:300;letter-spacing:-.035em;line-height:1.08}
 .section-lead{margin-top:1rem;font-size:clamp(1rem,1.7vw,1.15rem);color:var(--ink-2)}
@@ -415,8 +411,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .journey-step{position:relative}
 .journey-num{
   display:block;border:0;background:none;
-  font-size:clamp(2.4rem,5.5vw,4rem);font-weight:700;line-height:1;
-  color:var(--rule);margin-bottom:.6rem;
+  font-size:clamp(4.5rem,13vw,11rem);font-weight:700;line-height:.85;
+  letter-spacing:-.05em;color:var(--rule);margin-bottom:.35rem;
+}
+/* the first and last numerals push past the page edges and get clipped there */
+.journey-step:first-child .journey-num{margin-left:calc(-1 * var(--cell-x) - .1em)}
+.journey-step:last-child .journey-num{
+  text-align:right;margin-right:calc(-1 * var(--cell-x) - .1em);
 }
 .journey-step h3{font-size:1.22rem;font-weight:600;margin-bottom:.5rem}
 .journey-step p{color:var(--ink-2)}
@@ -561,6 +562,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .safety-grid,.journey{grid-template-columns:repeat(3,1fr)}
   .cert-grid,.shifts-grid{grid-template-columns:repeat(4,1fr)}
 }
+
+/* text drifts gently inside its block; the block itself never moves, so the
+   shared hairlines of the modular grids stay put */
+.px{will-change:transform}
 
 /* ===========================  MOTION  =========================== */
 .reveal{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}

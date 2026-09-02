@@ -131,58 +131,20 @@
     grid.style.setProperty('--name-w', Math.ceil(w) + 'px');
   }
 
-  /* --------------------------- section labels ---------------------------
-     Each label is tracked out until it is slightly wider than the viewport,
-     so both ends run off the edge. Letter-spacing rather than font-size, so
-     short labels ("topics") and long ones ("services & pricing") keep the
-     same type size and only their tracking differs.
-  ----------------------------------------------------------------------- */
-
-  function syncBleedLabels() {
-    var labels = document.querySelectorAll('.pill');
-
-    for (var i = 0; i < labels.length; i++) {
-      var el = labels[i];
-      el.style.letterSpacing = '0px';
-      el.style.textIndent = '0px';
-
-      var text = (el.textContent || '').trim();
-      var box = el.clientWidth;
-      if (!box || text.length < 2) continue;
-
-      // A Range measures the text itself; scrollWidth would not, because the
-      // label clips its own overflow.
-      var range = document.createRange();
-      range.selectNodeContents(el);
-      var natural = range.getBoundingClientRect().width;
-      if (!natural) continue;
-
-      var extra = (box * 1.05 - natural) / text.length;
-      el.style.letterSpacing = extra + 'px';
-      // the trailing letter-space would pull centred text off to the left
-      el.style.textIndent = (extra / 2) + 'px';
-    }
-  }
-
   // Measure now, then again once layout and webfonts have settled. Switching
   // language pulls in a different subset of the script face, and measuring
   // before it lands gives a width that is off by several pixels.
-  function syncHeroLayout() {
-    syncHeroName();
-    syncBleedLabels();
-  }
-
   function scheduleHeroName() {
-    syncHeroLayout();
-    requestAnimationFrame(syncHeroLayout);
+    syncHeroName();
+    requestAnimationFrame(syncHeroName);
     if (document.fonts && document.fonts.ready) {
-      document.fonts.ready.then(syncHeroLayout);
+      document.fonts.ready.then(syncHeroName);
     }
   }
 
   function initHeroName() {
     scheduleHeroName();
-    window.addEventListener('resize', syncHeroLayout);
+    window.addEventListener('resize', syncHeroName);
     window.addEventListener('load', scheduleHeroName);
 
     var sig = document.querySelector('.signature-img');
@@ -203,7 +165,7 @@
       new ResizeObserver(function () {
         if (running) return;
         running = true;
-        try { syncHeroLayout(); } finally { running = false; }
+        try { syncHeroName(); } finally { running = false; }
       }).observe(name);
     }
   }
@@ -350,6 +312,67 @@
     window.addEventListener('resize', paint);
   }
 
+  /* ------------------------------ parallax ------------------------------
+     A light drift on the text inside each block. The transform goes on the
+     children, never on the block itself: the modular grids draw their
+     hairlines from cells sitting flush against each other, and moving the
+     cells would tear those seams open.
+  ----------------------------------------------------------------------- */
+
+  function initParallax() {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!('IntersectionObserver' in window)) return;
+
+    var AMPLITUDE = 8; // px of travel across the whole viewport
+    var boxes = document.querySelectorAll('.section-head, .card, .review, .shift, .note-block');
+    if (!boxes.length) return;
+
+    var live = [];
+
+    function paint() {
+      ticking = false;
+      var vh = window.innerHeight || 1;
+
+      for (var i = 0; i < live.length; i++) {
+        var box = live[i];
+        var r = box.getBoundingClientRect();
+        var offset = ((r.top + r.height / 2) - vh / 2) / vh * AMPLITUDE;
+        var t = 'translate3d(0,' + offset.toFixed(2) + 'px,0)';
+        var kids = box.children;
+        for (var k = 0; k < kids.length; k++) kids[k].style.transform = t;
+      }
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(paint);
+    }
+
+    var io = new IntersectionObserver(function (entries) {
+      for (var i = 0; i < entries.length; i++) {
+        var el = entries[i].target;
+        var at = live.indexOf(el);
+        if (entries[i].isIntersecting) {
+          if (at === -1) {
+            live.push(el);
+            for (var k = 0; k < el.children.length; k++) el.children[k].classList.add('px');
+          }
+        } else if (at > -1) {
+          live.splice(at, 1);
+        }
+      }
+      onScroll();
+    }, { rootMargin: '25% 0px 25% 0px' });
+
+    for (var i = 0; i < boxes.length; i++) io.observe(boxes[i]);
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    paint();
+  }
+
   function initYear() {
     var el = document.getElementById('year');
     if (el) el.textContent = new Date().getFullYear();
@@ -363,6 +386,7 @@
     initScrollSpy();
     initReveal();
     initStickyCta();
+    initParallax();
     initYear();
   });
 })();
