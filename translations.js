@@ -177,8 +177,8 @@ window.DIRECTION_SUPPORT_I18N = {
     safety3Note: "If any of that is what you're facing right now, please reach a psychiatrist or a crisis service — that's the right kind of help, and it exists.",
 
     /* ---- credentials ---- */
-    safety4Title: "Can I see your diplomas and certificates?",
-    credIntro: "Qualified practical psychologist, in continuous supervision since the first day of practice.",
+    safety4Title: "Where can I see your diplomas and certificates?",
+    credIntro: "Just right here.",
     cert1: "Nauka PSI2.0 — diploma of professional retraining: psychological counselling, PSY2.0 method · 1100 h · 2024",
     cert2: "Diploma supplement — 27 disciplines, 1100 hours",
     cert3: "Diploma supplement — qualification: Practical psychologist, PSY2.0 consultant",
@@ -407,8 +407,8 @@ window.DIRECTION_SUPPORT_I18N = {
     safety3Note: "Если сейчас вы столкнулись именно с этим — пожалуйста, обратитесь к психиатру или в кризисную службу. Это правильный вид помощи, и он существует.",
 
     /* ---- credentials ---- */
-    safety4Title: "Можно посмотреть дипломы и сертификаты?",
-    credIntro: "Дипломированный практический психолог, в постоянной супервизии с первого дня практики.",
+    safety4Title: "Где можно посмотреть дипломы и сертификаты?",
+    credIntro: "А вот тут.",
     cert1: "«Наука ПСИ2.0» — диплом о профессиональной переподготовке: психологическое консультирование по методике PSY2.0 · 1100 ч · 2024",
     cert2: "Приложение к диплому — 27 дисциплин, 1100 часов",
     cert3: "Приложение к диплому — квалификация «Практический психолог. PSY2.0-консультант»",

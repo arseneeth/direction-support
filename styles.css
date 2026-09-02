@@ -30,7 +30,6 @@
   --shell:1240px;
   --cell-y:clamp(1.5rem,2.6vw,2.2rem); --cell-x:clamp(1.25rem,3vw,2.6rem);
   --grad-dopamine:linear-gradient(100deg,var(--pink-50),var(--lilac-100) 52%,var(--blue-50));
-  --grad-sun:linear-gradient(140deg,var(--orange-200),var(--orange-100) 66%,#FFF7EE);
   --grad-btn:linear-gradient(100deg,var(--pink-200),var(--lilac-200) 52%,var(--blue-200));
   --r-lg:12px; --r-md:10px; --r-sm:8px;
   --shadow:0 1px 2px rgba(20,20,26,.04), 0 12px 32px -12px rgba(20,20,26,.10);
@@ -282,7 +281,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ===========================  SECTIONS  =========================== */
-.section{position:relative;padding:clamp(3.5rem,8vw,7rem) 0;overflow:hidden}
+.section{position:relative;padding:clamp(2.25rem,4.5vw,4rem) 0;overflow:hidden}
+/* a section ending in a full-bleed block would otherwise trail a strip of its
+   own tint underneath that block */
+.section:has(> .modular:last-child){padding-bottom:0}
 .section--pink{background:var(--pink-50)}
 .section--pink::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 55% at 82% 8%,rgba(255,156,197,.34),transparent 70%);pointer-events:none}
 .section--blue{background:var(--blue-50)}
@@ -316,13 +318,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .card--tint{background:linear-gradient(165deg,#fff,var(--pink-50))}
 .card--accent{background:linear-gradient(165deg,#fff,var(--lilac-100));border-color:var(--lilac-200)}
-.card--limits{background:linear-gradient(165deg,#fff,var(--orange-100));border-color:var(--orange-200)}
 .card-title{font-size:1.14rem;font-weight:600;letter-spacing:-.02em;margin-bottom:.7rem}
 .card-lead{color:var(--ink-2)}
 .card-sub{margin-top:1.1rem;margin-bottom:.5rem;font-weight:600;color:var(--ink)}
 .card-note{margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid var(--line-soft);font-size:.92rem;color:var(--ink-3)}
 .card--work:hover,.card--topic:hover{background:var(--paper-2)}
-.card--wide{grid-column:1 / -1}
+
 .price-card:hover{border-color:var(--ink-4)}
 
 /* ---- modular blocks -------------------------------------------------------
@@ -357,11 +358,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 /* tinted cells sit after the base so they win the background */
 .card--tint{background:linear-gradient(135deg,var(--pink-50),var(--blue-50))}
-.card--limits{background:linear-gradient(140deg,var(--orange-100),#fff 78%)}
-.card--sun{background:var(--grad-sun)}
-.card--sun:hover{background:linear-gradient(140deg,var(--orange-200),var(--orange-200) 70%,var(--orange-100))}
 .shift--dopamine,.journey-step--dopamine{background:var(--grad-dopamine)}
-.shift--sun{background:var(--grad-sun)}
 
 /* geometric glyphs — the "stable" motif */
 .glyph{display:block;width:26px;height:26px;margin-bottom:1.1rem;flex-shrink:0}
@@ -571,6 +568,10 @@ details.card>summary:focus-visible{outline-offset:6px}
   /* topics has 3 cells, so it skips the 2-column stage */
   /* topics is 2x2 from here up; the six-cell grid goes 2 then 3 */
   .grid-3{grid-template-columns:repeat(2,1fr)}
+  /* topics has three cells in a two-column grid; dropping the container's own
+     border leaves the empty fourth slot as plain background with no line
+     running under it — each cell still draws its own outline */
+  .grid-3--tight{border-block:0;overflow:visible}
   .split{grid-template-columns:repeat(2,1fr)}
   .reviews{grid-template-columns:repeat(2,1fr)}
 }
