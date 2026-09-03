@@ -317,6 +317,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    since a bleed only reads as one when the text is centred in it */
 #topics .section-head,
 #work .section-head{margin-right:0;margin-left:auto;text-align:right}
+/* five cards in a three-column grid leaves one slot empty; without the
+   container's own border nothing is drawn across it */
+#work .grid-3{border-block:0;overflow:visible}
 #topics .pill,
 #work .pill{width:auto;margin-inline:0;text-align:right}
 /* Oversized section label, pulled up past the section's top padding so its
@@ -361,18 +364,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .card-sub{margin-top:1.1rem;margin-bottom:.5rem;font-weight:600;color:var(--ink)}
 .card-note{margin-top:1.15rem;padding-top:1.15rem;border-top:1px solid var(--line-soft);font-size:.92rem;color:var(--ink-3)}
 .card--work:hover,.card--topic:hover{background:var(--paper-2)}
-/* the three topic cells get a soft striped ground, one hue each */
-.card--topic{background-size:100% 100%;background-repeat:no-repeat}
-.grid-3--tight>.card--topic:nth-child(1){
-  background-image:repeating-linear-gradient(135deg,rgba(255,195,221,.28) 0 10px,transparent 10px 22px);
+/* The stripes sit behind the heading only, as a band across the cell; the
+   list underneath stays on white. The band bleeds to the cell edges with
+   negative margins that mirror the cell's own padding. */
+.card--topic .card-title{
+  margin:calc(var(--cell-y) * -1.35) calc(var(--cell-x) * -1.15) 1.15rem;
+  padding:calc(var(--cell-y) * .5) calc(var(--cell-x) * 1.15);
 }
-.grid-3--tight>.card--topic:nth-child(2){
-  background-image:repeating-linear-gradient(135deg,rgba(175,225,251,.30) 0 10px,transparent 10px 22px);
+.grid-3--tight>.card--topic:nth-child(1) .card-title{
+  background:repeating-linear-gradient(135deg,rgba(255,195,221,.38) 0 10px,transparent 10px 22px);
 }
-.grid-3--tight>.card--topic:nth-child(3){
-  background-image:repeating-linear-gradient(135deg,rgba(222,211,249,.32) 0 10px,transparent 10px 22px);
+.grid-3--tight>.card--topic:nth-child(2) .card-title{
+  background:repeating-linear-gradient(135deg,rgba(175,225,251,.40) 0 10px,transparent 10px 22px);
 }
-.card--topic:hover{background-color:#fff}
+.grid-3--tight>.card--topic:nth-child(3) .card-title{
+  background:repeating-linear-gradient(135deg,rgba(222,211,249,.42) 0 10px,transparent 10px 22px);
+}
 .card--topic .card-title{font-size:1.02rem}
 .card--topic .dots li{font-size:.9rem;margin-bottom:.5rem}
 

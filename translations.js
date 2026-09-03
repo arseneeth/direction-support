@@ -66,15 +66,13 @@ window.DIRECTION_SUPPORT_I18N = {
     work1Title: "I listen to more than the words",
     work1Text: "Not only what you say, but how you say it — and what you leave out. What unfolds between us is a live demo of what happens in your life.",
     work2Title: "I don't insist that I'm right",
-    work2Text: "I offer a perspective and my experience. Disagree with me, argue with me — that's encouraged.",
-    work3Title: "You have a 100% right to say stop",
+    work2Text: "I offer a perspective and my experience, not a diagnosis. Disagree with me, argue with me — that's encouraged.",
+    work3Title: "Don't forget your right to say stop",
     work3Text: "At any moment you can turn the temperature down or close a topic. Therapy doesn't have to force depth: being present and witnessed moves people remarkably far.",
     work4Title: "I keep my own lens clean",
-    work4Text: "I want to see you through a lens wiped clean of my own smudges. That's what my own therapy and supervision are for.",
-    work5Title: "The frame outside is firm",
-    work5Text: "Maximum freedom inside the session, a clear structure around it: a fixed weekly or fortnightly slot, payment before, changes 48 hours ahead.",
-    work6Title: "And it's put in writing",
-    work6Text: "If you decide to continue after the first session, I'll send you an informed-consent agreement to sign.",
+    work4Text: "That's what my own therapy, intervision and supervision are for.",
+    work5Title: "The frame outside is clear",
+    work5Text: "Maximum freedom inside the session, which rests on what we agree between us: a fixed weekly or fortnightly slot, payment before, changes 48 hours ahead.",
 
     /* ---- journey ---- */
 
@@ -278,15 +276,13 @@ window.DIRECTION_SUPPORT_I18N = {
     work1Title: "Я слышу больше, чем слова",
     work1Text: "Не только что вы говорите, но и как — и о чём молчите. То, что разворачивается между нами, — демоверсия того, что происходит в вашей жизни.",
     work2Title: "Я не настаиваю на своей правоте",
-    work2Text: "Я предлагаю свой взгляд и опыт. Не соглашайтесь, спорьте — это приветствуется.",
-    work3Title: "У вас 100% право сказать «стоп»",
+    work2Text: "Я предлагаю свой взгляд и опыт, а не ставлю диагнозы. Не соглашайтесь, спорьте — это приветствуется.",
+    work3Title: "Не забывайте о своём праве на «стоп»",
     work3Text: "В любой момент можно сбавить градус или закрыть тему. В терапии не обязательно насиловать глубиной: присутствие и свидетельствование продвигают очень далеко.",
     work4Title: "Я слежу за чистотой своей призмы",
-    work4Text: "Я хочу видеть вас через призму, протёртую от собственных пятен. Для этого у меня есть личная терапия и супервизии.",
-    work5Title: "Рамка снаружи остаётся жёсткой",
-    work5Text: "Максимум свободы внутри сессии, чёткая рамка снаружи: закреплённое время раз в неделю или две, оплата до встречи, переносы за 48 часов.",
-    work6Title: "И всё это зафиксировано",
-    work6Text: "Если после первой сессии вы решаете продолжить сотрудничество, я отправлю вам информированное согласие на подпись.",
+    work4Text: "Для этого у меня есть моя личная терапия, интервизии и супервизии.",
+    work5Title: "Рамка снаружи остаётся чёткой",
+    work5Text: "Максимум свободы внутри сессии, что возможно благодаря опоре на наши договорённости: закреплённое время раз в неделю или две, оплата до встречи, переносы за 48 часов.",
 
     /* ---- journey ---- */
 
