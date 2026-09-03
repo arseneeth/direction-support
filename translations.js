@@ -134,7 +134,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "Online groups, one-off or monthly, as each group fills"
     ],
     pricingMoreNote: "Message me for current dates and rates on these.",
-    pricingPayTitle: "Payment",
+    pricingPayTitle: "What kinds of payment can you accept?",
     pricingPayList: [
       "Sessions are paid at least 24 hours in advance. Otherwise I may cancel or offer you another slot.",
       "Euro or dollars via Revolut, IBAN, SWIFT or PayPal; hryvnia via Monobank; crypto; yuan via WeChat and Alipay; roubles; Paysend.",
@@ -347,7 +347,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "Онлайн-группы, разовые или месячные, по мере набора"
     ],
     pricingMoreNote: "Актуальные даты и стоимость по этим форматам — в личных сообщениях.",
-    pricingPayTitle: "Оплата",
+    pricingPayTitle: "Какие способы оплаты вы принимаете?",
     pricingPayList: [
       "Сессия оплачивается минимум за 24 часа до начала, иначе я оставляю за собой право её отменить или предложить альтернативное время.",
       "Евро и доллары на Revolut, IBAN, SWIFT, PayPal; гривны на Монобанк; крипта; юани на WeChat и Alipay; рубли; Paysend.",

@@ -431,7 +431,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .rules{
   counter-reset:rule;
   grid-template-columns:1fr;gap:1px;padding:0;
-  border-block:1px solid var(--rule);overflow:hidden;
+  border-block:0;overflow:visible;
 }
 .rules>li{
   counter-increment:rule;position:relative;
@@ -454,8 +454,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 @media (min-width:900px){
   .rules{grid-template-columns:repeat(3,1fr)}
-  /* seven steps: the last one spans the row so no slot is left empty */
-  .rules>li:last-child{grid-column:1 / -1}
   /* the flow runs across a row, so the arrow points that way */
   .rules>li:not(:last-child)::after{content:"\2192"}
 }
