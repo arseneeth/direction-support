@@ -203,7 +203,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-family:var(--font);
   font-weight:700;font-size:var(--fs);
   letter-spacing:-.025em;line-height:.9;
-  text-transform:uppercase;color:var(--rule);
+  text-transform:uppercase;color:var(--ink);
   transform:none;white-space:nowrap;
 }
 .hero-name .signature{display:inline}
@@ -313,6 +313,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 
 .section-head{max-width:900px;margin-bottom:clamp(.75rem,1.6vw,1.25rem)}
 .section-head--center{margin-inline:auto;text-align:center}
+/* two blocks break the centred rhythm; their labels stop being full-bleed,
+   since a bleed only reads as one when the text is centred in it */
+#topics .section-head{margin-left:0;text-align:left}
+#work .section-head{margin-right:0;text-align:right}
+#topics .pill,
+#work .pill{width:auto;margin-inline:0}
+#topics .pill{text-align:left}
+#work .pill{text-align:right}
 /* Oversized section label, pulled up past the section's top padding so its
    own top is cropped by the section's overflow. White where the section is
    tinted, a light grey where it is not — white on white would vanish. */
@@ -417,21 +425,22 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:.72rem;line-height:1.9;color:var(--pink-300);
 }
 .crosses li::before{content:"×";position:absolute;left:.15rem;top:-.03em;font-size:1.15rem;line-height:1.6;color:var(--orange-400)}
-/* A chain, not a table: the step's text sits in the box, the numeral is just
-   a small plain label, and an arrow carries you to the next box. */
+/* A chain: contiguous cells, three to a row, with an arrow in the bottom
+   corner pointing on to the next one. gap:1px plus a per-cell outline keeps a
+   single shared hairline, the same trick the other modular blocks use. */
 .rules{
-  counter-reset:rule;border-block:0;overflow:visible;
-  gap:0;padding:0 var(--cell-x);
+  counter-reset:rule;
+  grid-template-columns:1fr;gap:1px;padding:0;
+  border-block:1px solid var(--rule);overflow:hidden;
 }
 .rules>li{
   counter-increment:rule;position:relative;
-  margin:0;box-shadow:none;
-  background:#fff;border:1px solid var(--rule);
-  padding:clamp(1rem,2vw,1.4rem) clamp(1.1rem,2.2vw,1.6rem);
+  margin:0;border:0;background:#fff;
+  box-shadow:0 0 0 1px var(--rule);
+  padding:var(--cell-y) var(--cell-x) calc(var(--cell-y) + .6rem);
   display:grid;grid-template-columns:auto minmax(0,1fr);
   gap:0 clamp(.9rem,1.8vw,1.4rem);align-items:start;
 }
-.rules>li:not(:last-child){margin-bottom:2.6rem}
 .rules>li::before{
   content:counter(rule);position:static;display:block;
   width:auto;height:auto;border:0;background:none;border-radius:0;
@@ -439,13 +448,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   font-size:.78rem;font-weight:600;letter-spacing:.1em;color:var(--ink-4);
 }
 .rules>li:not(:last-child)::after{
-  content:"↓";position:absolute;left:50%;transform:translateX(-50%);
-  bottom:-2rem;font-size:1.25rem;line-height:1;color:var(--blue-400);
+  content:"\2193";position:absolute;
+  right:calc(var(--cell-x) * .6);bottom:calc(var(--cell-y) * .35);
+  font-size:1.15rem;line-height:1;color:var(--blue-400);
+}
+@media (min-width:900px){
+  .rules{grid-template-columns:repeat(3,1fr)}
+  /* seven steps: the last one spans the row so no slot is left empty */
+  .rules>li:last-child{grid-column:1 / -1}
+  /* the flow runs across a row, so the arrow points that way */
+  .rules>li:not(:last-child)::after{content:"\2192"}
 }
 
 /* ---------- layout helpers ---------- */
 .split{display:grid;grid-template-columns:1fr}
-.split--notes{margin-top:0}
+.split--notes{margin-top:0;grid-template-columns:1fr}
 .grid-3{display:grid;grid-template-columns:1fr}
 .note-title{margin-top:0}
 .note-title{font-size:1rem;font-weight:600;margin-bottom:.9rem}

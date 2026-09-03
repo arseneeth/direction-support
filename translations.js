@@ -189,7 +189,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "I don't publish client cases on my website or social media, and I never use counselling clients for promotion or content. On other projects — coaching, for instance — I may use a review if the client offered it or published it themselves and tagged me.",
       "Ending long-term work (more than two months) is discussed in session, and you agree to book one closing session so we finish the relationship properly."
     ],
-    settingNote: "The full terms live in the contract.",
+    settingNote: "The full terms are in the agreement document I'll send you.",
 
     /* ---- testimonials ---- */
     reviewsPill: "Feedback",
@@ -205,11 +205,10 @@ window.DIRECTION_SUPPORT_I18N = {
     /* ---- contact ---- */
     contactPill: "Book a time",
     contactLead: "If none of the times on offer suit you, message me with what would work and I will check my calendar.",
-    contactAlt: "Have questions first?",
-    contactAltText: "Text me and ask them — I'd rather you asked than guessed.",
+    contactAlt: "Have any questions?",
+    contactAltText: "There are no wrong questions, only the ones you never ask.",
     contactTelegram: "Message me on Telegram",
     contactInstagram: "Instagram",
-    contactLangs: "Sessions in English and Russian · online, wherever you are",
     bookingNote: "Calendar not loading? Open it in a new tab.",
     stickyCta: "Book a session",
 
@@ -403,7 +402,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "Я не публикую описание кейсов на сайте и в соцсетях и не использую клиентов в консультировании для продвижения или контента. На других проектах, например коучинговых, я могу использовать отзыв, если клиент сам захотел им поделиться или опубликовал его публично и отметил меня.",
       "Завершение длительной работы (больше 2 месяцев) обсуждается во время сессий; клиент соглашается назначить одну завершающую сессию, чтобы закончить отношения."
     ],
-    settingNote: "Полные условия работы прописаны в контракте.",
+    settingNote: "Полные условия — в договоре, который я вам пришлю.",
 
     /* ---- testimonials ---- */
     reviewsPill: "Обратная связь",
@@ -419,11 +418,10 @@ window.DIRECTION_SUPPORT_I18N = {
     /* ---- contact ---- */
     contactPill: "Забронировать время",
     contactLead: "Если вы не находите удобный для вас вариант — напишите мне ваше предпочтение по времени, и я проверю своё расписание.",
-    contactAlt: "Остались вопросы?",
-    contactAltText: "Напишите мне и задайте их — лучше спросить, чем додумывать.",
+    contactAlt: "Есть вопросы?",
+    contactAltText: "Нет неправильных вопросов, есть незаданные.",
     contactTelegram: "Написать в Telegram",
     contactInstagram: "Инстаграм",
-    contactLangs: "Сессии на русском и английском · онлайн, где бы вы ни были",
     bookingNote: "Календарь не загрузился? Откройте его в новой вкладке.",
     stickyCta: "Записаться на сессию",
 
