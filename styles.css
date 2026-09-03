@@ -156,7 +156,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ===========================  HERO  =========================== */
-.hero{position:relative;padding:clamp(1.75rem,4vw,3.25rem) 0 clamp(2.5rem,5vw,4rem);overflow:hidden}
+.hero{
+  --hero-pad:clamp(1.75rem,4vw,3.25rem);
+  position:relative;padding:var(--hero-pad) 0 clamp(2.5rem,5vw,4rem);overflow:hidden;
+}
 .hero-grid{
   --fs:clamp(3rem,13.6vw,11.5rem);
   position:relative;z-index:1;
@@ -187,18 +190,25 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero-runninghead .hero-role:first-child{margin-left:var(--name-bearing,0px)}
 .hero-runninghead .hero-role:last-child{text-align:right}
 
+/* The name is set like the section labels: bold uppercase, light, and pulled
+   up so its top is cropped by the hero's overflow. The drawn signature steps
+   aside for type here — revert this rule and the two below to bring it back. */
 .hero-name{
   grid-area:name;
-  display:flex;align-items:baseline;justify-content:center;gap:clamp(0px,.4vw,.4rem);
-  flex-wrap:nowrap;
-  /* the name's line-height is under 1, so its box carries a lot of space above
-     the caps; pull it back up so the folio sits a normal line above it */
-  margin:0;
+  display:block;text-align:center;white-space:nowrap;
+  margin:calc(-1 * var(--hero-pad) - .1em) 0 0;
 }
-.hero-name-text{
-  font-weight:200;font-size:var(--fs);
-  letter-spacing:-.045em;line-height:.86;color:var(--ink);white-space:nowrap;
+.hero-name-text,
+.hero-name .signature-fallback{
+  font-family:var(--font);
+  font-weight:700;font-size:var(--fs);
+  letter-spacing:-.025em;line-height:.9;
+  text-transform:uppercase;color:var(--rule);
+  transform:none;white-space:nowrap;
 }
+.hero-name .signature{display:inline}
+.hero-name .signature-img{display:none}
+.hero-name .signature-img+.signature-fallback{display:inline}
 /* Never let the flex row squeeze the signature: the reset's
    img{max-width:100%} would then cap its width while the height stays fixed,
    distorting the handwriting. The Russian file is much wider than the English

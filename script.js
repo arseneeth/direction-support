@@ -106,13 +106,12 @@
 
     grid.style.removeProperty('--fs');
 
-    var kids = name.children;
-    var gap = parseFloat(getComputedStyle(name).columnGap) || 0;
-
+    // Measure the rendered line, not a sum of flex children: the name is a
+    // block now, so the space between the words is ordinary text, not a gap.
     function contentWidth() {
-      var w = 0;
-      for (var i = 0; i < kids.length; i++) w += kids[i].getBoundingClientRect().width;
-      return w + gap * Math.max(0, kids.length - 1);
+      var range = document.createRange();
+      range.selectNodeContents(name);
+      return range.getBoundingClientRect().width;
     }
 
     var avail = name.clientWidth;
