@@ -72,7 +72,7 @@ window.DIRECTION_SUPPORT_I18N = {
     work4Title: "I keep my own lens clean",
     work4Text: "I want to see you through a lens wiped clean of my own smudges. That's what my own therapy and supervision are for.",
     work5Title: "The frame outside is firm",
-    work5Text: "Maximum freedom inside the session, clear structure around it: a fixed weekly or fortnightly slot, payment before, changes 48 hours ahead.",
+    work5Text: "Maximum freedom inside the session, a clear structure around it: a fixed weekly or fortnightly slot, payment before, changes 48 hours ahead.",
     work6Title: "And it's put in writing",
     work6Text: "If you decide to continue after the first session, I'll send you an informed-consent agreement to sign.",
 
@@ -80,7 +80,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Topics",
-    topicsIntro: "These are common, but the list isn't a limit.",
+    topicsIntro: "These include, but are not limited to:",
     topicsGroup1Title: "Confidence, work and money",
     topicsGroup1List: [
       "Confidence and being visible in your career",
@@ -114,7 +114,7 @@ window.DIRECTION_SUPPORT_I18N = {
     pricingPill: "Pricing",
     pricing0Num: "01",
     pricing0Title: "Let's talk",
-    pricing0Desc: "You can skip this step and book a session straight away. But there is also the option to talk first, or even schedule an intro call. Just text me about what is going on.",
+    pricing0Desc: "You can skip this step and book a session straight away. But there is also the option to talk first, or even schedule an intro call. Just text me about what's going on.",
     pricing0Price: "Free",
     pricing0Cta: "Book the call",
     pricing1Num: "02",
@@ -131,9 +131,8 @@ window.DIRECTION_SUPPORT_I18N = {
     pricingMoreList: [
       "Mentoring for early-career psychologists — supervision-style, or working through your business processes and blind spots",
       "Psychological and coaching groups in person in Berlin",
-      "Online groups, one-off or monthly, as each group fills"
+      "Online groups, one-off or monthly, once each group is full"
     ],
-    pricingMoreNote: "Message me for current dates and rates on these.",
     pricingPayTitle: "What kinds of payment can you accept?",
     pricingPayList: [
       "Sessions are paid at least 24 hours in advance. Otherwise I may cancel or offer you another slot.",
@@ -161,7 +160,7 @@ window.DIRECTION_SUPPORT_I18N = {
       "Depression as the presenting request",
       "Suicidal themes and self-harm as the presenting request"
     ],
-    safety3Note: "If any of that is what you're facing right now, please reach a psychiatrist or a crisis service — that's the right kind of help, and it exists.",
+    safety3Note: "If any of that is what you're facing right now, please reach out to a psychiatrist or a crisis service — that's the right kind of help, and it exists.",
 
     /* ---- credentials ---- */
     safety4Title: "Where can I see your diplomas and certificates?",
@@ -204,9 +203,9 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- contact ---- */
     contactPill: "Book a time",
-    contactLead: "If none of the times on offer suit you, message me with what would work and I will check my calendar.",
+    contactLead: "If none of these suit you, let me know a time that would, and I'll check whether my schedule allows it.",
     contactAlt: "Have any questions?",
-    contactAltText: "There are no wrong questions, only the ones you never ask.",
+    contactAltText: "There are no wrong questions, only the ones you didn't ask.",
     contactTelegram: "Message me on Telegram",
     contactInstagram: "Instagram",
     bookingNote: "Calendar not loading? Open it in a new tab.",
@@ -293,7 +292,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- topics ---- */
     topicsPill: "Запросы",
-    topicsIntro: "Эти темы встречаются чаще всего, но список ими не ограничивается.",
+    topicsIntro: "Включая, но не ограничиваясь:",
     topicsGroup1Title: "Уверенность, работа и деньги",
     topicsGroup1List: [
       "Уверенность и проявленность в карьере",
@@ -344,9 +343,8 @@ window.DIRECTION_SUPPORT_I18N = {
     pricingMoreList: [
       "Менторинг для начинающих психологов — в стиле супервизии либо разборов бизнес-процессов и слепых пятен",
       "Психологические и коучинговые группы очно в Берлине",
-      "Онлайн-группы, разовые или месячные, по мере набора"
+      "Онлайн-группы, разовые или месячные, по факту набора группы"
     ],
-    pricingMoreNote: "Актуальные даты и стоимость по этим форматам — в личных сообщениях.",
     pricingPayTitle: "Какие способы оплаты вы принимаете?",
     pricingPayList: [
       "Сессия оплачивается минимум за 24 часа до начала, иначе я оставляю за собой право её отменить или предложить альтернативное время.",
@@ -417,7 +415,7 @@ window.DIRECTION_SUPPORT_I18N = {
 
     /* ---- contact ---- */
     contactPill: "Забронировать время",
-    contactLead: "Если вы не находите удобный для вас вариант — напишите мне ваше предпочтение по времени, и я проверю своё расписание.",
+    contactLead: "Если ни один из вариантов не подходит — напишите, когда вам удобно, и я проверю, получится ли.",
     contactAlt: "Есть вопросы?",
     contactAltText: "Нет неправильных вопросов, есть незаданные.",
     contactTelegram: "Написать в Telegram",
