@@ -111,7 +111,7 @@ window.DIRECTION_SUPPORT_I18N = {
     topicsOutro: "We can talk it through first and work out whether I'm a fit — on a short call or in writing, whichever you prefer.",
 
     /* ---- pricing ---- */
-    pricingPill: "Services & pricing",
+    pricingPill: "Pricing",
     pricing0Num: "01",
     pricing0Title: "Let's talk",
     pricing0Desc: "You can skip this step and book a session straight away. But there is also the option to talk first, or even schedule an intro call. Just text me about what is going on.",
@@ -324,7 +324,7 @@ window.DIRECTION_SUPPORT_I18N = {
     topicsOutro: "Мы можем сначала обсудить ваш запрос и понять, подойду ли я вам — на коротком созвоне или в переписке.",
 
     /* ---- pricing ---- */
-    pricingPill: "Услуги и стоимость",
+    pricingPill: "Стоимость",
     pricing0Num: "01",
     pricing0Title: "Давайте поговорим",
     pricing0Desc: "Этот шаг можно пропустить и сразу записаться на сессию. Но можно и сначала поговорить — или даже назначить созвон-знакомство. Просто напишите мне, с чем вы приходите.",

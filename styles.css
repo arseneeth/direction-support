@@ -315,12 +315,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .section-head--center{margin-inline:auto;text-align:center}
 /* two blocks break the centred rhythm; their labels stop being full-bleed,
    since a bleed only reads as one when the text is centred in it */
-#topics .section-head{margin-left:0;text-align:left}
-#work .section-head{margin-right:0;text-align:right}
+#topics .section-head,
+#work .section-head{margin-right:0;margin-left:auto;text-align:right}
 #topics .pill,
-#work .pill{width:auto;margin-inline:0}
-#topics .pill{text-align:left}
-#work .pill{text-align:right}
+#work .pill{width:auto;margin-inline:0;text-align:right}
 /* Oversized section label, pulled up past the section's top padding so its
    own top is cropped by the section's overflow. White where the section is
    tinted, a light grey where it is not — white on white would vanish. */
