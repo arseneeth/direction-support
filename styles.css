@@ -162,6 +162,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .hero-grid{
   --fs:clamp(3rem,13.6vw,11.5rem);
+  /* applied in script.js after the fit pass, so it scales what actually renders */
+  --name-scale:.85;
   position:relative;z-index:1;
   display:grid;
   grid-template-columns:minmax(0,1fr);
@@ -184,7 +186,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   width:min(var(--name-w,100%),100%);
 }
 .hero-role{
-  font-weight:300;font-size:clamp(.88rem,1.6vw,1.2rem);
+  font-weight:300;font-size:clamp(.82rem,1.7vw,1.45rem); /* same as .hero-tagline */
   color:var(--ink);letter-spacing:.01em;margin:0;
 }
 .hero-runninghead .hero-role:first-child{margin-left:var(--name-bearing,0px)}
@@ -676,7 +678,7 @@ details.card>summary:focus-visible{outline-offset:6px}
   html{scroll-padding-top:76px}
   /* nowrap + vw sizing: "КРИСТИНА Ван" is wider than "KRISTINA Van", so the
      type scales down with the viewport instead of wrapping the surname. */
-  .hero-grid{--fs:min(9.4vw,3.4rem)}
+  .hero-grid{--fs:min(9.4vw,3.4rem);--name-scale:1}
   /* Cyrillic runs wider, so the two languages need different steps here */
   html[lang="ru"] .hero-grid{--fs:min(10.34vw,3.74rem)}
   html[lang="en"] .hero-grid{--fs:min(12.9vw,4.7rem)}

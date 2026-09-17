@@ -121,9 +121,12 @@
     // "КРИСТИНА" is far wider than "KRISTINA", so the lockup outgrows its row
     // in one language and not the other. Everything scales off --fs, so one
     // proportional pass is enough to bring it back inside.
-    if (avail > 0 && w > avail) {
+    var fit = (avail > 0 && w > avail) ? (avail / w) * 0.995 : 1;
+    // --name-scale shrinks the fitted size further (desktop only, set in CSS)
+    var scale = parseFloat(getComputedStyle(grid).getPropertyValue('--name-scale')) || 1;
+    if (fit * scale !== 1) {
       var fs = parseFloat(getComputedStyle(text).fontSize);
-      grid.style.setProperty('--fs', (fs * (avail / w) * 0.995) + 'px');
+      grid.style.setProperty('--fs', (fs * fit * scale) + 'px');
       w = contentWidth();
     }
 
